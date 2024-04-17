@@ -33,7 +33,8 @@
                                             <td class="text-center text-primary">{{ $item->email }}</td>
                                             <td class="text-center text-primary">{{ $item->jenis_kelamin }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-primary btn-sm icon-btn"><i class="fas fa-edit"></i></a>
+                                            <a class="btn btn-primary btn-sm icon-btn" href="{{ route('pengaturanakun.edit',$item->id)}}">
+                                            <i class="fas fa-edit"></i></a>
                                                 <a href="#" class="btn btn-danger btn-sm icon-btn"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>

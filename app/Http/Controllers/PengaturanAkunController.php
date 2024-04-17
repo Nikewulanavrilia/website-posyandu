@@ -26,11 +26,12 @@ class PengaturanAkunController extends Controller
         User::create($request->all());
         return redirect()->route('pages.pengaturanakun')->with('success','Data admin telah berhasil disimpan');
     }
-    public function edit(User $pengaturan_akun)
+    public function edit($id)
     {
-        return view('pengaturan-akun.create',compact('pengaturan_akun'));
-        
+    $pengaturan_akun = User::find($id);
+    return view('pengaturan-akun.edit', compact('pengaturan_akun'));
     }
+
     public function update(Request $request, User $pengaturan_akun)
     {
         $pengaturan_akun->update($request->all());
