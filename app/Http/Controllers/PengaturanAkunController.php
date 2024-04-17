@@ -32,10 +32,11 @@ class PengaturanAkunController extends Controller
     return view('pengaturan-akun.edit', compact('pengaturan_akun'));
     }
 
-    public function update(Request $request, User $pengaturan_akun)
+    public function update(Request $request, $id)
     {
-        $pengaturan_akun->update($request->all());
-        return redirect()->route('pengaturan-akun.index')->with('success','Data admin Berhasil Diperbarui');
+    $pengaturan_akun = User::findOrFail($id); 
+    $pengaturan_akun->update($request->all());
+    return redirect()->route('pages.pengaturanakun')->with('success', 'Data admin Berhasil Diperbarui');
     }
     public function destroy(User $pengaturan_akun)
     {
