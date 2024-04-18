@@ -35,7 +35,7 @@
                                             <td>
                                             <a class="btn btn-primary btn-sm icon-btn" href="{{ route('pengaturanakun.edit',$item->id)}}">
                                             <i class="fas fa-edit"></i></a>
-                                                <a href="#" class="btn btn-danger btn-sm icon-btn"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="{{ route('pengaturanakun.hapus',$item->id)}}" class="btn btn-danger btn-sm icon-btn" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

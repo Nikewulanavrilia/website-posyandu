@@ -38,9 +38,10 @@ class PengaturanAkunController extends Controller
     $pengaturan_akun->update($request->all());
     return redirect()->route('pages.pengaturanakun')->with('success', 'Data admin Berhasil Diperbarui');
     }
-    public function destroy(User $pengaturan_akun)
+    public function destroy($id)
     {
+        $pengaturan_akun = User::findOrFail($id);
         $pengaturan_akun->delete();
-        return redirect()->route('pengaturan-akun.index')->with('success','Data admin Berhasil Dihapus');
+        return redirect()->route('pages.pengaturanakun')->with('success','Data admin Berhasil Dihapus');
     }
 }
