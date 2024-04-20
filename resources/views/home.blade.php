@@ -588,7 +588,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="card-title">Selamat Datang, Ardhika Yanuar</h2>
+                        <h2 class="card-title">Selamat Datang, {{ Auth::user()->name }}</h2>
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="table-responsive">

@@ -21,7 +21,7 @@
                                 </div>
                                 <div class="mb-3 d-flex flex-column">
                                     <label for="password" class="col-12 text-primary">Password</label>
-                                    <input type="text" class="form-input datepicker" name="password"
+                                    <input type="password" class="form-input datepicker" name="password"
                                         id="password" required>
                                 </div>
                                 <div class="mb-3 d-flex flex-column">

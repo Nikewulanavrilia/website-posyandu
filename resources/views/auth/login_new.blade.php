@@ -52,14 +52,10 @@
                     </div>
                     <div class="input-group input-group-merge">
                       <input
-                        type="password"
-                        id="password"
-                        class="form-control"
-                        name="password"
+                        type="password" id="password" class="form-control" name="password"
                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                         aria-describedby="password"
                       />
-                      <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                     </div>
                   </div>
                   <div class="mb-3">

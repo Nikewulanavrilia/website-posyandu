@@ -31,6 +31,7 @@ Route::middleware(['web'])->group(function () {
     Route::match(["GET","POST"],"/register",function(){
         return redirect('login');
     })->name("register");
+    //route pages
     Route::get('/login',[LoginController::class,'showLoginForm'])->name('login');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/data-anak', [DataAnakController::class, 'index'])->name('pages.data_anak');
@@ -42,6 +43,7 @@ Route::middleware(['web'])->group(function () {
     Route::get('/artikel', [ArtikelController::class, 'index'])->name('pages.artikel');
     Route::get('/settings', [SettingsController::class, 'index'])->name('pages.settings');
     Route::get('/pengaturan-akun', [PengaturanAkunController::class, 'index'])->name('pages.pengaturanakun');
+    //route pages pengaturan akun
     Route::get('/pengaturan-akun/create', [PengaturanAkunController::class, 'create'])->name('pengaturanakun.create');
     Route::post('/pengaturan-akun/store', [PengaturanAkunController::class, 'store'])->name('pengaturanakun.store');
     Route::get('/pengaturan-akun/edit/{id}', [PengaturanAkunController::class, 'edit'])->name('pengaturanakun.edit');
