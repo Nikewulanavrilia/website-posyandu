@@ -65,6 +65,10 @@
                                     <input type="text" class="form-input" name="namaLengkap" id="namaLengkap" required>
                                 </div>
                                 <div class="mb-3 d-flex flex-column">
+                                    <label for="tempat_lahir_anak" class="form-label">Tempat</label>
+                                    <input type="text" class="form-input" name="tempat_lahir_anak" id="tempat_tanggal_lahir" required>
+                                </div>
+                                <div class="mb-3 d-flex flex-column">
                                     <label for="tanggalLahir" class="form-label">Tanggal Lahir</label>
                                     <input type="text" class="form-input datepicker" name="tanggalLahir"
                                         id="tanggalLahir" required>
@@ -75,6 +79,10 @@
                                         <option value="Laki-laki">Laki-laki</option>
                                         <option value="Perempuan">Perempuan</option>
                                     </select>
+                                </div>
+                                <div class="mb-3 d-flex flex-column">
+                                    <label for="gol_darah" class="form-label">Golongan darah</label>
+                                    <input type="text" class="form-input" name="gol_darah" id="gol_darah" required>
                                 </div>
                                 <div class="mb-3 d-flex flex-column">
                                     <label for="namaIbu" class="form-label">Nama Ibu</label>
