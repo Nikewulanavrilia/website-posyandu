@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid py-5 mt-5">
       <div class="row justify-content-center">
             <div class="col-md-4">
         <div class="authentication-wrapper authentication-basic container-p-y">

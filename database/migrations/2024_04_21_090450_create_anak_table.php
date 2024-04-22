@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('anak_ke');
             $table->string('gol_darah_anak');
             $table->integer('umur_anak');
+            $table->string('jenis_kelamin_anak');
             $table->string('nik_ibu'); 
             $table->timestamps();
             $table->foreign('nik_ibu')->references('nik_ibu')->on('orang_tua')->onUpdate('cascade');
