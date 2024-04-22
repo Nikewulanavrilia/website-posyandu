@@ -49,4 +49,8 @@ Route::middleware(['web'])->group(function () {
     Route::get('/pengaturan-akun/edit/{id}', [PengaturanAkunController::class, 'edit'])->name('pengaturanakun.edit');
     Route::put('/pengaturan-akun/update/{id}', [PengaturanAkunController::class, 'update'])->name('pengaturanakun.update');
     Route::get('/pengaturan-akun/hapus/{id}', [PengaturanAkunController::class, 'destroy'])->name('pengaturanakun.hapus');
+    //route pages data ibu
+    Route::get('/data-ibu/edit/{nik_ibu}', [DataIbuController::class, 'edit'])->name('data_ibu.edit');
+    Route::put('/data-ibu/update/{nik_ibu}', [DataIbuController::class, 'update'])->name('data_ibu.update');
+    Route::get('/data-ibu/hapus/{nik_ibu}', [DataIbuController::class, 'destroy'])->name('data_ibu.hapus');
 });
