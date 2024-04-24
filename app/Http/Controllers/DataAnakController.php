@@ -14,14 +14,17 @@ class DataAnakController extends Controller
     }
     public function index()
     {
-        $data_anak = DB::table('anak')->get();
+        $data_anak = DB::table('anak')
+                    ->select('anak.*', 'orang_tua.nama_ibu') 
+                    ->join('orang_tua', 'anak.nik_ibu', '=', 'orang_tua.nik_ibu') 
+                    ->get(); 
         return view('data-anak.index', compact('data_anak'));
     }
     public function create()
-{
+    {
     $nik_ibu_list = DataIbu::pluck('nama_ibu', 'nik_ibu'); 
     return view('data-anak.create', compact('nik_ibu_list'));
-}
+    }
 
     public function store(Request $request)
     {

@@ -45,7 +45,7 @@
                                 </select>
                             </div>
                             <div class="mb-3 d-flex flex-column">
-                                    <label for="umur_anak" class="col-12 text-primary">Umur Anak</label>
+                                    <label for="umur_anak" class="col-12 text-primary">Umur Anak (Perbulan)</label>
                                     <input type="text" class="form-input" name="umur_anak"
                                         id="umur_anak" required>
                                 </div>
