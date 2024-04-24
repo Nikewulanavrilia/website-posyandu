@@ -37,9 +37,12 @@
                                             <td class="text-center text-primary">{{ $item->jenis_kelamin_anak }}</td>
                                             <td class="text-center text-primary">{{ $item->nama_ibu }}</td>
                                             <td>
-                                            <a class="btn btn-primary btn-sm icon-btn" href="{{ route('data_anak.edit',$item->nik_anak)}}">
-                                            <i class="fas fa-edit"></i></a>
-                                                <a href="{{ route('data_anak.hapus',$item->nik_anak)}}"  class="btn btn-danger btn-sm icon-btn" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash-alt"></i></a>
+                                                <a class="btn btn-primary btn-sm icon-btn" href="{{ route('data_anak.edit',$item->nik_anak)}}">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <button class="btn btn-danger btn-sm icon-btn" onclick="deleteConfirmation('{{ route('data_anak.hapus',$item->nik_anak)}}')">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -53,4 +56,24 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function deleteConfirmation(deleteUrl) {
+            Swal.fire({
+                title: 'Apakah Anda yakin ingin menghapus data ini?',
+                icon: 'warning',
+                iconColor: '#d33',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = deleteUrl;
+                }
+            });
+        }
+    </script>
 @endsection
