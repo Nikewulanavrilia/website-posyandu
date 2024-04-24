@@ -4,7 +4,7 @@
     integrity="sha384-pzjw8L/7CJEYKFotixk1f1vFA5l0S+G/JnLZ9LTV9EnxgyNcLXRScX3QpF1aPQ" crossorigin="anonymous">
 <style>
     .swal2-title {
-        color: #333;  /* Ganti dengan warna teks yang diinginkan */
+        color: #333;
     }
     
     .ui-w-80 {

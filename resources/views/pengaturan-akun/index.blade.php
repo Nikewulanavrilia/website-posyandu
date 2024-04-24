@@ -12,7 +12,7 @@
                                 <div class="d-flex justify-content-between">
                                     <a href="{{route('pengaturanakun.create')}}" class="btn btn-primary custom-btn" onclick="showForm()"><span
                                             class="text-light ms-2">Tambah Data Admin</span><i class="fas fa-plus"></i></a>
-                                    <input class="form-input" placeholder="Cari">
+                                    <input class="form-input w-50" placeholder="Cari">
                                 </div>
                                 <div class="table-responsive text-nowrap">
                                     <table class="table text-center text-light">
@@ -33,8 +33,7 @@
                                             <td class="text-center text-primary">{{ $item->email }}</td>
                                             <td class="text-center text-primary">{{ $item->jenis_kelamin }}</td>
                                             <td>
-                                            <a class="btn btn-primary btn-sm icon-btn" href="{{ route('pengaturanakun.edit',$item->id)}}">
-                                            <i class="fas fa-edit"></i></a>
+                                            <a class="btn btn-primary btn-sm icon-btn" href="{{ route('pengaturanakun.edit',$item->id)}}"><i class="fas fa-edit"></i></a>
                                                 <a href="{{ route('pengaturanakun.hapus',$item->id)}}" class="btn btn-danger btn-sm icon-btn" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>

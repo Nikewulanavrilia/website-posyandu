@@ -15,10 +15,10 @@ class AdministratorSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-            'name' => "Nike wulan avrilia",
-            'email' => "nikewulan9079@gmail.com",
-            'jenis_kelamin' => "Perempuan",
-            'password' => Hash::make('pass1234')
+            'name' => "Yanuar Ardhika",
+            'email' => "ardhikayanuar58@gmail.com",
+            'jenis_kelamin' => "Laki-laki",
+            'password' => Hash::make('12345')
         ]);
 
     }
