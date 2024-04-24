@@ -9,9 +9,10 @@ use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\PengaturanAkunController;
 use App\Http\Controllers\PenimbanganController;
 use App\Http\Controllers\RiwayatImunisasiController;
-use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,7 @@ Route::middleware(['web'])->group(function () {
     })->name("register");
     //route pages
     Route::get('/login',[LoginController::class,'showLoginForm'])->name('login');
+    Route::get('/lupa-password',[ForgotPasswordController::class,'lupapassword'])->name('lupa-password');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/data-anak', [DataAnakController::class, 'index'])->name('pages.data_anak');
     Route::get('/data-ibu', [DataIbuController::class, 'index'])->name('pages.data_ibu');
@@ -41,7 +43,6 @@ Route::middleware(['web'])->group(function () {
     Route::get('/jadwal', [JadwalController::class, 'index'])->name('pages.jadwal');
     Route::get('/penimbangan', [PenimbanganController::class, 'index'])->name('pages.penimbangan');
     Route::get('/artikel', [ArtikelController::class, 'index'])->name('pages.artikel');
-    Route::get('/settings', [SettingsController::class, 'index'])->name('pages.settings');
     Route::get('/pengaturan-akun', [PengaturanAkunController::class, 'index'])->name('pages.pengaturanakun');
     //route pages pengaturan akun
     Route::get('/pengaturan-akun/create', [PengaturanAkunController::class, 'create'])->name('pengaturanakun.create');

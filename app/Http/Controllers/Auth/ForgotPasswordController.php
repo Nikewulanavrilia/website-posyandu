@@ -18,5 +18,9 @@ class ForgotPasswordController extends Controller
     |
     */
 
+    public function lupapassword() {
+        return view('Auth.forgot_password');
+    }
+
     use SendsPasswordResetEmails;
 }
