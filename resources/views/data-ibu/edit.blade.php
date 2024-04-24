@@ -26,8 +26,8 @@
                                 <input type="text" class="form-input" name="tempat_lahir_ibu" id="tempat_lahir_ibu" value="{{ isset($data_ibu) ? $data_ibu->tempat_lahir_ibu : '' }}" required>
                             </div>
                             <div class="mb-3 d-flex flex-column">
-                                <label for="tanggal_lahir_ibu" class="col-12 text-primary">Tanggak Lahir Ibu</label>
-                                <input type="text" class="form-input" name="tanggal_lahir_ibu" id="tanggal_lahir_ibu" value="{{ isset($data_ibu) ? $data_ibu->tanggal_lahir_ibu : '' }}" required>
+                                <label for="tanggal_lahir_ibu" class="col-12 text-primary">Tanggal Lahir Ibu</label>
+                                <input type="text" class="form-input datepicker" name="tanggal_lahir_ibu" id="tanggal_lahir_ibu" value="{{ isset($data_ibu) ? $data_ibu->tanggal_lahir_ibu : '' }}" required>
                             </div>
                             <div class="mb-3 d-flex flex-column">
                                 <label for="gol_darah_ibu" class="col-12 text-primary">Gol Darah Ibu</label>
