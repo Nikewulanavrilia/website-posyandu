@@ -44,11 +44,6 @@
                                     <option value="O">O</option>
                                 </select>
                             </div>
-                            <div class="mb-3 d-flex flex-column">
-                                    <label for="umur_anak" class="col-12 text-primary">Umur Anak (Perbulan)</label>
-                                    <input type="text" class="form-input" name="umur_anak"
-                                        id="umur_anak" required>
-                                </div>
                                 <div class="mb-3 d-flex flex-column">
                                     <label for="jenis_kelamin_anak" class="col-12 text-primary">Jenis Kelamin</label>
                                     <select class="form-select form-input" name="jenis_kelamin_anak" id="jenisKelamin" required>
