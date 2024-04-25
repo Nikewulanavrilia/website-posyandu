@@ -13,26 +13,27 @@ class DataAnakController extends Controller
         $this->middleware('auth');
     }
     public function index()
-
     {
-        $data_anak = DB::table('anak')
-                    ->select('anak.*', 'orang_tua.nama_ibu') 
-                    ->join('orang_tua', 'anak.nik_ibu', '=', 'orang_tua.nik_ibu') 
-                    ->paginate(4); 
-        return view('data-anak.index', compact('data_anak'));
-    }
+    $umur_tertinggi_per_anak = DB::table('posyandu')
+                                ->select('nik_anak', DB::raw('MAX(umur_anak) as max_umur'))
+                                ->groupBy('nik_anak')
+                                ->get();
+    $data_anak = collect([]);
 
-{
-    $data_anak = DB::table('anak')
+    foreach ($umur_tertinggi_per_anak as $umur) {
+        $anak = DB::table('anak')
                 ->select('anak.*', 'posyandu.umur_anak', 'orang_tua.nama_ibu') 
                 ->join('posyandu', 'anak.nik_anak', '=', 'posyandu.nik_anak') 
                 ->join('orang_tua', 'anak.nik_ibu', '=', 'orang_tua.nik_ibu')
-                ->orderBy('posyandu.umur_anak', 'DESC') 
-                ->limit(1)
-                ->get(); 
-    return view('data-anak.index', compact('data_anak'));
-}
+                ->where('anak.nik_anak', $umur->nik_anak)
+                ->where('posyandu.umur_anak', $umur->max_umur)
+                ->first();
 
+        $data_anak->push($anak);
+    }
+
+    return view('data-anak.index', compact('data_anak'));
+    }
     public function create()
     {
     $nik_ibu_list = DataIbu::pluck('nama_ibu', 'nik_ibu'); 
