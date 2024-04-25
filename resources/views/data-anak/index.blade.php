@@ -48,7 +48,7 @@
                                     @endforeach
                                     </tbody>
                                     </table>
-                                    {!! $data_anak->withQueryString()->links('pagination::bootstrap-5') !!}
+                                    {{-- {!! $data_anak->withQueryString()->links('pagination::bootstrap-5') !!} --}}
                                 </div>
                             </div>
                         </div>
