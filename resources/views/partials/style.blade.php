@@ -3,10 +3,36 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"
     integrity="sha384-pzjw8L/7CJEYKFotixk1f1vFA5l0S+G/JnLZ9LTV9EnxgyNcLXRScX3QpF1aPQ" crossorigin="anonymous">
 <style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        border-radius: 50px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #EDF3F9;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #EDF3F9;
+        border-radius: 30px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #2DACF3;
+    }
+
+    .search-input {
+        width: 33%;
+    }
+
     .swal2-title {
         color: #333;
     }
-    
+
     .ui-w-80 {
         width: 80px !important;
         height: auto;
@@ -32,10 +58,6 @@
         border-color: rgba(24, 28, 33, 0.1);
         background: rgba(0, 0, 0, 0);
         color: #4E5155;
-    }
-
-    .dropdown-item p:hover {
-        color: #fff
     }
 
     label.btn {

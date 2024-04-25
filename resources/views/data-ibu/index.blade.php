@@ -4,11 +4,10 @@
         <div class="content-wrapper">
             <div class="container">
                 <div class="row">
-                    <h1 class="col-12 text-primary mt-4">Data Ibu</h1>
-                    <div class="col-12 mt-4">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Tabel Data Ibu</h4>
+                                <h3 class="card-title">Tabel Data Ibu</h3>
                                 <div class="d-flex justify-content-between">
                                     <input class="form-input" placeholder="Cari">
                                 </div>
@@ -51,6 +50,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    {!! $data_ibu->withQueryString()->links('pagination::bootstrap-5') !!}
                                 </div>
                             </div>
                         </div>

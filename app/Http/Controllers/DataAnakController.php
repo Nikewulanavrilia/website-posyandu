@@ -17,7 +17,7 @@ class DataAnakController extends Controller
         $data_anak = DB::table('anak')
                     ->select('anak.*', 'orang_tua.nama_ibu') 
                     ->join('orang_tua', 'anak.nik_ibu', '=', 'orang_tua.nik_ibu') 
-                    ->get(); 
+                    ->paginate(4); 
         return view('data-anak.index', compact('data_anak'));
     }
     public function create()

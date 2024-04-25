@@ -4,15 +4,15 @@
         <div class="content-wrapper">
             <div class="container">
                 <div class="row">
-                    <h1 class="col-12 text-primary mt-4">Data Anak</h1>
-                    <div class="col-12 mt-4">
+                    {{-- <h4 class="col-12 text-header text-primary">Data Anak</h4> --}}
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Tabel Data Anak</h4>
+                                <h3 class="card-title">Tabel Data Anak</h3>
                                 <div class="d-flex justify-content-between">
                                     <a href="{{route('data_anak.create')}}" class="btn btn-primary custom-btn" onclick="showForm()"><span
                                             class="text-light ms-2">Tambah Data Anak</span><i class="fas fa-plus"></i></a>
-                                    <input class="form-input" placeholder="Cari">
+                                    <input class="form-input search-input" placeholder="Cari">
                                 </div>
                                 <div class="table-responsive text-nowrap">
                                     <table class="table text-center text-light">
@@ -48,6 +48,7 @@
                                     @endforeach
                                     </tbody>
                                     </table>
+                                    {!! $data_anak->withQueryString()->links('pagination::bootstrap-5') !!}
                                 </div>
                             </div>
                         </div>
