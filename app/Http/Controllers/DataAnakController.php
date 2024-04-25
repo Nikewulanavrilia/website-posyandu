@@ -13,6 +13,7 @@ class DataAnakController extends Controller
         $this->middleware('auth');
     }
     public function index()
+
     {
         $data_anak = DB::table('anak')
                     ->select('anak.*', 'orang_tua.nama_ibu') 
@@ -20,6 +21,18 @@ class DataAnakController extends Controller
                     ->paginate(4); 
         return view('data-anak.index', compact('data_anak'));
     }
+
+{
+    $data_anak = DB::table('anak')
+                ->select('anak.*', 'posyandu.umur_anak', 'orang_tua.nama_ibu') 
+                ->join('posyandu', 'anak.nik_anak', '=', 'posyandu.nik_anak') 
+                ->join('orang_tua', 'anak.nik_ibu', '=', 'orang_tua.nik_ibu')
+                ->orderBy('posyandu.umur_anak', 'DESC') 
+                ->limit(1)
+                ->get(); 
+    return view('data-anak.index', compact('data_anak'));
+}
+
     public function create()
     {
     $nik_ibu_list = DataIbu::pluck('nama_ibu', 'nik_ibu'); 
