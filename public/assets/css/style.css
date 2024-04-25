@@ -12343,18 +12343,19 @@ input[type="button"].btn-block {
     padding: 0.5rem 0;
     margin: 0.125rem 0 0;
     font-size: 1rem;
-    color: #0F6ECD;
+    color: #fff;
     font-weight: 600;
     text-align: left;
     list-style: none;
-    background-color: #fff;
+    background-color: #0F6ECD;
     background-clip: padding-box;
     border: 1px solid #2c2e33;
     border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .dropdown-menu p{
-    color: #0F6ECD;
+    color: #ffff;
 }
 
 .dropdown-menu-left {
@@ -12524,11 +12525,12 @@ input[type="button"].btn-block {
     background-color: transparent;
     border: 0;
 }
+
 .dropdown-item:hover {
     color: #fff;
-    text-decoration: none;
-    background-color: #0F6ECD;
+    text-decoration: underline;
 }
+
 .dropdown-item.active,
 .dropdown-item:active {
     color: #fff;
@@ -17446,7 +17448,7 @@ input[type="button"].btn-block {
     margin-left: -1px;
     line-height: 1.25;
     color: #007bff;
-    background-color: #000000;
+    background-color: #fafafa;
     border: 1px solid #dee2e6;
 }
 .page-link:hover,
@@ -22567,7 +22569,6 @@ a.text-dark:focus {
 
 .text-muted,
 .preview-list .preview-item .preview-item-content p .content-category {
-    color: #0F6ECD;
     font-weight: 600;
 }
 
@@ -32600,9 +32601,9 @@ div.tagsinput span.tag a {
     .navbar-nav
     .nav-item.dropdown
     .dropdown-menu.navbar-dropdown
-    .dropdown-item:hover {
+    .dropdown-item:hover p {
     color: #fff;
-    background-color: #8FD4FD;
+    background-color: transparent;
 }
 .navbar
     .navbar-menu-wrapper
@@ -32815,9 +32816,8 @@ div.tagsinput span.tag a {
     background: #fa424a;
 }
 
-/* Sidebar */
 .sidebar {
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 40px);
     background: #fff;
     font-weight: normal;
     padding: 0;

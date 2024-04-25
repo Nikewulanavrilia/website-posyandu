@@ -13,6 +13,15 @@ class DataAnakController extends Controller
         $this->middleware('auth');
     }
     public function index()
+
+    {
+        $data_anak = DB::table('anak')
+                    ->select('anak.*', 'orang_tua.nama_ibu') 
+                    ->join('orang_tua', 'anak.nik_ibu', '=', 'orang_tua.nik_ibu') 
+                    ->paginate(4); 
+        return view('data-anak.index', compact('data_anak'));
+    }
+
 {
     $data_anak = DB::table('anak')
                 ->select('anak.*', 'posyandu.umur_anak', 'orang_tua.nama_ibu') 
@@ -23,7 +32,6 @@ class DataAnakController extends Controller
                 ->get(); 
     return view('data-anak.index', compact('data_anak'));
 }
-
 
     public function create()
     {

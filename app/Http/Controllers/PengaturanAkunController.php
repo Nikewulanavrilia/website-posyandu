@@ -13,7 +13,7 @@ class PengaturanAkunController extends Controller
     }
     public function index()
     {
-        $pengaturan_akun = DB::table('users')->get();
+        $pengaturan_akun = DB::table('users')->paginate(4);
         return view('pengaturan-akun.index', compact('pengaturan_akun'));
     }
     public function create()

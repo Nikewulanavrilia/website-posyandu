@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <div class="container-fluid mt-5 align-items-center">
+    <div class="container-fluid row mx-auto justify-content-center align-items-center vh-100">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="authentication-wrapper authentication-basic container-p-y">
@@ -35,10 +35,8 @@
                                             <img src="{{ asset('assets/images/logo.png') }}" alt="logo"
                                                 width="150">
                                         </span>
-
                                     </a>
                                 </div>
-                                <!-- /Logo -->
                                 <h4 class="mb-2 mt-3">Selamat Datang Di Posyandu</h4>
                                 <p class="mb-4">Mohon login untuk melanjutkan</p>
                                 <form id="formAuthentication" class="mb-3" action="/login" method="POST">
