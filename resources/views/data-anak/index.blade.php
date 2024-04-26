@@ -21,7 +21,7 @@
                                         <th class="text-primary">No</th>
                                         <th class="text-primary">NIK Anak</th>
                                         <th class="text-primary">Nama Anak</th>
-                                        <th class="text-primary">Umur (Perbulan)</th>
+                                        <th class="text-primary">Umur Anak</th>
                                         <th class="text-primary">Jenis Kelamin</th>
                                         <th class="text-primary">Nama Ibu</th>
                                         <th class="text-primary">Action</th>
@@ -33,7 +33,7 @@
                                             <td class="text-center text-primary">{{ $loop->iteration }}</td>
                                             <td class="text-center text-primary">{{ $item->nik_anak }}</td>
                                             <td class="text-center text-primary">{{ $item->nama_anak }}</td>
-                                            <td class="text-center text-primary">{{ $item->umur_anak }}</td>
+                                            <td class="text-center text-primary">{{ $item->umur_anak }} Bulan</td>
                                             <td class="text-center text-primary">{{ $item->jenis_kelamin_anak }}</td>
                                             <td class="text-center text-primary">{{ $item->nama_ibu }}</td>
                                             <td>
