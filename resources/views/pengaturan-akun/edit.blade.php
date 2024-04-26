@@ -24,7 +24,7 @@
                             </div>
                             <div class="mb-3 d-flex flex-column">
                                 <label for="password" class="col-12 text-primary">Password</label>
-                                <input type="password" class="form-input" name="password" id="password" value="{{ isset($pengaturan_akun) ? $pengaturan_akun->password : '' }}" required>
+                                <input type="password" class="form-input" name="password" id="password" value="{{ isset($pengaturan_akun) ? $pengaturan_akun->password : '' }}" required disabled>
                             </div>
                             <div class="mb-3 d-flex flex-column">
                                 <label for="jenis_kelamin" class="col-12 text-primary">Jenis Kelamin</label>

@@ -15,7 +15,7 @@
                             @endif
                             <div class="mb-3 d-flex flex-column">
                                 <label for="nik_anak" class="col-12 text-primary">NIK Anak</label>
-                                <input type="text" class="form-input" name="nik_anak" id="nik_anak" value="{{ isset($data_anak) ? $data_anak->nik_anak : '' }}" required>
+                                <input type="text" class="form-input" name="nik_anak" id="nik_anak" value="{{ isset($data_anak) ? $data_anak->nik_anak : '' }}" required disabled>
                             </div>
                             <div class="mb-3 d-flex flex-column">
                                 <label for="nama_anak" class="col-12 text-primary">Nama Anak</label>
