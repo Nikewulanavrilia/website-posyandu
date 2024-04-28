@@ -60,4 +60,10 @@ Route::middleware(['web'])->group(function () {
     Route::get('/data-anak/edit/{nik_anak}', [DataAnakController::class, 'edit'])->name('data_anak.edit');
     Route::put('/data-anak/update/{nik_anak}', [DataAnakController::class, 'update'])->name('data_anak.update');
     Route::get('/data-anak/hapus/{nik_anak}', [DataAnakController::class, 'destroy'])->name('data_anak.hapus');
+    //route pages data imunisasi
+    Route::get('/data-imunisasi/create', [DataImunisasiController::class, 'create'])->name('data_imunisasi.create');
+    Route::post('/data-imunisasi/store', [DataImunisasiController::class, 'store'])->name('data_imunisasi.store');
+    Route::get('/data-imunisasi/edit/{id_vaksin}', [DataImunisasiController::class, 'edit'])->name('data_imunisasi.edit');
+    Route::put('/data-imunisasi/update/{id_vaksin}', [DataImunisasiController::class, 'update'])->name('data_imunisasi.update');
+    Route::get('/data-imunisasi/hapus/{id_vaksin}', [DataImunisasiController::class, 'destroy'])->name('data_imunisasi.hapus');
 });
