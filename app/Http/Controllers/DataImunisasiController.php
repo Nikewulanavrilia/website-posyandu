@@ -25,21 +25,21 @@ class DataImunisasiController extends Controller
         DataImunisasi::create($request->all());
         return redirect()->route('pages.data_imunisasi')->with('success','Data admin telah berhasil disimpan');
     }
-    public function edit($id_vaksin)
+    public function edit($id)
     {
-    $data_imunisasi = DataImunisasi::find($id_vaksin);
+    $data_imunisasi = DataImunisasi::find($id);
     return view('data-imunisasi.edit', compact('data_imunisasi'));
     }
 
-    public function update(Request $request, $id_vaksin)
+    public function update(Request $request, $id)
     {
-    $data_imunisasi = DataImunisasi::findOrFail($id_vaksin); 
+    $data_imunisasi = DataImunisasi::findOrFail($id); 
     $data_imunisasi->update($request->all());
     return redirect()->route('pages.data_imunisasi')->with('success', 'Data admin Berhasil Diperbarui');
     }
-    public function destroy($id_vaksin)
+    public function destroy($id)
     {
-        $data_imunisasi = DataImunisasi::findOrFail($id_vaksin);
+        $data_imunisasi = DataImunisasi::findOrFail($id);
         $data_imunisasi->delete();
         return redirect()->route('pages.data_imunisasi')->with('success','Data admin Berhasil Dihapus');
     }

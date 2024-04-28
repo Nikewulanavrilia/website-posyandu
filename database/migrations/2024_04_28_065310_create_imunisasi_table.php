@@ -14,9 +14,7 @@ return new class extends Migration
         Schema::create('imunisasi', function (Blueprint $table) {
             $table->bigIncrements('id_vaksin');
             $table->string('nama_vaksin');
-            $table->string('nik_anak');
             $table->timestamps();
-            $table->foreign('nik_anak')->references('nik_anak')->on('anak')->onUpdate('cascade');
         });
     }
 

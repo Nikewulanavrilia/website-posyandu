@@ -26,7 +26,6 @@
                                     <tbody class="table-border-bottom-0">
                                         <tr>
                                             <td class="text-center"><strong>1</strong></td>
-                                            <td class="text-center">001</td>
                                             <td class="text-center">Vaksin rotavirus</td>
                                             <td>
                                                 <a class="btn btn-primary btn-sm icon-btn">

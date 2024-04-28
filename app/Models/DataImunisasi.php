@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class DataImunisasi extends Model
 {
     protected $table ='imunisasi';
-    protected $primaryKey = 'id_vaksin'; 
+    protected $primaryKey = 'id'; 
     protected $fillable = ['nama_vaksin'];
 }
