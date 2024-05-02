@@ -99,7 +99,7 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-human-pregnant"></i>
                 </span>
-                <span class="menu-title">Data Ibu</span>
+                <span class="menu-title">Data Orang Tua</span>
             </a>
         </li>
         <li class="nav-item menu-items">

@@ -7,7 +7,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h3 class="card-title">Tabel Data Ibu</h3>
+                                <h3 class="card-title">Tabel Data Orang Tua</h3>
                                 <div class="d-flex justify-content-between">
                                     <input class="form-input" placeholder="Cari">
                                 </div>

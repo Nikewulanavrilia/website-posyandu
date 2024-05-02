@@ -14,7 +14,7 @@ class DataIbuController extends Controller
     public function index()
     {
         $data_ibu = DB::table('orang_tua')->paginate(4);
-        return view('data-ibu.index', compact('data_ibu'));
+        return view('data-orangtua.index', compact('data_ibu'));
     }
     public function store(Request $request)
     {
@@ -24,7 +24,7 @@ class DataIbuController extends Controller
     public function edit($nik_ibu)
     {
     $data_ibu = DataIbu::find($nik_ibu);
-    return view('data-ibu.edit', compact('data_ibu'));
+    return view('data-orangtua.edit', compact('data_ibu'));
     }
 
     public function update(Request $request, $nik_ibu)

@@ -12,7 +12,7 @@ class RiwayatImunisasiController extends Controller
     }
     public function index()
     {
-        return view('riwayat-imunisasi.index');
+        return view('riwayat_imunisasi.index');
     }
     
 }
