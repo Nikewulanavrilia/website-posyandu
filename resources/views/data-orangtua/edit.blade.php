@@ -54,7 +54,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3 d-flex flex-column">
                                         <label for="nik_ayah" class="col-12 text-primary">NIK Ayah</label>
-                                        <input type="text" class="form-input" name="nik_ayah" id="nik_ayah" value="{{ isset($data_ibu) ? $data_ibu->nik_ayah : '' }}" required>
+                                        <input type="text" class="form-input" name="nik_ayah" id="nik_ayah" value="{{ isset($data_ibu) ? $data_ibu->nik_ayah : '' }}" pattern="[0-9]{16}" title="NIK harus terdiri dari 16 digit angka" maxlength="16" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

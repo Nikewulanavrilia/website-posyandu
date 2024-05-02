@@ -14,7 +14,7 @@
                                         <div class="col-md-6">
                                             <div class="mb-3 d-flex flex-column">
                                                 <label for="nik_anak" class="col-12 text-primary">NIK Anak</label>
-                                                <input type="text" class="form-input" name="nik_anak" id="nik_anak" required>
+                                                <input type="text" class="form-input" name="nik_anak" id="nik_anak"pattern="[0-9]{16}" title="NIK harus terdiri dari 16 digit angka" maxlength="16" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">

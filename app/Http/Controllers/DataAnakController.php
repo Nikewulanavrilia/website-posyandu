@@ -49,8 +49,10 @@ class DataAnakController extends Controller
     public function edit($nik_anak)
     {
     $data_anak = DataAnak::find($nik_anak);
-    return view('data-anak.edit', compact('data_anak'));
+    $nik_ibu_list = DataIbu::pluck('nama_ibu', 'nik_ibu'); 
+    return view('data-anak.edit', compact('data_anak', 'nik_ibu_list'));
     }
+
     public function update(Request $request, $nik_anak)
     {
         $data_anak = DataAnak::findOrFail($nik_anak);

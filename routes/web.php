@@ -57,7 +57,9 @@ Route::middleware(['web'])->group(function () {
     Route::get('/data-orangtua/hapus/{nik_ibu}', [DataIbuController::class, 'destroy'])->name('data_ibu.hapus');
     //route pages data anak
     Route::get('/data-anak/create', [DataAnakController::class, 'create'])->name('data_anak.create');
+
     Route::post('/data-anak/store', [DataAnakController::class, 'store'])->name('data_anak.store');
+    Route::post('/data-ibu/search', [DataAnakController::class, 'search'])->name('data_anak.search');
     Route::get('/data-anak/edit/{nik_anak}', [DataAnakController::class, 'edit'])->name('data_anak.edit');
     Route::put('/data-anak/update/{nik_anak}', [DataAnakController::class, 'update'])->name('data_anak.update');
     Route::get('/data-anak/hapus/{nik_anak}', [DataAnakController::class, 'destroy'])->name('data_anak.hapus');
