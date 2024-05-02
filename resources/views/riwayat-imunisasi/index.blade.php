@@ -4,13 +4,13 @@
         <div class="content-wrapper">
             <div class="container">
                 <div class="row">
-                    <h1 class="col-12 text-primary mt-4">Data Anak</h1>
+                    <h1 class="col-12 text-primary mt-4">Data Riwayat Imunisasi</h1>
                     <div class="col-12 mt-4">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Tabel Data Anak</h4>
+                                <h4 class="card-title">Tabel Data Riwayat Imunisasi</h4>
                                 <div class="d-flex justify-content-between">
-                                    <a href="#" class="btn btn-primary custom-btn" onclick="showForm()"><span
+                                    <a href="" class="btn btn-primary custom-btn" onclick="showForm()"><span
                                             class="text-light ms-2">Tambah Data Anak</span><i class="fas fa-plus"></i></a>
                                     <input class="form-input" placeholder="Cari">
                                 </div>
@@ -29,10 +29,10 @@
                                         <tbody class="table-border-bottom-0">
                                             <tr>
                                                 <td class="text-center text-primary"><strong>1</strong></td>
-                                                <td class="text-center text-primary">Yanuar Ardhika</td>
+                                                <td class="text-center text-primary">Nike Wulan Avrilia</td>
                                                 <td class="text-center text-primary">26/01/2024</td>
-                                                <td class="text-center text-primary">laki-laki</td>
-                                                <td class="text-center text-primary">Mimi</td>
+                                                <td class="text-center text-primary">Perempuan</td>
+                                                <td class="text-center text-primary">Hari Purnwati</td>
                                                 <td class="text-center text-primary">
                                                     <a href="" class="btn btn-primary btn-sm icon-btn"><i
                                                             class="fas fa-edit"></i></a> |

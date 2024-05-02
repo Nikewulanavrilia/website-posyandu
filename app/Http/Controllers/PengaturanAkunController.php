@@ -16,6 +16,20 @@ class PengaturanAkunController extends Controller
         $pengaturan_akun = DB::table('users')->paginate(4);
         return view('pengaturan-akun.index', compact('pengaturan_akun'));
     }
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$pengaturan_akun = DB::table('users')
+		->where('name','like',"%".$cari."%")
+		->paginate();
+ 
+    		// mengirim data pegawai ke view index
+            return view('pengaturan-akun.index', compact('pengaturan_akun'));
+
+	}
     public function create()
     {
         $pengaturan_akun = null;

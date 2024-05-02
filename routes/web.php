@@ -41,11 +41,12 @@ Route::middleware(['web'])->group(function () {
     Route::get('/data-imunisasi', [DataImunisasiController::class, 'index'])->name('pages.data_imunisasi');
     Route::get('/riwayat-imunisasi', [RiwayatImunisasiController::class, 'index'])->name('pages.riwayat_imunisasi');
     Route::get('/jadwal', [JadwalController::class, 'index'])->name('pages.jadwal');
-    Route::get('/penimbangan', [PenimbanganController::class, 'index'])->name('pages.penimbangan');
+    Route::get('/data-posyandu', [PenimbanganController::class, 'index'])->name('pages.penimbangan');
     Route::get('/artikel', [ArtikelController::class, 'index'])->name('pages.artikel');
     Route::get('/pengaturan-akun', [PengaturanAkunController::class, 'index'])->name('pages.pengaturanakun');
     //route pages pengaturan akun
     Route::get('/pengaturan-akun/create', [PengaturanAkunController::class, 'create'])->name('pengaturanakun.create');
+    Route::get('/pengaturan-akun/cari', [PengaturanAkunController::class, 'cari'])->name('pengaturanakun.cari');
     Route::post('/pengaturan-akun/store', [PengaturanAkunController::class, 'store'])->name('pengaturanakun.store');
     Route::get('/pengaturan-akun/edit/{id}', [PengaturanAkunController::class, 'edit'])->name('pengaturanakun.edit');
     Route::put('/pengaturan-akun/update/{id}', [PengaturanAkunController::class, 'update'])->name('pengaturanakun.update');
@@ -62,8 +63,15 @@ Route::middleware(['web'])->group(function () {
     Route::get('/data-anak/hapus/{nik_anak}', [DataAnakController::class, 'destroy'])->name('data_anak.hapus');
     //route pages data imunisasi
     Route::get('/data-imunisasi/create', [DataImunisasiController::class, 'create'])->name('data_imunisasi.create');
+    Route::get('/data-imunisasi/cari', [DataImunisasiController::class, 'cari'])->name('data_imunisasi.cari');
     Route::post('/data-imunisasi/store', [DataImunisasiController::class, 'store'])->name('data_imunisasi.store');
     Route::get('/data-imunisasi/edit/{id_vaksin}', [DataImunisasiController::class, 'edit'])->name('data_imunisasi.edit');
     Route::put('/data-imunisasi/update/{id_vaksin}', [DataImunisasiController::class, 'update'])->name('data_imunisasi.update');
     Route::get('/data-imunisasi/hapus/{id_vaksin}', [DataImunisasiController::class, 'destroy'])->name('data_imunisasi.hapus');
+    //route pages riwayat imunisasi
+    Route::get('/riwayat-imunisasi/create', [RiwayatImunisasiController::class, 'create'])->name('riwayat_imunisasi.create');
+    Route::post('/riwayat-imunisasi/store', [RiwayatImunisasiController::class, 'store'])->name('riwayat_imunisasi.store');
+    Route::get('/riwayat-imunisasi/edit/{id_posyandu}', [RiwayatImunisasiController::class, 'edit'])->name('riwayat_imunisasi.edit');
+    Route::put('/riwayat-imunisasi/update/{id_posyandu}', [RiwayatImunisasiController::class, 'update'])->name('riwayat_imunisasi.update');
+    Route::get('/riwayat-imunisasi/hapus/{id_posyandu}', [RiwayatImunisasiController::class, 'destroy'])->name('riwayat_imunisasi.hapus');
 });

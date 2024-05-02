@@ -61,6 +61,6 @@ class DataAnakController extends Controller
     {
         $data_anak = DataAnak::findOrFail($nik_anak);
         $data_anak->delete();
-        return redirect()->route('pages.data_ibu')->with('success','Data admin Berhasil Dihapus');
+        return redirect()->route('pages.data_anak')->with('success','Data admin Berhasil Dihapus');
     }
 }

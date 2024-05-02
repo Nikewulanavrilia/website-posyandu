@@ -139,7 +139,7 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-weight"></i>
                 </span>
-                <span class="menu-title">Data Penimbangan</span>
+                <span class="menu-title">Data Posyandu</span>
             </a>
         </li>
         <li class="nav-item menu-items">

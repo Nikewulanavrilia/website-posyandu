@@ -11,7 +11,10 @@
                                 <div class="d-flex justify-content-between">
                                     <a href="{{route('pengaturanakun.create')}}" class="btn btn-primary custom-btn" onclick="showForm()"><span
                                             class="text-light ms-2">Tambah Data Admin</span><i class="fas fa-plus"></i></a>
-                                    <input class="form-input search-input" placeholder="Cari">
+                                            <form action="/pengaturan-akun/cari" method="GET">
+		                                    <input type="text" name="cari" placeholder="Cari Nama Vaksin .." value="{{ old('cari') }}">
+                                            <input type="submit" value="CARI">
+                                            </form>
                                 </div>
                                 <div class="table-responsive text-nowrap">
                                     <table class="table text-center text-light">

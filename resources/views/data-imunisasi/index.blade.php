@@ -11,8 +11,11 @@
                                 <h3 class="card-title">Tabel Data Imunisasi</h3>
                                 <div class="d-flex justify-content-between">
                                     <a href="{{route('data_imunisasi.create')}}" class="btn btn-primary custom-btn" onclick="showForm()"><span
-                                            class="text-light ms-2">Tambah Data Imunisasi</span><i class="fas fa-plus"></i></a>
-                                    <input class="form-input search-input" placeholder="Cari">
+                                            class="text-light ms-2">Tambah Imunisasi</span><i class="fas fa-plus"></i></a>
+                                            <form action="/data-imunisasi/cari" method="GET">
+		                                    <input type="text" name="cari" placeholder="Cari Nama Vaksin .." value="{{ old('cari') }}">
+                                            <input type="submit" value="CARI">
+                                            </form>
                                 </div>
                             <div class="table-responsive text-nowrap">
                                 <table class="table text-center text-light">
@@ -23,21 +26,22 @@
                                             <th class="text-primary">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="table-border-bottom-0">
-                                        <tr>
-                                            <td class="text-center"><strong>1</strong></td>
-                                            <td class="text-center">Vaksin rotavirus</td>
-                                            <td>
-                                                <a class="btn btn-primary btn-sm icon-btn">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                                <button class="btn btn-danger btn-sm icon-btn">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody>
+                                            @foreach ($data_imunisasi as $item)
+                                                <tr>
+                                                    <td class="text-center text-primary">{{ $loop->iteration }}</td>
+                                                    <td class="text-center text-primary">{{ $item->nama_vaksin }}</td>
+                                                    <td>
+                                                        <a class="btn btn-primary btn-sm icon-btn" href="{{ route('data_imunisasi.edit', $item->id_vaksin) }}"><i
+                                                                class="fas fa-edit"></i></a>
+                                                        <a class="btn btn-danger btn-sm icon-btn" href="{{ route('data_imunisasi.hapus', $item->id_vaksin) }}"><i
+                                                                class="fas fa-trash-alt"></i></a>     
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
                                 </table>
+                                {!! $data_imunisasi->withQueryString()->links('pagination::bootstrap-5') !!}
                             </div>
                         </div>
                     </div>
