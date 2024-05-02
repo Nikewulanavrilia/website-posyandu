@@ -18,8 +18,7 @@ return new class extends Migration
             $table->integer('umur_anak');
             $table->string('nik_anak');
             $table->foreign('nik_anak')->references('nik_anak')->on('anak')->onDelete('cascade');
-            $table->unsignedBigInteger('id_jadwal');
-            $table->foreign('id_jadwal')->references('id_jadwal')->on('jadwal_posyandu')->onDelete('cascade');
+            $table->string('tanggal_posyandu');
             $table->timestamps();
         });
     }
