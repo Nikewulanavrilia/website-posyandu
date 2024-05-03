@@ -40,7 +40,7 @@ Route::middleware(['web'])->group(function () {
     Route::get('/data-ibu', [DataIbuController::class, 'index'])->name('pages.data_ibu');
     Route::get('/data-imunisasi', [DataImunisasiController::class, 'index'])->name('pages.data_imunisasi');
     Route::get('/riwayat-imunisasi', [RiwayatImunisasiController::class, 'index'])->name('pages.riwayat_imunisasi');
-    Route::get('/jadwal', [JadwalController::class, 'index'])->name('pages.jadwal');
+    Route::get('/jadwal-posyandu', [JadwalController::class, 'index'])->name('pages.jadwal');
     Route::get('/data-posyandu', [PenimbanganController::class, 'index'])->name('pages.penimbangan');
     Route::get('/artikel', [ArtikelController::class, 'index'])->name('pages.artikel');
     Route::get('/pengaturan-akun', [PengaturanAkunController::class, 'index'])->name('pages.pengaturanakun');
@@ -75,4 +75,10 @@ Route::middleware(['web'])->group(function () {
     Route::get('/riwayat-imunisasi/edit/{id_posyandu}', [RiwayatImunisasiController::class, 'edit'])->name('riwayat_imunisasi.edit');
     Route::put('/riwayat-imunisasi/update/{id_posyandu}', [RiwayatImunisasiController::class, 'update'])->name('riwayat_imunisasi.update');
     Route::get('/riwayat-imunisasi/hapus/{id_posyandu}', [RiwayatImunisasiController::class, 'destroy'])->name('riwayat_imunisasi.hapus');
+    //route pages riwayat jadwal posyandu
+    Route::get('/jadwal-posyandu/create', [JadwalController::class, 'create'])->name('jadwal_posyandu.create');
+    Route::post('/jadwal-posyandu/store', [JadwalController::class, 'store'])->name('jadwal_posyandu.store');
+    Route::get('/jadwal-posyandu/edit/{id_jadwal}', [JadwalController::class, 'edit'])->name('jadwal_posyandu.edit');
+    Route::put('/jadwal-posyandu/update/{id_jadwal}', [JadwalController::class, 'update'])->name('jadwal_posyandu.update');
+    Route::get('/jadwal-posyandu/hapus/{id_jadwal}', [JadwalController::class, 'destroy'])->name('jadwal_posyandu.hapus');
 });

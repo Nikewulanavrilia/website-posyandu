@@ -9,7 +9,7 @@
                         <div class="card-body">
                             <h4 class="card-title">Tabel Jadwal Posyandu</h4>
                             <div class="d-flex justify-content-between">
-                                <a href="#" class="btn btn-primary custom-btn" onclick="showForm()"><span
+                                <a href="{{route('jadwal_posyandu.create')}}" class="btn btn-primary custom-btn" onclick="showForm()"><span
                                         class="text-light ms-2">Tambah Jadwal</span><i class="fas fa-plus"></i></a>
                                 <input class="form-input" placeholder="Cari">
                             </div>
