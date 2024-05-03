@@ -17,8 +17,10 @@ return new class extends Migration
             $table->integer('bb_anak');
             $table->integer('umur_anak');
             $table->string('nik_anak');
-            $table->foreign('nik_anak')->references('nik_anak')->on('anak')->onDelete('cascade');
+            $table->foreign('nik_anak')->references('nik_anak')->on('anak')->onDelete('cascade')->onUpdate('cascade');
             $table->string('tanggal_posyandu');
+            $table->unsignedBigInteger('id_vaksin');
+            $table->foreign('id_vaksin')->references('id_vaksin')->on('imunisasi')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

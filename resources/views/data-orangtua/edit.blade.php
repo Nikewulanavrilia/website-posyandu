@@ -8,16 +8,22 @@
                 <div class="col-12 mt-2">
                     <div class="card">
                         <div class="card-body">
-                        <form action="{{ isset($data_ibu) ? route('data_ibu.update', $data_ibu->nik_ibu) : route('data_ibu.store') }}" method="POST">
+                        <form action="{{ isset($data_ibu) ? route('data_ibu.update', $data_ibu->no_kk) : route('data_ibu.store') }}" method="POST">
                             @csrf
                             @if(isset($data_ibu))
                                 @method('PUT')
                             @endif
                             <div class="row">
+                            <div class="col-md-6">
+                                    <div class="mb-3 d-flex flex-column">
+                                        <label for="no_kk" class="col-12 text-primary">NO KK</label>
+                                        <input type="text" class="form-input" name="no_kk" id="no_kk" value="{{ isset($data_ibu) ? $data_ibu->no_kk : '' }}" required disabled>
+                                    </div>
+                                </div>
                                 <div class="col-md-6">
                                     <div class="mb-3 d-flex flex-column">
                                         <label for="nik_ibu" class="col-12 text-primary">NIK Ibu</label>
-                                        <input type="text" class="form-input" name="nik_ibu" id="nik_ibu" value="{{ isset($data_ibu) ? $data_ibu->nik_ibu : '' }}" required disabled>
+                                        <input type="text" class="form-input" name="nik_ibu" id="nik_ibu" value="{{ isset($data_ibu) ? $data_ibu->no_kk : '' }}" pattern="[0-9]{16}" title="NIK harus terdiri dari 16 digit angka" required >
                                     </div>
                                 </div>
                                 <div class="col-md-6">

@@ -19,9 +19,9 @@ return new class extends Migration
             $table->integer('anak_ke');
             $table->string('gol_darah_anak');
             $table->string('jenis_kelamin_anak');
-            $table->string('nik_ibu'); 
+            $table->string('no_kk'); 
             $table->timestamps();
-            $table->foreign('nik_ibu')->references('nik_ibu')->on('orang_tua')->onUpdate('cascade');
+            $table->foreign('no_kk')->references('no_kk')->on('orang_tua')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

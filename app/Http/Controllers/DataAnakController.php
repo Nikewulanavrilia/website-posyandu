@@ -25,7 +25,7 @@ class DataAnakController extends Controller
         $anak = DB::table('anak')
                 ->select('anak.*', 'posyandu.umur_anak', 'orang_tua.nama_ibu') 
                 ->join('posyandu', 'anak.nik_anak', '=', 'posyandu.nik_anak') 
-                ->join('orang_tua', 'anak.nik_ibu', '=', 'orang_tua.nik_ibu')
+                ->join('orang_tua', 'anak.no_kk', '=', 'orang_tua.no_kk')
                 ->where('anak.nik_anak', $umur->nik_anak)
                 ->where('posyandu.umur_anak', $umur->max_umur)
                 ->first();
@@ -37,7 +37,7 @@ class DataAnakController extends Controller
 
     public function create()
     {
-        $nik_ibu_list = DataIbu::pluck('nama_ibu', 'nik_ibu');
+        $nik_ibu_list = DataIbu::pluck('nama_ibu', 'no_kk');
         return view('data-anak.create', compact('nik_ibu_list'));
     }
 
@@ -49,7 +49,7 @@ class DataAnakController extends Controller
     public function edit($nik_anak)
     {
     $data_anak = DataAnak::find($nik_anak);
-    $nik_ibu_list = DataIbu::pluck('nama_ibu', 'nik_ibu'); 
+    $nik_ibu_list = DataIbu::pluck('nama_ibu', 'no_kk'); 
     return view('data-anak.edit', compact('data_anak', 'nik_ibu_list'));
     }
 
@@ -63,6 +63,6 @@ class DataAnakController extends Controller
     {
         $data_anak = DataAnak::findOrFail($nik_anak);
         $data_anak->delete();
-        return redirect()->route('pages.data_ibu')->with('success','Data admin Berhasil Dihapus');
+        return redirect()->route('pages.data_anak')->with('success','Data admin Berhasil Dihapus');
     }
 }

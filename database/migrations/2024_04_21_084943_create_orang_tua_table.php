@@ -12,12 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orang_tua', function (Blueprint $table) {
-            $table->string('nik_ibu')->primary();
+            $table->string('no_kk')->primary();
+            $table->string('nik_ibu')->unique();
             $table->string('nama_ibu');
             $table->string('tempat_lahir_ibu');
             $table->string('tanggal_lahir_ibu');
             $table->string('gol_darah_ibu');
-            $table->string('nik_ayah');
+            $table->string('nik_ayah')->unique();
             $table->string('nama_ayah');
             $table->string('alamat');
             $table->integer('telepon');

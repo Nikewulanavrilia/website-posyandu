@@ -70,9 +70,9 @@
                                         <div class="col-md-6">
                                             <div class="mb-3 d-flex flex-column">
                                                 <label for="nik_ibu" class="col-12 text-primary">NIK Ibu</label>
-                                                <select class="form-select form-input" name="nik_ibu" id="nik_ibu" required>
-                                                    @foreach ($nik_ibu_list as $nik_ibu => $nama_ibu)
-                                                        <option value="{{ $nik_ibu }}">{{ $nama_ibu }} ({{ $nik_ibu }})</option>
+                                                <select class="form-select form-input" name="no_kk" id="nik_ibu" required>
+                                                    @foreach ($nik_ibu_list as $no_kk => $nama_ibu)
+                                                        <option value="{{ $no_kk }}">{{ $nama_ibu }} ({{ $no_kk }})</option>
                                                     @endforeach
                                                 </select>
                                             </div>

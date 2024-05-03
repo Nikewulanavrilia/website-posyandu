@@ -16,7 +16,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-primary">No</th>
-                                                <th class="text-primary">NIK Ibu</th>
+                                                <th class="text-primary">NO KK</th>
                                                 <th class="text-primary">Nama Ibu</th>
                                                 <!-- <th class="text-primary">NIK Ayah</th> -->
                                                 <th class="text-primary">Nama Ayah</th>
@@ -30,7 +30,7 @@
                                             @foreach ($data_ibu as $item)
                                                 <tr>
                                                     <td class="text-center text-primary">{{ $loop->iteration }}</td>
-                                                    <td class="text-center text-primary">{{ $item->nik_ibu }}</td>
+                                                    <td class="text-center text-primary">{{ $item->no_kk }}</td>
                                                     <td class="text-center text-primary">{{ $item->nama_ibu }}</td>
                                                     <!-- <td class="text-center text-primary">{{ $item->nik_ayah }}</td> -->
                                                     <td class="text-center text-primary">{{ $item->nama_ayah }}</td>
@@ -39,10 +39,10 @@
                                                     <!-- <td class="text-center text-primary">{{ $item->email_orang_tua }}</td> -->
                                                     <td>
                                                         <a class="btn btn-primary btn-sm icon-btn"
-                                                            href="{{ route('data_ibu.edit', $item->nik_ibu) }}"><i
+                                                            href="{{ route('data_ibu.edit', $item->no_kk) }}"><i
                                                                 class="fas fa-edit"></i></a>
                                                         <button class="btn btn-danger btn-sm icon-btn"
-                                                            onclick="deleteConfirmation('{{ route('data_ibu.hapus', $item->nik_ibu) }}')">
+                                                            onclick="deleteConfirmation('{{ route('data_ibu.hapus', $item->no_kk) }}')">
                                                             <i class="fas fa-trash-alt"></i>
                                                         </button>
                                                     </td>
