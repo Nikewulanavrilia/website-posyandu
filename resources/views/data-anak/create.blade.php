@@ -37,13 +37,13 @@
                                                 <input type="date" class="form-input datepicker" name="tanggal_lahir_anak" id="tanggal_lahir_anak" required>
                                             </div>
                                         </div>
-                                    </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3 d-flex flex-column">
                                                 <label for="anak_ke" class="col-12 text-primary">Anak Ke</label>
                                                 <input type="text" class="form-input" name="anak_ke" id="anak_ke" required>
                                             </div>
+                                        </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3 d-flex flex-column">

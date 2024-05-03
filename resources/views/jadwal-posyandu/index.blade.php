@@ -14,32 +14,32 @@
                                 <input class="form-input" placeholder="Cari">
                             </div>
                             <div class="table-responsive text-nowrap">
-                                <table class="table text-center text-light">
+                            <table class="table text-center text-light">
                                     <thead>
                                         <tr>
                                             <th class="text-primary">No</th>
-                                            <th class="text-primary">Nama Lengkap</th>
-                                            <th class="text-primary">Tanggal Lahir</th>
-                                            <th class="text-primary">Jenis Kelamin</th>
-                                            <th class="text-primary">Nama Ibu</th>
+                                            <th class="text-primary">Jadwal Posyandu</th>
+                                            <th class="text-primary">Jam Buku</th>
+                                            <th class="text-primary">Jadwal Tutup</th>
                                             <th class="text-primary">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="table-border-bottom-0">
-                                        <tr>
-                                            <td class="text-center text-primary"><strong>1</strong></td>
-                                            <td class="text-center text-primary">Yanuar Ardhika</td>
-                                            <td class="text-center text-primary">26/01/2024</td>
-                                            <td class="text-center text-primary">laki-laki</td>
-                                            <td class="text-center text-primary">Mimi</td>
-                                            <td class="text-center text-primary">
-                                                <a href="" class="btn btn-primary btn-sm icon-btn"><i
-                                                        class="fas fa-edit"></i></a> |
-                                                <a href="" class="btn btn-danger btn-sm icon-btn"><i
-                                                        class="fas fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody>
+                                            @foreach ($jadwal_posyandu as $item)
+                                                <tr>
+                                                    <td class="text-center text-primary">{{ $loop->iteration }}</td>
+                                                    <td class="text-center text-primary">{{ $item->jadwal_posyandu }}</td>
+                                                    <td class="text-center text-primary">{{ $item->jadwal_buka }}</td>
+                                                    <td class="text-center text-primary">{{ $item->jadwal_tutup }}</td>
+                                                    <td>
+                                                        <a class="btn btn-primary btn-sm icon-btn" href="{{ route('jadwal_posyandu.edit', $item->id_jadwal) }}"><i
+                                                                class="fas fa-edit"></i></a>
+                                                        <a class="btn btn-danger btn-sm icon-btn" href="{{ route('jadwal_posyandu.hapus', $item->id_jadwal) }}"><i
+                                                                class="fas fa-trash-alt"></i></a>     
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
                                 </table>
                             </div>
                         </div>
