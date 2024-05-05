@@ -34,6 +34,31 @@ class DataAnakController extends Controller
     }
     return view('data-anak.index', compact('data_anak'));
     }
+    public function cari(Request $request)
+    {
+    // menangkap data pencarian
+    $cari = $request->cari;
+
+    $umur_tertinggi_per_anak = DB::table('posyandu')
+                                ->select('nik_anak', DB::raw('MAX(umur_anak) as max_umur'))
+                                ->groupBy('nik_anak')
+                                ->get();
+    $data_anak = collect([]);
+
+    // melakukan pencarian sekali
+    $anak = DB::table('anak')
+            ->select('anak.*', 'posyandu.umur_anak', 'orang_tua.nama_ibu') 
+            ->join('posyandu', 'anak.nik_anak', '=', 'posyandu.nik_anak') 
+            ->join('orang_tua', 'anak.no_kk', '=', 'orang_tua.no_kk')
+            ->where('nama_anak','like',"%".$cari."%")
+            ->whereIn('anak.nik_anak', $umur_tertinggi_per_anak->pluck('nik_anak'))
+            ->get();
+
+    $data_anak = $anak->unique('nik_anak'); // mengambil data unik berdasarkan nik_anak
+
+    // mengirim data pegawai ke view index
+    return view('data-anak.index', compact('data_anak'));
+    }
 
     public function create()
     {

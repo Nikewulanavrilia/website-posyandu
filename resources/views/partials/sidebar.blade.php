@@ -127,11 +127,11 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('pages.artikel')}}">
+            <a class="nav-link" href="{{ route('pages.edukasi')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-file-document-box"></i>
                 </span>
-                <span class="menu-title">Artikel</span>
+                <span class="menu-title">Edukasi</span>
             </a>
         </li>
         <li class="nav-item menu-items">

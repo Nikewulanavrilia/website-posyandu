@@ -28,7 +28,7 @@
                                             @foreach ($jadwal_posyandu as $item)
                                                 <tr>
                                                     <td class="text-center text-primary">{{ $loop->iteration }}</td>
-                                                    <td class="text-center text-primary">{{ $item->jadwal_posyandu }}</td>
+                                                    <td class="text-center text-primary">{{ \Carbon\Carbon::parse($item->jadwal_posyandu)->format('d-m-Y') }}</td>
                                                     <td class="text-center text-primary">{{ $item->jadwal_buka }}</td>
                                                     <td class="text-center text-primary">{{ $item->jadwal_tutup }}</td>
                                                     <td>

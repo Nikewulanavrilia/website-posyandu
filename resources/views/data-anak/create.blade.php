@@ -41,7 +41,7 @@
                                                 <label for="tanggal_lahir_anak" class="col-12 text-primary">Tanggal Lahir
                                                     Anak</label>
                                                 <input type="date" class="form-input datepicker"
-                                                    name="tanggal_lahir_anak" id="tanggal_lahir_anak" required>
+                                                    name="tanggal_lahir_anak" id="tanggal_lahir_anak"  max="{{ date('Y-m-d') }}"required>
                                             </div>
                                         </div>
                                     </div>
@@ -115,6 +115,9 @@
             </div>
         </div>
     </div>
+<script>
+    document.getElementById('tanggal').setAttribute('max', new Date().toISOString().split("T")[0]);
+</script>
     <script>
         function filterFunction() {
             var input, filter, select, option, i, matchFound;

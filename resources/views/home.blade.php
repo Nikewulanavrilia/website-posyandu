@@ -9,7 +9,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="d-flex align-items-center align-self-start">
-                                    <h2 class="text-primary mb-0">216</h2>
+                                    <h2 class="text-primary mb-0">{{ $jumlah_anak }}</h2>
                                 </div>
                             </div>
                             <div class="col-4">
@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="d-flex align-items-center align-self-start">
-                                    <h2 class="text-primary mb-0">108</h2>
+                                    <h2 class="text-primary mb-0">{{$jumlah_anak_perempuan}}</h2>
                                 </div>
                             </div>
                             <div class="col-4">
@@ -47,7 +47,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="d-flex align-items-center align-self-start">
-                                    <h2 class="text-primary mb-0">108</h2>
+                                    <h2 class="text-primary mb-0">{{$jumlah_anak_laki_laki}}</h2>
                                 </div>
                             </div>
                             <div class="col-4">
@@ -66,16 +66,16 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="d-flex align-items-center align-self-start">
-                                    <h2 class="text-primary mb-0">136</h2>
+                                    <h2 class="text-primary mb-0">{{$jumlah_orang_tua}}</h2>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="icon icon-box-primary">
-                                    <span class="mdi mdi-human-pregnant icon-item" id="icon-item"></span>
+                                <i class="fas fa-user-friends icon-item" id="icon-item"></i>
                                 </div>
                             </div>
                         </div>
-                        <h6 class="text-primary font-weight-bold">Data Ibu</h6>
+                        <h6 class="text-primary font-weight-bold">Data Orang Tua</h6>
                     </div>
                 </div>
             </div>

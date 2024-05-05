@@ -27,7 +27,7 @@
                             </div>
                             <div class="mb-3 d-flex flex-column">
                                 <label for="tanggal_lahir_anak" class="col-12 text-primary">Tanggal Lahir Anak</label>
-                                <input type="date" class="form-input datepicker" name="tanggal_lahir_anak" id="tanggal_lahir_anak" value="{{ isset($data_anak) ? $data_anak->tanggal_lahir_anak : '' }}" required>
+                                <input type="date" class="form-input datepicker" name="tanggal_lahir_anak" id="tanggal_lahir_anak" max="{{ date('Y-m-d') }}" value="{{ isset($data_anak) ? $data_anak->tanggal_lahir_anak : '' }}" required>
                             </div>
                             <div class="mb-3 d-flex flex-column">
                                 <label for="anak_ke" class="col-12 text-primary">Anak Ke</label>
@@ -71,3 +71,6 @@
     </div>
 </div>
 @endsection
+<script>
+    document.getElementById('tanggal').setAttribute('min', new Date().toISOString().split("T")[0]);
+</script>

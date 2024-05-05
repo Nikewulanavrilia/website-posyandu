@@ -7,10 +7,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Tabel Artikel</h4>
+                            <h4 class="card-title">Tabel Edukasi</h4>
                             <div class="d-flex justify-content-between">
-                                <a href="#" class="btn btn-primary custom-btn" onclick="showForm()"><span
-                                        class="text-light ms-2">Tambah Artikel</span><i class="fas fa-plus"></i></a>
+                                <a href="{{route('edukasi.store')}}" class="btn btn-primary custom-btn" onclick="showForm()"><span
+                                        class="text-light ms-2">Tambah Edukasi</span><i class="fas fa-plus"></i></a>
                                 <input class="form-input" placeholder="Cari">
                             </div>
                             <div class="table-responsive text-nowrap">
@@ -18,10 +18,9 @@
                                     <thead>
                                         <tr>
                                             <th class="text-primary">No</th>
-                                            <th class="text-primary">Nama Lengkap</th>
-                                            <th class="text-primary">Tanggal Lahir</th>
-                                            <th class="text-primary">Jenis Kelamin</th>
-                                            <th class="text-primary">Nama Ibu</th>
+                                            <th class="text-primary">Judul</th>
+                                            <th class="text-primary">Isi</th>
+                                            <th class="text-primary">Foto</th>
                                             <th class="text-primary">Action</th>
                                         </tr>
                                     </thead>
@@ -31,7 +30,6 @@
                                             <td class="text-center text-primary">Yanuar Ardhika</td>
                                             <td class="text-center text-primary">26/01/2024</td>
                                             <td class="text-center text-primary">laki-laki</td>
-                                            <td class="text-center text-primary">Mimi</td>
                                             <td class="text-center text-primary">
                                                 <a href="" class="btn btn-primary btn-sm icon-btn"><i
                                                         class="fas fa-edit"></i></a> |

@@ -12,7 +12,10 @@
                                 <div class="d-flex justify-content-between">
                                     <a href="{{route('data_anak.create')}}" class="btn btn-primary custom-btn" onclick="showForm()"><span
                                             class="text-light ms-2">Tambah Data Anak</span><i class="fas fa-plus"></i></a>
-                                    <input class="form-input search-input" placeholder="Cari">
+                                            <form action="/data-anak/cari" method="GET">
+		                                    <input type="text" name="cari" placeholder="Cari Nama Anak .." value="{{ old('cari') }}">
+                                            <input type="submit" value="CARI">
+                                            </form>
                                 </div>
                                 <div class="table-responsive text-nowrap">
                                     <table class="table text-center text-light">

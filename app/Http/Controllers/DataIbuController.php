@@ -16,6 +16,20 @@ class DataIbuController extends Controller
         $data_ibu = DB::table('orang_tua')->paginate(4);
         return view('data-orangtua.index', compact('data_ibu'));
     }
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$data_ibu = DB::table('orang_tua')
+		->where('nama_ibu','like',"%".$cari."%")
+		->paginate();
+ 
+    		// mengirim data pegawai ke view index
+            return view('data-orangtua.index', compact('data_ibu'));
+
+	}
     public function store(Request $request)
     {
         DataIbu::create($request->all());

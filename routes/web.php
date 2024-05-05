@@ -42,7 +42,7 @@ Route::middleware(['web'])->group(function () {
     Route::get('/riwayat-imunisasi', [RiwayatImunisasiController::class, 'index'])->name('pages.riwayat_imunisasi');
     Route::get('/jadwal-posyandu', [JadwalController::class, 'index'])->name('pages.jadwal');
     Route::get('/data-posyandu', [PenimbanganController::class, 'index'])->name('pages.penimbangan');
-    Route::get('/artikel', [ArtikelController::class, 'index'])->name('pages.artikel');
+    Route::get('/edukasi', [ArtikelController::class, 'index'])->name('pages.edukasi');
     Route::get('/pengaturan-akun', [PengaturanAkunController::class, 'index'])->name('pages.pengaturanakun');
     //route pages pengaturan akun
     Route::get('/pengaturan-akun/create', [PengaturanAkunController::class, 'create'])->name('pengaturanakun.create');
@@ -52,11 +52,13 @@ Route::middleware(['web'])->group(function () {
     Route::put('/pengaturan-akun/update/{id}', [PengaturanAkunController::class, 'update'])->name('pengaturanakun.update');
     Route::get('/pengaturan-akun/hapus/{id}', [PengaturanAkunController::class, 'destroy'])->name('pengaturanakun.hapus');
     //route pages data ibu
+    Route::get('/data-orangtua/cari', [DataIbuController::class, 'cari'])->name('data_ibu.cari');
     Route::get('/data-orangtua/edit/{no_kk}', [DataIbuController::class, 'edit'])->name('data_ibu.edit');
     Route::put('/data-orangtua/update/{no_kk}', [DataIbuController::class, 'update'])->name('data_ibu.update');
     Route::get('/data-orangtua/hapus/{no_kk}', [DataIbuController::class, 'destroy'])->name('data_ibu.hapus');
     //route pages data anak
     Route::get('/data-anak/create', [DataAnakController::class, 'create'])->name('data_anak.create');
+    Route::get('/data-anak/cari', [DataAnakController::class, 'cari'])->name('data_anak.cari');
     Route::post('/data-anak/store', [DataAnakController::class, 'store'])->name('data_anak.store');
     Route::post('/data-ibu/search', [DataAnakController::class, 'search'])->name('data_anak.search');
     Route::get('/data-anak/edit/{nik_anak}', [DataAnakController::class, 'edit'])->name('data_anak.edit');
@@ -81,4 +83,10 @@ Route::middleware(['web'])->group(function () {
     Route::get('/jadwal-posyandu/edit/{id_jadwal}', [JadwalController::class, 'edit'])->name('jadwal_posyandu.edit');
     Route::put('/jadwal-posyandu/update/{id_jadwal}', [JadwalController::class, 'update'])->name('jadwal_posyandu.update');
     Route::get('/jadwal-posyandu/hapus/{id_jadwal}', [JadwalController::class, 'destroy'])->name('jadwal_posyandu.hapus');
+    //route pages edukasi
+    Route::get('/edukasi/create', [ArtikelController::class, 'create'])->name('edukasi.create');
+    Route::post('/edukasi/store', [ArtikelController::class, 'store'])->name('edukasi.store');
+    Route::get('/edukasi/edit/{id_edukasi}', [ArtikelController::class, 'edit'])->name('edukasi.edit');
+    Route::put('/edukasi/update/{id_edukasi}', [ArtikelController::class, 'update'])->name('edukasi.update');
+    Route::get('/edukasi/hapus/{id_edukasi}', [ArtikelController::class, 'destroy'])->name('edukasi.hapus');
 });

@@ -9,7 +9,10 @@
                             <div class="card-body">
                                 <h3 class="card-title">Tabel Data Orang Tua</h3>
                                 <div class="d-flex justify-content-between">
-                                    <input class="form-input" placeholder="Cari">
+                                <form action="/data-orangtua/cari" method="GET">
+		                                    <input type="text" name="cari" placeholder="Cari Nama Anak .." value="{{ old('cari') }}">
+                                            <input type="submit" value="CARI">
+                                            </form>
                                 </div>
                                 <div class="table-responsive text-nowrap">
                                     <table class="table text-center text-light">
