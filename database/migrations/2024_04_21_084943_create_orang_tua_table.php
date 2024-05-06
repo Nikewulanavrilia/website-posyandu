@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('nik_ayah')->unique();
             $table->string('nama_ayah');
             $table->string('alamat');
-            $table->integer('telepon');
+            $table->string('telepon');
             $table->string('email_orang_tua')->unique();
             $table->string('password_orang_tua');
             $table->timestamps();

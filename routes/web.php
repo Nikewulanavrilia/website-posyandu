@@ -39,7 +39,6 @@ Route::middleware(['web'])->group(function () {
     Route::get('/data-anak', [DataAnakController::class, 'index'])->name('pages.data_anak');
     Route::get('/data-ibu', [DataIbuController::class, 'index'])->name('pages.data_ibu');
     Route::get('/data-imunisasi', [DataImunisasiController::class, 'index'])->name('pages.data_imunisasi');
-    Route::get('/riwayat-imunisasi', [RiwayatImunisasiController::class, 'index'])->name('pages.riwayat_imunisasi');
     Route::get('/jadwal-posyandu', [JadwalController::class, 'index'])->name('pages.jadwal');
     Route::get('/data-posyandu', [PenimbanganController::class, 'index'])->name('pages.penimbangan');
     Route::get('/edukasi', [ArtikelController::class, 'index'])->name('pages.edukasi');
@@ -71,12 +70,6 @@ Route::middleware(['web'])->group(function () {
     Route::get('/data-imunisasi/edit/{id_vaksin}', [DataImunisasiController::class, 'edit'])->name('data_imunisasi.edit');
     Route::put('/data-imunisasi/update/{id_vaksin}', [DataImunisasiController::class, 'update'])->name('data_imunisasi.update');
     Route::get('/data-imunisasi/hapus/{id_vaksin}', [DataImunisasiController::class, 'destroy'])->name('data_imunisasi.hapus');
-    //route pages riwayat imunisasi
-    Route::get('/riwayat-imunisasi/create', [RiwayatImunisasiController::class, 'create'])->name('riwayat_imunisasi.create');
-    Route::post('/riwayat-imunisasi/store', [RiwayatImunisasiController::class, 'store'])->name('riwayat_imunisasi.store');
-    Route::get('/riwayat-imunisasi/edit/{id_posyandu}', [RiwayatImunisasiController::class, 'edit'])->name('riwayat_imunisasi.edit');
-    Route::put('/riwayat-imunisasi/update/{id_posyandu}', [RiwayatImunisasiController::class, 'update'])->name('riwayat_imunisasi.update');
-    Route::get('/riwayat-imunisasi/hapus/{id_posyandu}', [RiwayatImunisasiController::class, 'destroy'])->name('riwayat_imunisasi.hapus');
     //route pages riwayat jadwal posyandu
     Route::get('/jadwal-posyandu/create', [JadwalController::class, 'create'])->name('jadwal_posyandu.create');
     Route::post('/jadwal-posyandu/store', [JadwalController::class, 'store'])->name('jadwal_posyandu.store');

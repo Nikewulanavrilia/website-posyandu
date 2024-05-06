@@ -10,7 +10,7 @@
                                 <h3 class="card-title">Tabel Data Orang Tua</h3>
                                 <div class="d-flex justify-content-between">
                                 <form action="/data-orangtua/cari" method="GET">
-		                                    <input type="text" name="cari" placeholder="Cari Nama Anak .." value="{{ old('cari') }}">
+		                                    <input type="text" name="cari" placeholder="Cari Nama Ibu .." value="{{ old('cari') }}">
                                             <input type="submit" value="CARI">
                                             </form>
                                 </div>

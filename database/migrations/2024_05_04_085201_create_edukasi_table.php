@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id_edukasi');
             $table->string('judul');
             $table->string('isi');
-            $table->binary('foto');
+            $table->string('foto');
             $table->timestamps();
         });
     }

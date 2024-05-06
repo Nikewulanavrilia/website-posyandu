@@ -111,14 +111,6 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('pages.riwayat_imunisasi')}}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-library-books"></i>
-                </span>
-                <span class="menu-title">Riwayat Imunisasi</span>
-            </a>
-        </li>
-        <li class="nav-item menu-items">
             <a class="nav-link" href="{{ route('pages.jadwal')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-calendar"></i>

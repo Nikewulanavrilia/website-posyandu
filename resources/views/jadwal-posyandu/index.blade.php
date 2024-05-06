@@ -11,7 +11,6 @@
                             <div class="d-flex justify-content-between">
                                 <a href="{{route('jadwal_posyandu.create')}}" class="btn btn-primary custom-btn" onclick="showForm()"><span
                                         class="text-light ms-2">Tambah Jadwal</span><i class="fas fa-plus"></i></a>
-                                <input class="form-input" placeholder="Cari">
                             </div>
                             <div class="table-responsive text-nowrap">
                             <table class="table text-center text-light">
