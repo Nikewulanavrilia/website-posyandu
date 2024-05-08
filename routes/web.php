@@ -82,4 +82,10 @@ Route::middleware(['web'])->group(function () {
     Route::get('/edukasi/edit/{id_edukasi}', [ArtikelController::class, 'edit'])->name('edukasi.edit');
     Route::put('/edukasi/update/{id_edukasi}', [ArtikelController::class, 'update'])->name('edukasi.update');
     Route::get('/edukasi/hapus/{id_edukasi}', [ArtikelController::class, 'destroy'])->name('edukasi.hapus');
+     //route pages data posyandu
+     Route::get('/data-posyandu/create', [PenimbanganController::class, 'create'])->name('data_posyandu.create');
+     Route::post('/data-posyandu/store', [PenimbanganController::class, 'store'])->name('data_posyandu.store');
+     Route::get('/data-posyandu/edit/{id_jadwal}', [PenimbanganController::class, 'edit'])->name('data_posyandu.edit');
+     Route::put('/data-posyandu/update/{id_jadwal}', [PenimbanganController::class, 'update'])->name('data_posyandu.update');
+     Route::get('/data-posyandu/hapus/{id_jadwal}', [PenimbanganController::class, 'destroy'])->name('data_posyandu.hapus');
 });

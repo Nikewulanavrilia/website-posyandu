@@ -19,7 +19,7 @@
                             <input type="text" class="form-input" name="isi" id="isi" required>
                             </div>
                             <div class="mb-3 d-flex flex-column">
-                            <label class="input-group-text" for="inputGroupFile01">Upload Foto</label>
+                            <label class="col-12 text-primary" for="inputGroupFile01">Upload Foto</label>
                             <input type="file" class="form-control" id="inputGroupFile01" name="foto">
                             </div>
                                 <div class="mb-3">

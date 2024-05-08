@@ -23,7 +23,12 @@ class ArtikelController extends Controller
     }
     public function store(Request $request)
     {
-        Artikel::create($request->all());
+        $edukasi = Artikel::create($request->all());
+        if($request->hasFile('foto')){
+            $request->file('foto')->move('foto_edukasi/',$request->file('foto')->getClientOriginalName());
+            $edukasi->foto = $request->file('foto')->getClientOriginalName();
+            $edukasi->save();
+        }
         return redirect()->route('pages.edukasi')->with('success','Data admin telah berhasil disimpan');
     }
     public function edit($id_edukasi)
