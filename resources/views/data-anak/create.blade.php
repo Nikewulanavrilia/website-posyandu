@@ -69,8 +69,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3 d-flex flex-column">
-                                                <label for="jenis_kelamin_anak" class="col-12 text-primary">Jenis
-                                                    Kelamin</label>
+                                                <label for="jenis_kelamin_anak" class="col-12 text-primary">Jenis Kelamin</label>
                                                 <select class="form-select form-input" name="jenis_kelamin_anak"
                                                     id="jenisKelamin" required>
                                                     <option value="Laki-laki">Laki-laki</option>

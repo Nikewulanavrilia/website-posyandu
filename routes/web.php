@@ -88,4 +88,5 @@ Route::middleware(['web'])->group(function () {
      Route::get('/data-posyandu/edit/{id_jadwal}', [PenimbanganController::class, 'edit'])->name('data_posyandu.edit');
      Route::put('/data-posyandu/update/{id_jadwal}', [PenimbanganController::class, 'update'])->name('data_posyandu.update');
      Route::get('/data-posyandu/hapus/{id_jadwal}', [PenimbanganController::class, 'destroy'])->name('data_posyandu.hapus');
+     Route::get('/pilih-data-anak', [PenimbanganController::class, 'getDataPosyandu'])->name('data_posyandu.getDataPosyandu');
 });

@@ -9,12 +9,14 @@
                             <div class="card-body">
                                 <h3 class="card-title">Tabel Data Orang Tua</h3>
                                 <div class="d-flex justify-content-between">
-                                <form action="/data-orangtua/cari" method="GET">
-		                                    <input type="text" name="cari" placeholder="Cari Nama Ibu .." value="{{ old('cari') }}">
-                                            <input type="submit" value="CARI">
-                                            </form>
+                                    <form action="/data-orangtua/cari" method="GET">
+                                        <div class="input-group">
+                                            <input type="text" class="form-input" name="cari" placeholder="Cari Nama Ibu .." value="{{ old('cari') }}">
+                                            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="table-responsive text-nowrap">
+                                <div class="table-responsive text-nowrap mt-3">
                                     <table class="table text-center text-light">
                                         <thead>
                                             <tr>

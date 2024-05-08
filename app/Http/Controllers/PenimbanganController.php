@@ -29,4 +29,9 @@ class PenimbanganController extends Controller
         DataPosyandu::create($request->all());
         return redirect()->route('pages.penimbangan')->with('success', 'Data admin telah berhasil disimpan');
     }
+
+    public function getDataPosyandu() {
+        $nik_anak_list = DataAnak::all();
+        return response()->json($nik_anak_list);
+    }
 }

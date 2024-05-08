@@ -58,7 +58,7 @@
         <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
         </li>
-        <li class="nav-item menu-items">
+        <li class="nav-item menu-items mt-1 mb-1">
             <a class="nav-link" href="{{ route('home')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-speedometer"></i>
@@ -86,7 +86,7 @@
                 </ul>
             </div>
         </li> --}}
-        <li class="nav-item menu-items">
+        <li class="nav-item menu-items mb-1">
             <a class="nav-link" href="{{ route('pages.data_anak')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-human-handsup"></i>
@@ -94,7 +94,7 @@
                 <span class="menu-title">Data Anak</span>
             </a>
         </li>
-        <li class="nav-item menu-items">
+        <li class="nav-item menu-items mb-1">
             <a class="nav-link" href="{{ route('pages.data_ibu')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-human-pregnant"></i>
@@ -102,7 +102,7 @@
                 <span class="menu-title">Data Orang Tua</span>
             </a>
         </li>
-        <li class="nav-item menu-items">
+        <li class="nav-item menu-items mb-1">
             <a class="nav-link" href="{{ route('pages.data_imunisasi')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-chart-bar"></i>
@@ -110,7 +110,7 @@
                 <span class="menu-title">Data Imunisasi</span>
             </a>
         </li>
-        <li class="nav-item menu-items">
+        <li class="nav-item menu-items mb-1">
             <a class="nav-link" href="{{ route('pages.jadwal')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-calendar"></i>
@@ -118,7 +118,7 @@
                 <span class="menu-title">Jadwal Posyandu</span>
             </a>
         </li>
-        <li class="nav-item menu-items">
+        <li class="nav-item menu-items mb-1">
             <a class="nav-link" href="{{ route('pages.edukasi')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-file-document-box"></i>
@@ -126,7 +126,7 @@
                 <span class="menu-title">Edukasi</span>
             </a>
         </li>
-        <li class="nav-item menu-items">
+        <li class="nav-item menu-items mb-1">
             <a class="nav-link" href="{{ route('pages.penimbangan')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-weight"></i>
