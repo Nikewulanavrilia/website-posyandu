@@ -4,7 +4,7 @@
         <div class="content-wrapper">
             <div class="container">
                 <div class="row">
-                    <h1 class="col-12 text-primary mt-2">Tambah Data Imunisasi</h1>
+                    <h1 class="col-12 text-primary mt-2">Tambah Data Posyandu</h1>
                     <div class="col-12 mt-2">
                         <div class="card">
                             <div class="card-body">
@@ -40,12 +40,13 @@
                                             <div class="col-md-6">
                                                 <div class="mb-3 d-flex flex-column">
                                                     <label for="tanggal_posyandu" class="col-12 text-primary">Tanggal Posyandu</label>
-                                                    <input type="date" class="form-input datepicker" name="tanggal_posyandu" id="tanggal_posyandu" required>
+                                                    <input type="date" class="form-input datepicker" name="tanggal_posyandu" id="tanggal_posyandu" min="{{ date('Y-m-d') }}"required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="mb-3 d-flex flex-column">
-                                                    <label for="umur_anak" class="col-12 text-primary">Umur Anak</label>
+                                                    <label for="umur_anak" class="col-12 text-primary">Umur Anak 
+                                                        (bulan) </label>
                                                     <input type="number" class="form-input datepicker" name="umur_anak"
                                                         id="umur_anak" readonly>
                                                 </div>
@@ -55,7 +56,7 @@
                                             <div class="col-md-6">
                                                 <div class="mb-3 d-flex flex-column">
                                                     <label for="bb_anak" class="col-12 text-primary">Berat Badan
-                                                        (BB)</label>
+                                                        (kg)</label>
                                                     <input type="number" class="form-input datepicker" name="bb_anak"
                                                         id="bb_anak" required>
                                                 </div>
@@ -63,7 +64,7 @@
                                             <div class="col-md-6">
                                                 <div class="mb-3 d-flex flex-column">
                                                     <label for="tb_anak" class="col-12 text-primary">Tinggi Badan
-                                                        (TB)</label>
+                                                        (cm)</label>
                                                     <input type="number" class="form-input datepicker" name="tb_anak"
                                                         id="tb_anak" required>
                                                 </div>
@@ -73,7 +74,7 @@
                                     <div class=" container mb-3">
                                         <button type="submit" class="btn btn-primary"
                                             onclick="simpanData()">Simpan</button>
-                                        <a href="{{ route('pages.data_imunisasi') }}"><button class="btn btn-secondary" type="button" onclick="batal()">Batal</button></a>
+                                        <a href="{{ route('pages.penimbangan') }}"><button class="btn btn-secondary" type="button" onclick="batal()">Batal</button></a>
                                     </div>
                                 </form>
                             </div>
@@ -87,6 +88,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    document.getElementById('tanggal_posyandu').setAttribute('min', new Date().toISOString().split("T")[0]);
+    </script>
     <script>
         $(document).ready(function() {
             function showSweetAlert(htmlContent) {
