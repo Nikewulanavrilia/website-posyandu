@@ -188,6 +188,20 @@
                             $(this).show();
                         }
                     });
+                } else if (umurAnak === 3) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if (idVaksin === 9 || idVaksin === 10 || idVaksin === 11 || idVaksin === 12) {
+                            $(this).show();
+                        }
+                    });
+                } else if (umurAnak === 4) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if (idVaksin === 13 || idVaksin === 14 || idVaksin === 15 || idVaksin === 16) {
+                            $(this).show();
+                        }
+                    });
                 } else {
                     $('.checkbox-vaksin').show();
                 }
