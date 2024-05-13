@@ -77,7 +77,7 @@
                                             <div class="col-md-6 d-flex align-items-center">
                                                 <div class="form-check ml-3">
                                                     <input class="form-check-input" type="radio" name="kesehatan"
-                                                        id="sehat" value="sehat" required
+                                                        id="sehat" required
                                                         style="transform: scale(1.5);"
                                                         onchange="toggleDataVaksinVisibility()">
                                                     <label class="form-check-label fw-bold" for="sehat"
@@ -85,7 +85,7 @@
                                                 </div>
                                                 <div class="form-check ml-5">
                                                     <input class="form-check-input" type="radio" name="kesehatan"
-                                                        id="sakit" value="sakit" required
+                                                        id="sakit" required
                                                         style="transform: scale(1.5);">
                                                     <label class="form-check-label fw-bold" for="sakit"
                                                         style="font-size: 1rem;">Sakit</label>
@@ -107,10 +107,8 @@
                                         </div>
                                     </div>
                                     <div class=" container mt-3 mb-3">
-                                        <button type="submit" class="btn btn-primary"
-                                            onclick="simpanData()">Simpan</button>
-                                        <a href="{{ route('pages.penimbangan') }}"><button class="btn btn-secondary"
-                                                type="button" onclick="batal()">Batal</button></a>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                        <a href="{{ route('pages.penimbangan') }}"><button class="btn btn-secondary" type="button" onclick="batal()">Batal</button></a>
                                     </div>
                                 </form>
                             </div>
