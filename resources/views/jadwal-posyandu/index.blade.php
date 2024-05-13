@@ -4,16 +4,16 @@
     <div class="content-wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-12 mt-4">
+                <div class="col-12">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Tabel Jadwal Posyandu</h4>
                             <div class="d-flex justify-content-between">
                                 <a href="{{route('jadwal_posyandu.create')}}" class="btn btn-primary custom-btn" onclick="showForm()"><span
-                                        class="text-light ms-2">Tambah Jadwal</span><i class="fas fa-plus"></i></a>
+                                        class="text-light ms-2">Tambah Jadwal</span><i class="fas fa-plus ml-2"></i></a>
                             </div>
                             <div class="table-responsive text-nowrap">
-                            <table class="table text-center text-light">
+                            <table class="table text-center text-light mt-3">
                                     <thead>
                                         <tr>
                                             <th class="text-primary">No</th>

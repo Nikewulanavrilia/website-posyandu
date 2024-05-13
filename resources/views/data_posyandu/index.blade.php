@@ -10,7 +10,7 @@
                             <h4 class="card-title">Tabel Data Posyandu</h4>
                             <div class="d-flex justify-content-between">
                                 <a href="{{route('data_posyandu.create')}}" class="btn btn-primary custom-btn" onclick="showForm()"><span
-                                        class="text-light ms-2">Tambah Data Posyandu</span><i class="fas fa-plus"></i></a>
+                                        class="text-light ms-2">Tambah Data Posyandu</span><i class="fas fa-plus ml-2"></i></a>
                                 <input class="form-input" placeholder="Cari">
                             </div>
                             <div class="table-responsive text-nowrap">

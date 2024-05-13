@@ -11,7 +11,7 @@
                                 <div class="d-flex justify-content-between">
                                     <a href="{{ route('pengaturanakun.create') }}" class="btn btn-primary custom-btn"
                                         onclick="showForm()"><span class="text-light ms-2">Tambah Data Admin</span><i
-                                            class="fas fa-plus"></i></a>
+                                            class="fas fa-plus ml-2"></i></a>
                                     <form action="/pengaturan-akun/cari" method="GET">
                                         <div class="input-group">
                                             <input type="text" class="form-input" name="cari" placeholder="Cari Nama Admin ..." value="{{ old('cari') }}">

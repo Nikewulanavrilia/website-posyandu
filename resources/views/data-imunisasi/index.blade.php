@@ -4,15 +4,14 @@
         <div class="content-wrapper">
             <div class="container">
                 <div class="row">
-                    <h1 class="col-12 text-primary mt-4">Data Imunisasi</h1>
-                    <div class="col-12 mt-4">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">Tabel Data Imunisasi</h3>
                                 <div class="d-flex justify-content-between">
                                     <a href="{{ route('data_imunisasi.create') }}" class="btn btn-primary custom-btn"
                                         onclick="showForm()"><span class="text-light ms-2">Tambah Imunisasi</span><i
-                                            class="fas fa-plus"></i></a>
+                                            class="fas fa-plus ml-2"></i></a>
                                     <form action="/data-imunisasi/cari" method="GET">
                                         <div class="input-group">
                                             <input type="text" class="form-input" name="cari" placeholder="Cari Nama Vaksin .." value="{{ old('cari') }}">
@@ -38,9 +37,9 @@
                                                         <a class="btn btn-primary btn-sm icon-btn"
                                                             href="{{ route('data_imunisasi.edit', $item->id_vaksin) }}"><i
                                                                 class="fas fa-edit"></i></a>
-                                                        <a class="btn btn-danger btn-sm icon-btn"
+                                                        {{-- <a class="btn btn-danger btn-sm icon-btn"
                                                             href="{{ route('data_imunisasi.hapus', $item->id_vaksin) }}"><i
-                                                                class="fas fa-trash-alt"></i></a>
+                                                                class="fas fa-trash-alt"></i></a> --}}
                                                     </td>
                                                 </tr>
                                             @endforeach

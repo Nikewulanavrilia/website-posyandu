@@ -6,6 +6,7 @@ use App\Models\DataAnak;
 use App\Models\DataPosyandu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\DataImunisasi;
 
 class PenimbanganController extends Controller
 {
@@ -21,8 +22,10 @@ class PenimbanganController extends Controller
     public function create()
 {
     $nik_anak_list = DataAnak::pluck('nama_anak', 'nik_anak');
-    return view('data_posyandu.create', compact('nik_anak_list'));
+    $data_vaksin_list = $this->getDataVaksin(); // Call getDataVaksin() method here
+    return view('data_posyandu.create', compact('nik_anak_list', 'data_vaksin_list'));
 }
+
 
     public function store(Request $request)
     {
@@ -34,4 +37,10 @@ class PenimbanganController extends Controller
         $nik_anak_list = DataAnak::all();
         return response()->json($nik_anak_list);
     }
+
+    public function getDataVaksin() {
+        $data_vaksin_list = DataImunisasi::pluck('nama_vaksin', 'id_vaksin');
+        return $data_vaksin_list;
+    }
+     
 }
