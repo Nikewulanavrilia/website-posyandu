@@ -17,29 +17,28 @@
                                 <table class="table text-center text-light">
                                     <thead>
                                         <tr>
-                                            <th class="text-primary"></th>
-                                            <th class="text-primary"></th>
-                                            <th class="text-primary"></th>
-                                            <th class="text-primary"></th>
-                                            <th class="text-primary"></th>
-                                            <th class="text-primary">Action</th>
+                                        <th class="text-primary">No</th>
+                                            <th class="text-primary">Nama Anak</th>
+                                            <th class="text-primary">Tinggi Badan</th>
+                                            <th class="text-primary">Berat Badan</th>
+                                            <th class="text-primary">Umur Anak</th>
+                                            <th class="text-primary">Tanggal Posyandu</th>
+                                            <th class="text-primary">Vaksin</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="table-border-bottom-0">
-                                        <tr>
-                                            <td class="text-center text-primary"></td>
-                                            <td class="text-center text-primary"></td>
-                                            <td class="text-center text-primary"></td>
-                                            <td class="text-center text-primary"></td>
-                                            <td class="text-center text-primary"></td>
-                                            <td class="text-center text-primary">
-                                                <a href="" class="btn btn-primary btn-sm icon-btn"><i
-                                                        class="fas fa-edit"></i></a> |
-                                                <a href="" class="btn btn-danger btn-sm icon-btn"><i
-                                                        class="fas fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody>
+                                            @foreach ($data_posyandu as $item)
+                                                <tr>
+                                                    <td class="text-center text-primary">{{ $loop->iteration }}</td>
+                                                    <td class="text-center text-primary">{{ $item->nama_anak }}</td>
+                                                    <td class="text-center text-primary">{{ $item->tb_anak }}</td>
+                                                    <td class="text-center text-primary">{{ $item->bb_anak}}</td>
+                                                    <td class="text-center text-primary">{{ $item->umur_anak }}</td>
+                                                    <td class="text-center text-primary">{{ \Carbon\Carbon::parse($item->tanggal_posyandu)->format('d-m-Y') }}</td>
+                                                    <td class="text-center text-primary">{{ $item->nama_vaksin }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
                                 </table>
                             </div>
                         </div>

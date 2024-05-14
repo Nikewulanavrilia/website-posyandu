@@ -10,4 +10,9 @@ class DataPosyandu extends Model
     protected $table ='posyandu';
     protected $primaryKey = 'id_posyandu'; 
     protected $fillable = ['tb_anak','bb_anak','umur_anak','tanggal_posyandu','umur_anak','nik_anak'];
+    // Definisikan relasi many-to-many dengan model Imunisasi
+    public function vaksin()
+    {
+        return $this->belongsToMany(DataImunisasi::class, 'detail_posyandu', 'id_posyandu', 'id_vaksin');
+    }
 }

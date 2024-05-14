@@ -15,8 +15,8 @@
                                             <div class="mb-3 d-flex flex-column">
                                                 <label for="nik_anak" class="col-12 text-primary">NIK Anak</label>
                                                 <input type="text" class="form-input" name="nik_anak"
-                                                    id="nik_anak"pattern="[0-9]{16}"
-                                                    title="NIK harus terdiri dari 16 digit angka" maxlength="16" required>
+                                                    id="nik_anak" pattern="[1-9]{16}"
+                                                    title="NIK harus terdiri dari 16 digit angka dan tidak boleh dimulai dari angka 0" maxlength="16" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -40,7 +40,7 @@
                                             <div class="mb-3 d-flex flex-column">
                                                 <label for="tanggal_lahir_anak" class="col-12 text-primary">Tanggal Lahir
                                                     Anak</label>
-                                                    <input type="date" class="form-input datepicker" name="tanggal_lahir_anak" id="tanggal_lahir_anak" onchange="hitungUmur()"max="{{ date('Y-m-d') }}" required>
+                                                    <input type="date" class="form-input datepicker" name="tanggal_lahir_anak" id="tanggal_lahir_anak" onchange="hitungUmur()"max="{{ date('Y-m-d') }}" min="{{date('2018-01-01')}}"required>
                                             </div>
                                         </div>
                                     </div>
@@ -49,7 +49,7 @@
                                             <div class="mb-3 d-flex flex-column">
                                                 <label for="anak_ke" class="col-12 text-primary">Anak Ke</label>
                                                 <input type="text" class="form-input" name="anak_ke" id="anak_ke"
-                                                    required>
+                                                pattern="[1-9]" maxlength="2"required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -79,7 +79,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3 d-flex flex-column">
-                                                <label for="nik_ibu" class="col-12 text-primary">NIK Ibu</label>
+                                                <label for="nik_ibu" class="col-12 text-primary">Nama Ibu</label>
                                                 <div class="input-group">
                                                     <input class="form-control form-input fw-medium" type="text" placeholder="Search for..." id="myInput" onkeyup="filterFunction()" aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                                                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>

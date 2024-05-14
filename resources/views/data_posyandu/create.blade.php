@@ -16,8 +16,7 @@
                                                 <div class="mb-3 d-flex flex-column">
                                                     <label for="nama_anak" class="col-12 text-primary">Nama Anak</label>
                                                     <div class="input-group">
-                                                        <input type="text" class="form-input col-10" name="nama_anak"
-                                                            id="nama_anak" readonly>
+                                                    <input type="text" class="form-input col-10" id="nama_anak" name="nama_anak" readonly>
                                                         <button class="btn-primary btn p-2 rounded"
                                                             id="btn-pilih">Pilih</button>
                                                     </div>
@@ -27,8 +26,13 @@
                                                 <div class="mb-3 d-flex flex-column">
                                                     <label for="tanggal_lahir_anak" class="col-12 text-primary">Tanggal
                                                         Lahir Anak</label>
-                                                    <input type="date" class="form-input datepicker"
-                                                        name="tanggal_lahir_anak" id="tanggal_lahir_anak" readonly>
+                                                        <input type="date" class="form-input datepicker" id="tanggal_lahir_anak" name="tanggal_lahir_anak" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3 d-flex flex-column">
+                                                    <label for="nik_anak" class="col-12 text-primary">NIK Anak</label>
+                                                    <input type="text" class="form-input datepicker" name="nik_anak" id="nik_anak" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -76,19 +80,12 @@
                                         <div class="row">
                                             <div class="col-md-6 d-flex align-items-center">
                                                 <div class="form-check ml-3">
-                                                    <input class="form-check-input" type="radio" name="kesehatan"
-                                                        id="sehat" required
-                                                        style="transform: scale(1.5);"
-                                                        onchange="toggleDataVaksinVisibility()">
-                                                    <label class="form-check-label fw-bold" for="sehat"
-                                                        style="font-size: 1rem;">Sehat</label>
+                                                    <input class="form-check-input" type="radio" id="sehat" name="kondisi_anak" value="sehat" required style="transform: scale(1.5);" onchange="toggleDataVaksinVisibility()">
+                                                    <label class="form-check-label fw-bold" for="sehat" style="font-size: 1rem;">Sehat</label>
                                                 </div>
                                                 <div class="form-check ml-5">
-                                                    <input class="form-check-input" type="radio" name="kesehatan"
-                                                        id="sakit" required
-                                                        style="transform: scale(1.5);">
-                                                    <label class="form-check-label fw-bold" for="sakit"
-                                                        style="font-size: 1rem;">Sakit</label>
+                                                    <input class="form-check-input" type="radio" id="sakit" value="sakit" name="kondisi_anak" required style="transform: scale(1.5);">
+                                                    <label class="form-check-label fw-bold" for="sakit" style="font-size: 1rem;">Sakit</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -96,11 +93,9 @@
                                             <div class="col-md-6">
                                                 @foreach ($data_vaksin_list as $id_vaksin => $nama_vaksin)
                                                     <div class="form-check checkbox-vaksin ml-3">
-                                                        <input class="form-check-input" type="checkbox" name="vaksin"
-                                                            id="vaksin" value="{{ $id_vaksin }}" required
-                                                            style="transform: scale(1.5);">
-                                                        <label class="form-check-label fw-bold" for="vaksin"
-                                                            style="font-size: 1rem;">{{ $nama_vaksin }}</label>
+                                                    <input class="form-check-input" type="checkbox" name="vaksin[]" id="vaksin_{{ $id_vaksin }}" value="{{ $id_vaksin }}" >
+                                                    <label class="form-check-label fw-bold" for="vaksin_{{ $id_vaksin }}" style="font-size: 1rem;">{{ $nama_vaksin }}</label>
+
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -147,12 +142,15 @@
             $(document).on('click', '.btn-pilih', function() {
                 var namaAnak = $(this).closest('tr').find('td:eq(0)').text();
                 var tanggalLahirAnak = $(this).closest('tr').find('td:eq(1)').text();
+                var nikAnak = $(this).data('id');
 
                 $('#nama_anak').val(namaAnak);
                 $('#tanggal_lahir_anak').val(tanggalLahirAnak);
+                $('#nik_anak').val(nikAnak);
 
                 Swal.close();
             });
+
 
             $('#tanggal_posyandu').on('change', function() {
                 var tanggalPosyandu = new Date($(this).val());

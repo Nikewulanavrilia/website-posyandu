@@ -46,10 +46,6 @@
                                                         <a class="btn btn-primary btn-sm icon-btn"
                                                             href="{{ route('data_ibu.edit', $item->no_kk) }}"><i
                                                                 class="fas fa-edit"></i></a>
-                                                        <button class="btn btn-danger btn-sm icon-btn"
-                                                            onclick="deleteConfirmation('{{ route('data_ibu.hapus', $item->no_kk) }}')">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </button>
                                                     </td>
                                                 </tr>
                                             @endforeach
