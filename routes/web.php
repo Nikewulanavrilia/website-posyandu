@@ -90,4 +90,5 @@ Route::middleware(['web'])->group(function () {
      Route::get('/data-posyandu/hapus/{id_jadwal}', [PenimbanganController::class, 'destroy'])->name('data_posyandu.hapus');
      Route::get('/pilih-data-anak', [PenimbanganController::class, 'getDataPosyandu'])->name('data_posyandu.getDataPosyandu');
      Route::get('/data-vaksin', [PenimbanganController::class, 'getDataVaksin'])->name('data_posyandu.getDataVaksin');
+     Route::get('/first-vaksin', [PenimbanganController::class, 'getDataFirstVaksin'])->name('data_posyandu.getDataFirstVaksin');
 });

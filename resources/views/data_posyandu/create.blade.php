@@ -84,7 +84,7 @@
                                                     <label class="form-check-label fw-bold" for="sehat" style="font-size: 1rem;">Sehat</label>
                                                 </div>
                                                 <div class="form-check ml-5">
-                                                    <input class="form-check-input" type="radio" id="sakit" value="sakit" name="kondisi_anak" required style="transform: scale(1.5);">
+                                                    <input class="form-check-input" type="radio" id="sakit" value="{{ isset($firstVaccineId) ? $firstVaccineId : '' }}" name="kondisi_anak" required style="transform: scale(1.5);" onchange="toggleDataVaksinVisibility()">
                                                     <label class="form-check-label fw-bold" for="sakit" style="font-size: 1rem;">Sakit</label>
                                                 </div>
                                             </div>
@@ -93,9 +93,8 @@
                                             <div class="col-md-6">
                                                 @foreach ($data_vaksin_list as $id_vaksin => $nama_vaksin)
                                                     <div class="form-check checkbox-vaksin ml-3">
-                                                    <input class="form-check-input" type="checkbox" name="vaksin[]" id="vaksin_{{ $id_vaksin }}" value="{{ $id_vaksin }}" >
-                                                    <label class="form-check-label fw-bold" for="vaksin_{{ $id_vaksin }}" style="font-size: 1rem;">{{ $nama_vaksin }}</label>
-
+                                                        <input class="form-check-input" type="checkbox" name="vaksin[]" id="vaksin_{{ $id_vaksin }}" value="{{ $id_vaksin }}" >
+                                                        <label class="form-check-label fw-bold" for="vaksin_{{ $id_vaksin }}" style="font-size: 1rem;">{{ $nama_vaksin }}</label>
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -117,15 +116,27 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+        var sakitRadio = document.getElementById("sakit");
+        var firstVaccineId = document.getElementById('first_vaccine_id').value;
+
+        sakitRadio.value = firstVaccineId;
+    </script>
+    <script>
         function toggleDataVaksinVisibility() {
             var sehatRadio = document.getElementById("sehat");
+            var sakitRadio = document.getElementById("sakit");
             var dataVaksin = document.getElementById("dataVaksin");
+            
             if (sehatRadio.checked) {
                 dataVaksin.style.display = "block";
-            } else {
+            } else if (sakitRadio.checked) {
                 dataVaksin.style.display = "none";
             }
         }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            toggleDataVaksinVisibility();
+        });
     </script>
     <script>
         document.getElementById('tanggal_posyandu').setAttribute('min', new Date().toISOString().split("T")[0]);

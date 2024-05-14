@@ -67,5 +67,12 @@ public function store(Request $request)
         $data_vaksin_list = DataImunisasi::pluck('nama_vaksin', 'id_vaksin');
         return $data_vaksin_list;
     }
-     
+
+    public function getDataFirstVaksin()
+    {
+        $firstVaccine = DataImunisasi::first();
+        $firstVaccineId = $firstVaccine ? $firstVaccine->id_vaksin : null;
+
+        return view('data_posyandu.create', ['firstVaccineId' => $firstVaccineId]);
+    }
 }
