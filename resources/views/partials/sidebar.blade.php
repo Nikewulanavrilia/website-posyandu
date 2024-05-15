@@ -97,7 +97,7 @@
         <li class="nav-item menu-items mb-1">
             <a class="nav-link" href="{{ route('pages.data_ibu')}}">
                 <span class="menu-icon">
-                    <i class="mdi mdi-human-pregnant"></i>
+                    <i class="mdi mdi-account-child"></i>
                 </span>
                 <span class="menu-title">Data Orang Tua</span>
             </a>

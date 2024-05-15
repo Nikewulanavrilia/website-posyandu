@@ -4,33 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\DataAnak;
 use App\Models\DataPosyandu;
-use App\Models\DetailPosyandu;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\DataImunisasi;
 
-class PenimbanganController extends Controller
+class DataPosyanduController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    public function index()
-{
-    $data_posyandu = DB::table('posyandu')
-                    ->select('posyandu.*', 'detail_posyandu.*', 'imunisasi.nama_vaksin', 'anak.nama_anak')
-                    ->join('detail_posyandu', 'posyandu.id_posyandu', '=', 'detail_posyandu.id_posyandu')
-                    ->join('imunisasi', 'detail_posyandu.id_vaksin', '=', 'imunisasi.id_vaksin')
-                    ->join('anak', 'posyandu.nik_anak', '=', 'anak.nik_anak')
-                    ->get();
-    return view('data_posyandu.index', compact('data_posyandu'));
-}
-
     public function create()
 {
     $nik_anak_list = DataAnak::pluck('nama_anak', 'nik_anak');
     $data_vaksin_list = $this->getDataVaksin(); 
-    return view('data_posyandu.create', compact('nik_anak_list', 'data_vaksin_list'));
+    return view('data_posyandu.create_terlambat', compact('nik_anak_list', 'data_vaksin_list'));
 }
 public function store(Request $request)
     {
@@ -74,6 +57,6 @@ public function store(Request $request)
         $firstVaccine = DataImunisasi::first();
         $firstVaccineId = $firstVaccine ? $firstVaccine->id_vaksin : null;
 
-        return view('data_posyandu.create', ['firstVaccineId' => $firstVaccineId]);
+        return view('data_posyandu.create_terlambat', ['firstVaccineId' => $firstVaccineId]);
     }
 }

@@ -9,12 +9,14 @@
                         <div class="card-body">
                             <h4 class="card-title">Tabel Data Posyandu</h4>
                             <div class="d-flex justify-content-between">
-                                <a href="{{route('data_posyandu.create')}}" class="btn btn-primary custom-btn" onclick="showForm()"><span
-                                        class="text-light ms-2">Tambah Data Posyandu</span><i class="fas fa-plus ml-2"></i></a>
-                                <input class="form-input" placeholder="Cari">
+                                <div class="mt-1">
+                                    <a href="{{route('data_posyandu.create')}}" class="btn btn-primary custom-btn" onclick="showForm()"><span class="text-light ms-2">Tambah Data Posyandu</span><i class="fas fa-plus ml-2"></i></a>
+                                    <a href="{{route('data_posyandu.create_terlambat')}}" class="btn btn-primary custom-btn" onclick="showForm()"><span class="text-light ms-2">Tambah Data Terlambat Posyandu</span><i class="fas fa-clock ml-2"></i></a>
+                                </div>
+                                {{-- <input class="form-input" placeholder="Cari"> --}}
                             </div>
                             <div class="table-responsive text-nowrap">
-                                <table class="table text-center text-light">
+                                <table class="table text-center text-light mt-3">
                                     <thead>
                                         <tr>
                                         <th class="text-primary">No</th>

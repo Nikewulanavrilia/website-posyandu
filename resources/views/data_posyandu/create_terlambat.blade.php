@@ -10,7 +10,7 @@
                                 <form action="{{ route('data_posyandu.store') }}" method="post">
                                     @csrf
                                     <div class="container">
-                                        <h3 class="text-primary">Tambah Data Posyandu</h3>
+                                        <h3 class="text-primary">Tambah Data Terlambat Posyandu</h3>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="mb-3 d-flex flex-column">
@@ -77,18 +77,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6 d-flex align-items-center">
-                                                <div class="form-check ml-3">
-                                                    <input class="form-check-input" type="radio" id="sehat" name="kondisi_anak" value="sehat"onchange="toggleDataVaksinVisibility()">
-                                                    <label class="form-check-label fw-bold" for="sehat" style="font-size: 1rem;">Sehat</label>
-                                                </div>
-                                                <div class="form-check ml-5">
-                                                    <input class="form-check-input" type="radio" id="sakit" name="kondisi_anak" value="{{ isset($firstVaccineId) ? $firstVaccineId : '' }}" name="vaksin[]"  onchange="toggleDataVaksinVisibility()">
-                                                    <label class="form-check-label fw-bold" for="sakit" style="font-size: 1rem;">Sakit</label>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="row" id="dataVaksin" style="display: none;">
                                             <div class="col-md-6">
                                                 @foreach ($data_vaksin_list as $id_vaksin => $nama_vaksin)
@@ -116,31 +104,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        var sakitRadio = document.getElementById("sakit");
-        var firstVaccineId = document.getElementById('first_vaccine_id').value;
-
-        sakitRadio.value = firstVaccineId;
-    </script>
-    <script>
-        function toggleDataVaksinVisibility() {
-            var sehatRadio = document.getElementById("sehat");
-            var sakitRadio = document.getElementById("sakit");
-            var firstVaccineId = 1;
-            sakitRadio.value = firstVaccineId;
-            var dataVaksin = document.getElementById("dataVaksin");
-            
-            if (sehatRadio.checked) {
-                dataVaksin.style.display = "block";
-            } else if (sakitRadio.checked) {
-                dataVaksin.style.display = "none";
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', (event) => {
-            toggleDataVaksinVisibility();
-        });
-    </script>
-    <script>
         document.getElementById('tanggal_posyandu').setAttribute('min', new Date().toISOString().split("T")[0]);
     </script>
     <script>
@@ -150,6 +113,15 @@
                     html: htmlContent,
                     showConfirmButton: false
                 });
+            }
+
+            function toggleDataVaksin() {
+                var umurAnak = $('#umur_anak').val();
+                if (umurAnak) {
+                    $('#dataVaksin').css('display', 'block');
+                } else {
+                    $('#dataVaksin').css('display', 'none');
+                }
             }
 
             $(document).on('click', '.btn-pilih', function() {
@@ -173,6 +145,7 @@
                 var umurAnak = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.4375));
 
                 $('#umur_anak').val(umurAnak);
+                toggleDataVaksin();
 
                 $('.checkbox-vaksin').hide();
 
