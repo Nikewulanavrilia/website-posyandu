@@ -23,7 +23,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3 d-flex flex-column">
                                         <label for="nik_ibu" class="col-12 text-primary">NIK Ibu</label>
-                                        <input type="text" class="form-input" name="nik_ibu" id="nik_ibu" value="{{ isset($data_ibu) ? $data_ibu->no_kk : '' }}" pattern="[0-9]{16}" title="NIK harus terdiri dari 16 digit angka" required >
+                                        <input type="text" class="form-input" name="nik_ibu" id="nik_ibu" value="{{ isset($data_ibu) ? $data_ibu->no_kk : '' }}" pattern="[0-9]{16}" title="NIK harus terdiri dari 16 digit angka" maxlength="16" required >
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -43,7 +43,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3 d-flex flex-column">
                                         <label for="tanggal_lahir_ibu" class="col-12 text-primary">Tanggal Lahir Ibu</label>
-                                        <input type="date" class="form-input datepicker" name="tanggal_lahir_ibu" id="tanggal_lahir_ibu" value="{{ isset($data_ibu) ? $data_ibu->tanggal_lahir_ibu : '' }}" required>
+                                        <input type="date" class="form-input datepicker" name="tanggal_lahir_ibu" id="tanggal_lahir_ibu" value="{{ isset($data_ibu) ? $data_ibu->tanggal_lahir_ibu : '' }}" max="{{ date('Y-m-d') }}" required>
                                     </div>
                                 </div>
                             </div>

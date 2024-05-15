@@ -9,6 +9,10 @@ use App\Models\DataImunisasi;
 
 class DataPosyanduController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function create()
 {
     $nik_anak_list = DataAnak::pluck('nama_anak', 'nik_anak');

@@ -50,7 +50,7 @@
                                 </select>
                             </div>
                             <div class="mb-3 d-flex flex-column">
-                            <label for="nik_ibu" class="col-12 text-primary">NIK Ibu</label>
+                            <label for="nik_ibu" class="col-12 text-primary">Nama Ibu</label>
                             <select class="form-select form-input" name="no_kk" id="nik_ibu" required>
                             @foreach ($nik_ibu_list as $no_kk => $nama_ibu)
                             <option value="{{ $no_kk }}">{{ $nama_ibu }} ({{ $no_kk }})</option>

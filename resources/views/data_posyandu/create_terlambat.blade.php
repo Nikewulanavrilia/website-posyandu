@@ -10,7 +10,7 @@
                                 <form action="{{ route('data_posyandu.store') }}" method="post">
                                     @csrf
                                     <div class="container">
-                                        <h3 class="text-primary">Tambah Data Terlambat Posyandu</h3>
+                                        <h3 class="text-primary">Tambah Data Terlambat Imunisasi</h3>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="mb-3 d-flex flex-column">

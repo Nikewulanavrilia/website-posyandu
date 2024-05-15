@@ -23,20 +23,19 @@ class DataAnakController extends Controller
     }
     public function cari(Request $request)
     {
-    // menangkap data pencarian
+    // Menangkap data pencarian
     $cari = $request->cari;
 
-    $data_anak= DB::table('anak')
-                ->select('anak.*','orang_tua.nama_ibu')
-                ->join('orang_tua','anak.no_kk','=','orang_tua.no_kk')
-                ->get();
+    // Mengambil data dari tabel anak sesuai pencarian data, termasuk nama ibu
+    $data_anak = DB::table('anak')
+                    ->select('anak.*', 'orang_tua.nama_ibu')
+                    ->join('orang_tua', 'anak.no_kk', '=', 'orang_tua.no_kk')
+                    ->where('nama_anak', 'like', "%".$cari."%")
+                    ->paginate();
 
-    $data_anak = $data_anak->unique('nik_anak'); // mengambil data unik berdasarkan nik_anak
-
-    // mengirim data pegawai ke view index
+    // Mengirim data anak ke view index
     return view('data-anak.index', compact('data_anak'));
     }
-
     public function create()
     {
         $nik_ibu_list = DataIbu::pluck('nama_ibu', 'no_kk');
