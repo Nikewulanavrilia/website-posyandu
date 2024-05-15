@@ -80,11 +80,11 @@
                                         <div class="row">
                                             <div class="col-md-6 d-flex align-items-center">
                                                 <div class="form-check ml-3">
-                                                    <input class="form-check-input" type="radio" id="sehat" name="kondisi_anak" value="sehat" required style="transform: scale(1.5);" onchange="toggleDataVaksinVisibility()">
+                                                    <input class="form-check-input" type="radio" id="sehat" name="kondisi_anak" value="sehat"onchange="toggleDataVaksinVisibility()">
                                                     <label class="form-check-label fw-bold" for="sehat" style="font-size: 1rem;">Sehat</label>
                                                 </div>
                                                 <div class="form-check ml-5">
-                                                    <input class="form-check-input" type="radio" id="sakit" value="{{ isset($firstVaccineId) ? $firstVaccineId : '' }}" name="kondisi_anak" required style="transform: scale(1.5);" onchange="toggleDataVaksinVisibility()">
+                                                    <input class="form-check-input" type="radio" id="sakit" value="{{ isset($firstVaccineId) ? $firstVaccineId : '' }}" name="vaksin[]"  onchange="toggleDataVaksinVisibility()">
                                                     <label class="form-check-label fw-bold" for="sakit" style="font-size: 1rem;">Sakit</label>
                                                 </div>
                                             </div>
@@ -125,6 +125,8 @@
         function toggleDataVaksinVisibility() {
             var sehatRadio = document.getElementById("sehat");
             var sakitRadio = document.getElementById("sakit");
+            var firstVaccineId = 1; // Atur nilai sesuai kebutuhan Anda
+            sakitRadio.value = firstVaccineId;
             var dataVaksin = document.getElementById("dataVaksin");
             
             if (sehatRadio.checked) {
