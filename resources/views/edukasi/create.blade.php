@@ -20,7 +20,7 @@
                             </div>
                             <div class="mb-3 d-flex flex-column">
                             <label class="col-12 text-primary" for="inputGroupFile01">Upload Foto</label>
-                            <input type="file" class="form-control" id="inputGroupFile01" name="foto">
+                            <input type="file" class="form-control" id="inputGroupFile01" name="foto" required>
                             </div>
                                 <div class="mb-3">
                                     <button type="submit" class="btn btn-primary" onclick="simpanData()">Simpan</button>

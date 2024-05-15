@@ -47,8 +47,34 @@ class ArtikelController extends Controller
 
     public function update(Request $request, $id_edukasi)
     {
-    $edukasi = Artikel::findOrFail($id_edukasi); 
-    $edukasi->update($request->all());
+    $request->validate([
+        'foto' => 'image|mimes:jpeg,png,jpg|max:2048', 
+    ]);
+
+    $edukasi_ubah = Artikel::findOrFail($id_edukasi);
+    $awal = $edukasi_ubah->foto;
+
+    $edukasi = [
+        'judul' => $request['judul'],
+        'isi' => $request['isi'],
+        'foto' => $awal
+    ];
+
+    // Periksa apakah ada file gambar yang diunggah
+    if ($request->hasFile('foto')) {
+        // Hapus file lama jika ada
+        if ($awal !== null) {
+            unlink('foto_edukasi/' . $awal);
+        }
+
+        // Simpan file gambar yang baru diunggah
+        $foto = $request->file('foto');
+        $nama_file = time() . "_" . $foto->getClientOriginalName();
+        $foto->move('foto_edukasi/', $nama_file);
+        $edukasi['foto'] = $nama_file;
+        }
+    $edukasi_ubah->update($edukasi);
+
     return redirect()->route('pages.edukasi')->with('success', 'Data admin Berhasil Diperbarui');
     }
     public function destroy($id_edukasi)
