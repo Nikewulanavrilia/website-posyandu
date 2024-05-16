@@ -9,9 +9,9 @@
                         <div class="card-body">
                             <h4 class="card-title">Tabel Data Posyandu</h4>
                             <div class="d-flex justify-content-between">
-                                <div class="mt-1">
-                                    <a href="{{route('data_posyandu.create')}}" class="btn btn-primary custom-btn" onclick="showForm()"><span class="text-light ms-2">Tambah Data Posyandu</span><i class="fas fa-plus ml-2"></i></a>
-                                    <a href="{{route('data_posyandu.create_terlambat')}}" class="btn btn-primary custom-btn" onclick="showForm()"><span class="text-light ms-2">Tambah Data Terlambat Imunisasi</span><i class="fas fa-clock ml-2"></i></a>
+                                <div class="mt-1 row">
+                                    <a href="{{route('data_posyandu.create')}}" class="btn btn-primary p-2 d-flex align-items-center justify-content-center" onclick="showForm()"><span class="text-light ms-2">Tambah Data Posyandu</span><i class="fas fa-plus ml-2"></i></a>
+                                    <a href="{{route('data_posyandu.create_terlambat')}}" class="btn btn-primary p-2 d-flex align-items-center justify-content-center ml-3" onclick="showForm()"><span class="text-light ms-2">Tambah Data Terlambat Imunisasi</span><i class="fas fa-clock ml-2"></i></a>
                                 </div>
                                 {{-- <input class="form-input" placeholder="Cari"> --}}
                             </div>

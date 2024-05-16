@@ -139,13 +139,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Data Orang Tua Chart
     const ctxOrangTua = document.getElementById('chartOrangTua').getContext('2d');
     const chartOrangTua = new Chart(ctxOrangTua, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
             labels: ['Jumlah Anak', 'Jumlah Orang Tua'],
             datasets: [{
                 data: [{{ $jumlah_anak }}, {{ $jumlah_orang_tua }}],
-                backgroundColor: ['#FFCE56', '#FF6384'],
-                hoverBackgroundColor: ['#FFCE56', '#FF6384']
+                backgroundColor: ['#FFCE56', '#EF5350'],
+                hoverBackgroundColor: ['#FFCE56', '#EF5350']
             }]
         },
         options: {

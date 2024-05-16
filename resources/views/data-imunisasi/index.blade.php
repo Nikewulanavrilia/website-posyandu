@@ -9,9 +9,7 @@
                             <div class="card-body">
                                 <h3 class="card-title">Tabel Data Imunisasi</h3>
                                 <div class="d-flex justify-content-between">
-                                    <a href="{{ route('data_imunisasi.create') }}" class="btn btn-primary custom-btn"
-                                        onclick="showForm()"><span class="text-light ms-2">Tambah Imunisasi</span><i
-                                            class="fas fa-plus ml-2"></i></a>
+                                    <a href="{{ route('data_imunisasi.create') }}" class="btn btn-primary p-2 d-flex align-items-center justify-content-center" onclick="showForm()"><span class="text-light ms-2">Tambah Imunisasi</span><i class="fas fa-plus ml-2"></i></a>
                                     <form action="/data-imunisasi/cari" method="GET">
                                         <div class="input-group">
                                             <input type="text" class="form-input" name="cari" placeholder="Cari Nama Vaksin .." value="{{ old('cari') }}">

@@ -1,6 +1,6 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a class="sidebar-brand brand-logo " href="{{ route('home')}}"><img src="{{ asset('assets/images/logo.png') }}" id="brand-logo" alt="logo" /></a>
+        <a class="sidebar-brand brand-logo " href="{{ route('home')}}"><img src="{{ asset('assets/images/logo.png') }}" id="brand-logo" alt="logo" style="height: 45px;" /></a>
         <a class="sidebar-brand brand-logo-mini" href="{{ route('home')}}"><img src="{{ asset('assets/images/logo-mini.png') }}" id="brand-logo-mini" alt="logo" /></a>
     </div>
     <ul class="nav">

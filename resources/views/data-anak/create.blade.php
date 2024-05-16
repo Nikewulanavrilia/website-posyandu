@@ -4,10 +4,10 @@
         <div class="content-wrapper">
             <div class="container">
                 <div class="row">
-                    <h1 class="col-12 text-primary mt-2">Tambah Data Anak</h1>
-                    <div class="col-12 mt-2">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-body">
+                                <h3 class="card-title">Tambah Data Anak</h3>
                                 <form action="{{ route('data_anak.store') }}" method="post">
                                     @csrf
                                     <div class="row">
@@ -81,11 +81,10 @@
                                             <div class="mb-3 d-flex flex-column">
                                                 <label for="nik_ibu" class="col-12 text-primary">Nama Ibu</label>
                                                 <div class="input-group">
-                                                    <input class="form-control form-input fw-medium" type="text" placeholder="Search for..." id="myInput" onkeyup="filterFunction()" aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                                                    <input class="form-input w-75" type="text" placeholder="Search for..." id="myInput" onkeyup="filterFunction()" aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                                                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                                                 </div>
-                                                <select class="form-select form-input dropdown-content mt-2" name="no_kk"
-                                                    id="nik_ibu" required>
+                                                <select class="form-select form-input dropdown-content mt-2" name="no_kk" id="nik_ibu" required>
                                                     <option value="" aria-disabled="false">--Pilih orang tua--</option>
                                                     @foreach ($nik_ibu_list as $no_kk => $nama_ibu)
                                                         <option value="{{ $no_kk }}">
@@ -113,9 +112,9 @@
             </div>
         </div>
     </div>
-<script>
-    document.getElementById('tanggal').setAttribute('max', new Date().toISOString().split("T")[0]);
-</script>
+    <script>
+        document.getElementById('tanggal').setAttribute('max', new Date().toISOString().split("T")[0]);
+    </script>
     <script>
         function filterFunction() {
             var input, filter, select, option, i, matchFound;
