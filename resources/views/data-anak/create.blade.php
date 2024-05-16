@@ -81,7 +81,7 @@
                                             <div class="mb-3 d-flex flex-column">
                                                 <label for="nik_ibu" class="col-12 text-primary">Nama Ibu</label>
                                                 <div class="input-group">
-                                                    <input class="form-input w-75" type="text" placeholder="Search for..." id="myInput" onkeyup="filterFunction()" aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                                                    <input class="form-input w-75" type="text" placeholder="Pencarian untuk nama ibu" id="myInput" onkeyup="filterFunction()" aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                                                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                                                 </div>
                                                 <select class="form-select form-input dropdown-content mt-2" name="no_kk" id="nik_ibu" required>

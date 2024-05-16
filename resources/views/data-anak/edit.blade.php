@@ -74,14 +74,19 @@
                                     <div class="mb-3 d-flex flex-column">
                                         <label for="nik_ibu" class="col-12 text-primary">Nama Ibu</label>
                                         <div class="input-group mb-2">
-                                            <input class="form-input w-75" type="text" placeholder="Search for..." id="myInput" onkeyup="filterFunction()" aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                                            <input class="form-input w-75" type="text" placeholder="Pencarian untuk nama ibu" id="myInput" onkeyup="filterFunction()" aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                                             <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                                         </div>
                                         <select class="form-select form-input" name="no_kk" id="nik_ibu" required>
-                                            @foreach ($nik_ibu_list as $no_kk => $nama_ibu)
-                                            <option value="{{ $no_kk }}">{{ $nama_ibu }} ({{ $no_kk }})</option>
-                                            @endforeach
-                                        </select>
+                                        @foreach ($nik_ibu_list as $no_kk => $nama_ibu)
+                                            @if ($no_kk == $data_anak->no_kk)
+                                                <option value="{{ $no_kk }}" selected>{{ $nama_ibu }} ({{ $no_kk }})</option>
+                                            @else
+                                                <option value="{{ $no_kk }}">{{ $nama_ibu }} ({{ $no_kk }})</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+
                                     </div>
                                 </div>
                             </div>
