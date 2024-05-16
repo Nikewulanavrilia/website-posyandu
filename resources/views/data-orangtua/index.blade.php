@@ -43,9 +43,8 @@
                                                     <td class="text-center text-primary">+62{{ $item->telepon }}</td>
                                                     <!-- <td class="text-center text-primary">{{ $item->email_orang_tua }}</td> -->
                                                     <td>
-                                                        <a class="btn btn-primary btn-sm icon-btn"
-                                                            href="{{ route('data_ibu.edit', $item->no_kk) }}"><i
-                                                                class="fas fa-edit"></i></a>
+                                                        <a class="btn btn-primary btn-sm icon-btn" href="{{ route('data_ibu.edit', $item->no_kk) }}"><i class="fas fa-edit"></i></a>
+                                                        <button class="btn btn-warning btn-detail btn-sm icon-btn" data-no_kk="{{ $item->no_kk }}"><i class="fas fa-info-circle"></i></button>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -60,7 +59,8 @@
             </div>
         </div>
     </div>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         function deleteConfirmation(deleteUrl) {
             Swal.fire({
@@ -78,5 +78,41 @@
                 }
             });
         }
+    </script>
+    <script>
+        $(document).on('click', '.btn-detail', function() {
+            var no_kk = $(this).data('no_kk');
+            $.ajax({
+                url: '/data-orangtua/detail/' + no_kk,
+                method: 'GET',
+                success: function(response) {
+                    if (response) {
+                        var html = '<table class="table table-bordered">';
+                        html += '<tr><th class="text-primary">Nomor KK:</th><td>' + response.no_kk + '</td></tr>';
+                        html += '<tr><th class="text-primary">NIK Ibu:</th><td>' + response.nik_ibu + '</td></tr>';
+                        html += '<tr><th class="text-primary">Nama Ibu:</th><td>' + response.nama_ibu + '</td></tr>';
+                        html += '<tr><th class="text-primary">Tempat Lahir Ibu:</th><td>' + response.tempat_lahir_ibu + '</td></tr>';
+                        html += '<tr><th class="text-primary">Tanggal Lahir Ibu:</th><td>' + response.tanggal_lahir_ibu + '</td></tr>';
+                        html += '<tr><th class="text-primary">Golongan Darah Ibu:</th><td>' + response.gol_darah_ibu + '</td></tr>';
+                        html += '<tr><th class="text-primary">NIK Ayah:</th><td>' + response.nik_ayah + '</td></tr>';
+                        html += '<tr><th class="text-primary">Nama Ayah:</th><td>' + response.nama_ayah + '</td></tr>';
+                        html += '<tr><th class="text-primary">Alamat:</th><td>' + response.alamat + '</td></tr>';
+                        html += '<tr><th class="text-primary">Telepon:</th><td>' + response.telepon + '</td></tr>';
+                        html += '<tr><th class="text-primary">Email Orang Tua:</th><td>' + response.email_orang_tua + '</td></tr>';
+                        html += '</table>';
+    
+                        Swal.fire({
+                            title: 'Detail Orang Tua',
+                            html: html,
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    } 
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        });
     </script>
 @endsection

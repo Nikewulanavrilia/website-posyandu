@@ -40,14 +40,9 @@
                                                     </td>
                                                     <td class="text-center text-primary">{{ $item->nama_ibu }}</td>
                                                     <td>
-                                                        <a class="btn btn-primary btn-sm icon-btn"
-                                                            href="{{ route('data_anak.edit', $item->nik_anak) }}">
-                                                            <i class="fas fa-edit"></i>
-                                                        </a>
-                                                        <button class="btn btn-danger btn-sm icon-btn"
-                                                            onclick="deleteConfirmation('{{ route('data_anak.hapus', $item->nik_anak) }}')">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </button>
+                                                        <button class="btn btn-warning btn-detail btn-sm icon-btn" data-nik_anak="{{ $item->nik_anak }}"><i class="fas fa-info-circle"></i></button>
+                                                        <a class="btn btn-primary btn-sm icon-btn" href="{{ route('data_anak.edit', $item->nik_anak) }}"><i class="fas fa-edit"></i></a>
+                                                        <button class="btn btn-danger btn-sm icon-btn" onclick="deleteConfirmation('{{ route('data_anak.hapus', $item->nik_anak) }}')"><i class="fas fa-trash-alt"></i></button>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -80,5 +75,41 @@
                 }
             });
         }
+    </script>
+    <script>
+        $(document).on('click', '.btn-detail', function() {
+    var nik_anak = $(this).data('nik_anak');
+    $.ajax({
+        url: '/data-anak/detail/' + nik_anak,
+        method: 'GET',
+        success: function(response) {
+            if (response.anak && response.ibu) {
+                var anak = response.anak;
+                var ibu = response.ibu;
+                var html = '<table class="table table-bordered">';
+                html += '<tr><th class="text-primary">Nik Anak:</th><td>' + anak.nik_anak + '</td></tr>';
+                html += '<tr><th class="text-primary">Nama Anak:</th><td>' + anak.nama_anak + '</td></tr>';
+                html += '<tr><th class="text-primary">Tempat Lahir Anak:</th><td>' + anak.tempat_lahir_anak + '</td></tr>';
+                html += '<tr><th class="text-primary">Tanggal Lahir Anak:</th><td>' + anak.tanggal_lahir_anak + '</td></tr>';
+                html += '<tr><th class="text-primary">Anak Ke:</th><td>' + anak.anak_ke + '</td></tr>';
+                html += '<tr><th class="text-primary">Golongan Darah Anak:</th><td>' + anak.gol_darah_anak + '</td></tr>';
+                html += '<tr><th class="text-primary">Jenis Kelamin Anak:</th><td>' + anak.jenis_kelamin_anak + '</td></tr>';
+                html += '<tr><th class="text-primary">No KK:</th><td>' + anak.no_kk + '</td></tr>';
+                html += '<tr><th class="text-primary">Nama Ibu:</th><td>' + ibu.nama_ibu + '</td></tr>';
+                html += '</table>';
+
+                Swal.fire({
+                    title: 'Detail Anak',
+                    html: html,
+                    showCloseButton: true,
+                    showConfirmButton: false
+                });
+            } 
+        },
+        error: function(xhr, status, error) {
+            console.error(xhr.responseText);
+        }
+    });
+});
     </script>
 @endsection

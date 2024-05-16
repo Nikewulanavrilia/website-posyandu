@@ -66,4 +66,15 @@ class DataAnakController extends Controller
         $data_anak->delete();
         return redirect()->route('pages.data_anak')->with('success','Data admin Berhasil Dihapus');
     }
+
+    public function getAnakDetail($nik_anak)
+    {
+        $data_anak = DB::table('anak')->where('nik_anak', $nik_anak)->first();
+        $data_ibu = DB::table('orang_tua')->where('no_kk', $data_anak->no_kk)->first();
+
+        if ($data_anak && $data_ibu) {
+            return response()->json(['anak' => $data_anak, 'ibu' => $data_ibu]);
+        }
+        return response()->json([], 404);
+    }
 }

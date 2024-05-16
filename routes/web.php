@@ -56,6 +56,7 @@ Route::middleware(['web'])->group(function () {
     Route::get('/data-orangtua/edit/{no_kk}', [DataIbuController::class, 'edit'])->name('data_ibu.edit');
     Route::put('/data-orangtua/update/{no_kk}', [DataIbuController::class, 'update'])->name('data_ibu.update');
     Route::get('/data-orangtua/hapus/{no_kk}', [DataIbuController::class, 'destroy'])->name('data_ibu.hapus');
+    Route::get('/data-orangtua/detail/{no_kk}', [DataIbuController::class, 'getOrtuDetail'])->name('data_ibu.detail');
     //route pages data anak
     Route::get('/data-anak/create', [DataAnakController::class, 'create'])->name('data_anak.create');
     Route::get('/data-anak/cari', [DataAnakController::class, 'cari'])->name('data_anak.cari');
@@ -64,6 +65,7 @@ Route::middleware(['web'])->group(function () {
     Route::get('/data-anak/edit/{nik_anak}', [DataAnakController::class, 'edit'])->name('data_anak.edit');
     Route::put('/data-anak/update/{nik_anak}', [DataAnakController::class, 'update'])->name('data_anak.update');
     Route::get('/data-anak/hapus/{nik_anak}', [DataAnakController::class, 'destroy'])->name('data_anak.hapus');
+    Route::get('/data-anak/detail/{nik_anak}', [DataAnakController::class, 'getAnakDetail'])->name('data_anak.detail');
     //route pages data imunisasi
     Route::get('/data-imunisasi/create', [DataImunisasiController::class, 'create'])->name('data_imunisasi.create');
     Route::get('/data-imunisasi/cari', [DataImunisasiController::class, 'cari'])->name('data_imunisasi.cari');

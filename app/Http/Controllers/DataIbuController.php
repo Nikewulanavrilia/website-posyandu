@@ -53,5 +53,15 @@ class DataIbuController extends Controller
         $data_ibu->delete();
         return redirect()->route('pages.data_ibu')->with('success','Data admin Berhasil Dihapus');
     }
+
+    public function getOrtuDetail($no_kk)
+    {
+        $data_ibu = DB::table('orang_tua')->where('no_kk', $no_kk)->first();
+
+        if ($data_ibu) {
+            return response()->json($data_ibu);
+        }
+        return response()->json([], 404);
+    }
     
 }
