@@ -25,7 +25,7 @@
                                                 <th class="text-primary">Nama Ibu</th>
                                                 <!-- <th class="text-primary">NIK Ayah</th> -->
                                                 <th class="text-primary">Nama Ayah</th>
-                                                <th class="text-primary">Alamat</th>
+                                                <!-- <th class="text-primary">Alamat</th> -->
                                                 <th class="text-primary">Telepon</th>
                                                 <!-- <th class="text-primary">Email</th> -->
                                                 <th class="text-primary">Action</th>
@@ -39,7 +39,7 @@
                                                     <td class="text-center text-primary">{{ $item->nama_ibu }}</td>
                                                     <!-- <td class="text-center text-primary">{{ $item->nik_ayah }}</td> -->
                                                     <td class="text-center text-primary">{{ $item->nama_ayah }}</td>
-                                                    <td class="text-center text-primary">{{ $item->alamat }}</td>
+                                                    <!-- <td class="text-center text-primary">{{ $item->alamat }}</td> -->
                                                     <td class="text-center text-primary">+62{{ $item->telepon }}</td>
                                                     <!-- <td class="text-center text-primary">{{ $item->email_orang_tua }}</td> -->
                                                     <td>

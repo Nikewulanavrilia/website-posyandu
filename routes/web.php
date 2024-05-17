@@ -87,6 +87,7 @@ Route::middleware(['web'])->group(function () {
     Route::get('/edukasi/hapus/{id_edukasi}', [ArtikelController::class, 'destroy'])->name('edukasi.hapus');
      //route pages data posyandu
      Route::get('/data-posyandu/create', [PenimbanganController::class, 'create'])->name('data_posyandu.create');
+     Route::get('/data-posyandu/cari', [PenimbanganController::class, 'cari'])->name('data_posyandu.cari');
      Route::get('/data-posyandu/create-terlambat', [DataPosyanduController::class, 'create'])->name('data_posyandu.create_terlambat');
      Route::post('/data-posyandu/store', [PenimbanganController::class, 'store'])->name('data_posyandu.store');
      Route::get('/data-posyandu/edit/{id_jadwal}', [PenimbanganController::class, 'edit'])->name('data_posyandu.edit');

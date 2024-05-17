@@ -25,6 +25,23 @@ class PenimbanganController extends Controller
                     ->get();
     return view('data_posyandu.index', compact('data_posyandu'));
 }
+public function cari(Request $request)
+    {
+    // Menangkap data pencarian
+    $cari = $request->cari;
+
+    // Mengambil data dari tabel anak sesuai pencarian data, termasuk nama ibu
+    $data_posyandu = DB::table('posyandu')
+                     ->select('posyandu.*', 'detail_posyandu.*', 'imunisasi.nama_vaksin', 'anak.nama_anak')
+                     ->join('detail_posyandu', 'posyandu.id_posyandu', '=', 'detail_posyandu.id_posyandu')
+                     ->join('imunisasi', 'detail_posyandu.id_vaksin', '=', 'imunisasi.id_vaksin')
+                     ->join('anak', 'posyandu.nik_anak', '=', 'anak.nik_anak')
+                     ->where('nama_anak', 'like', "%".$cari."%")
+                     ->paginate();
+
+    // Mengirim data anak ke view index
+    return view('data_posyandu.index', compact('data_posyandu'));
+    }
 
     public function create()
 {

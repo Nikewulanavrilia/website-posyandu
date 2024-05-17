@@ -19,7 +19,12 @@
                                         onclick="showForm()"><span class="text-light ms-2">Tambah Data Terlambat
                                             Imunisasi</span><i class="fas fa-clock ml-2"></i></a>
                                 </div>
-                                {{-- <input class="form-input" placeholder="Cari"> --}}
+                                <form action="/data-posyandu/cari" method="GET">
+                                        <div class="input-group">
+                                            <input type="text" class="form-input" name="cari" placeholder="Cari Nama Anak .." value="{{ old('cari') }}">
+                                            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                        </div>
+                                    </form>
                             </div>
                             <div class="table-responsive text-nowrap">
                                 <table class="table text-center text-light mt-3">
