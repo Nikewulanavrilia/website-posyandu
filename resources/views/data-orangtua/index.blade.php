@@ -102,7 +102,7 @@
                         html += '</table>';
     
                         Swal.fire({
-                            title: 'Detail Orang Tua',
+                            title: '<h3 class="text-primary">Detail Orang Tua</h3>',
                             html: html,
                             showCloseButton: true,
                             showConfirmButton: false
