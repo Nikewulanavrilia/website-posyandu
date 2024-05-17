@@ -52,4 +52,25 @@
         </div>
     </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        @if(session('success'))
+            Swal.fire({
+                text: '{{ session('success') }}',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3085d6',
+            });
+        @endif
+
+        @if(session('info'))
+            Swal.fire({
+                text: '{{ session('info') }}',
+                icon: 'info',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3085d6',
+            });
+        @endif
+    </script>
 @endsection

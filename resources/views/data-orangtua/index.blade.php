@@ -114,5 +114,23 @@
                 }
             });
         });
+
+        @if(session('success'))
+            Swal.fire({
+                text: '{{ session('success') }}',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3085d6',
+            });
+        @endif
+
+        @if(session('info'))
+            Swal.fire({
+                text: '{{ session('info') }}',
+                icon: 'info',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3085d6',
+            });
+        @endif
     </script>
 @endsection

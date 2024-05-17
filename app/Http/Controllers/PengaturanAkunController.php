@@ -38,7 +38,7 @@ class PengaturanAkunController extends Controller
     public function store(Request $request)
     {
         User::create($request->all());
-        return redirect()->route('pages.pengaturanakun')->with('success','Data admin telah berhasil disimpan');
+        return redirect()->route('pages.pengaturanakun')->with('success','Data Akun telah berhasil ditambahkan');
     }
     public function edit($id)
     {
@@ -47,11 +47,22 @@ class PengaturanAkunController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-    $pengaturan_akun = User::findOrFail($id); 
-    $pengaturan_akun->update($request->all());
-    return redirect()->route('pages.pengaturanakun')->with('success', 'Data admin Berhasil Diperbarui');
+{
+    $pengaturan_akun = User::findOrFail($id);
+
+    // Cek apakah ada perubahan data
+    $updatedData = $request->except('_token', '_method'); // Menghilangkan token dan method dari request data
+    $originalData = $pengaturan_akun->only(array_keys($updatedData));
+    $changes = array_diff_assoc($updatedData, $originalData);
+
+    if (empty($changes)) {
+        return redirect()->route('pages.pengaturanakun')->with('info', 'Tidak ada pembaruan pada Data Akun');
     }
+
+    $pengaturan_akun->update($updatedData);
+    return redirect()->route('pages.pengaturanakun')->with('success', 'Data Akun Berhasil Diperbarui');
+}
+
     public function destroy($id)
     {
         $pengaturan_akun = User::findOrFail($id);
