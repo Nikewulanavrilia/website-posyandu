@@ -78,17 +78,17 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6 d-flex align-items-center">
-                                                <div class="form-check ml-3">
-                                                    <input class="form-check-input" type="radio" id="sehat" name="kondisi_anak" value="sehat"onchange="toggleDataVaksinVisibility()">
-                                                    <label class="form-check-label fw-bold" for="sehat" style="font-size: 1rem;">Sehat</label>
-                                                </div>
-                                                <div class="form-check ml-5">
-                                                    <input class="form-check-input" type="radio" id="sakit" name="kondisi_anak" value="{{ isset($firstVaccineId) ? $firstVaccineId : '' }}" name="vaksin[]"  onchange="toggleDataVaksinVisibility()">
-                                                    <label class="form-check-label fw-bold" for="sakit" style="font-size: 1rem;">Sakit/Tidak Vaksin</label>
-                                                </div>
+                                        <div class="col-md-6 d-flex align-items-center">
+                                            <div class="form-check ml-3">
+                                                <input class="form-check-input" type="radio" id="sehat" name="kondisi_anak" value="sehat" onchange="toggleDataVaksinVisibility()">
+                                                <label class="form-check-label fw-bold" for="sehat" style="font-size: 1rem;">Sehat</label>
+                                            </div>
+                                            <div class="form-check ml-5">
+                                                <input class="form-check-input" type="radio" id="sakit" name="kondisi_anak" value="22" onchange="toggleDataVaksinVisibility()">
+                                                <label class="form-check-label fw-bold" for="sakit" style="font-size: 1rem;">Sakit/Tidak Vaksin</label>
                                             </div>
                                         </div>
+                                    </div>
                                         <div class="row" id="dataVaksin" style="display: none;">
                                             <div class="col-md-6">
                                                 @foreach ($data_vaksin_list as $id_vaksin => $nama_vaksin)
@@ -123,22 +123,21 @@
     </script>
     <script>
         function toggleDataVaksinVisibility() {
-            var sehatRadio = document.getElementById("sehat");
-            var sakitRadio = document.getElementById("sakit");
-            var firstVaccineId = 21;
-            sakitRadio.value = firstVaccineId;
-            var dataVaksin = document.getElementById("dataVaksin");
-            
-            if (sehatRadio.checked) {
-                dataVaksin.style.display = "block";
-            } else if (sakitRadio.checked) {
-                dataVaksin.style.display = "none";
-            }
-        }
+    var sehatRadio = document.getElementById("sehat");
+    var sakitRadio = document.getElementById("sakit");
+    var dataVaksin = document.getElementById("dataVaksin");
 
-        document.addEventListener('DOMContentLoaded', (event) => {
-            toggleDataVaksinVisibility();
-        });
+    if (sehatRadio.checked) {
+        dataVaksin.style.display = "block";
+    } else if (sakitRadio.checked) {
+        dataVaksin.style.display = "none";
+    }
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    toggleDataVaksinVisibility();
+});
+
     </script>
     <script>
         document.getElementById('tanggal_posyandu').setAttribute('min', new Date().toISOString().split("T")[0]);

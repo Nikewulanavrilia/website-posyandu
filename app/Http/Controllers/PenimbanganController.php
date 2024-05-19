@@ -50,31 +50,35 @@ public function cari(Request $request)
     return view('data_posyandu.create', compact('nik_anak_list', 'data_vaksin_list'));
 }
 public function store(Request $request)
-    {
-        $request->validate([
-            'tb_anak' => 'required',
-            'bb_anak' => 'required',
-            'umur_anak' => 'required',
-            'tanggal_posyandu' => 'required',
-            'nik_anak' => 'required',
-            'vaksin' => 'required|array|min:1', 
-        ]);
+{
+    $request->validate([
+        'tb_anak' => 'required',
+        'bb_anak' => 'required',
+        'umur_anak' => 'required',
+        'tanggal_posyandu' => 'required',
+        'nik_anak' => 'required',
+        'kondisi_anak' => 'required',
+    ]);
 
-        // Simpan data posyandu ke tabel 'posyandu'
-        $posyandu = DataPosyandu::create([
-            'tb_anak' => $request->tb_anak,
-            'bb_anak' => $request->bb_anak,
-            'umur_anak' => $request->umur_anak,
-            'tanggal_posyandu' => $request->tanggal_posyandu,
-            'nik_anak' => $request->nik_anak,
-        ]);
+    // Simpan data posyandu ke tabel 'posyandu'
+    $posyandu = DataPosyandu::create([
+        'tb_anak' => $request->tb_anak,
+        'bb_anak' => $request->bb_anak,
+        'umur_anak' => $request->umur_anak,
+        'tanggal_posyandu' => $request->tanggal_posyandu,
+        'nik_anak' => $request->nik_anak,
+    ]);
 
-        // Simpan detail vaksinasi ke tabel pivot 'detail_posyandu_imunisasi'
+    // Check kondisi anak and attach vaksin
+    if ($request->kondisi_anak == 'sehat' && $request->has('vaksin')) {
         $posyandu->vaksin()->attach($request->vaksin);
-
-        
-        return redirect()->route('pages.penimbangan')->with('success', 'Data posyandu berhasil disimpan');
+    } elseif ($request->kondisi_anak == '22') {
+        $posyandu->vaksin()->attach(22);
     }
+
+    return redirect()->route('pages.penimbangan')->with('success', 'Data posyandu berhasil disimpan');
+}
+
     
     public function getDataPosyandu() {
         $nik_anak_list = DataAnak::all();
@@ -88,7 +92,7 @@ public function store(Request $request)
 
     public function getDataFirstVaksin()
     {
-        $firstVaccine = DataImunisasi::first();
+        $firstVaccine = DataImunisasi::skip(21)->take(1)->first();
         $firstVaccineId = $firstVaccine ? $firstVaccine->id_vaksin : null;
 
         return view('data_posyandu.create', ['firstVaccineId' => $firstVaccineId]);
