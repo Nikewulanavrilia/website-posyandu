@@ -85,7 +85,7 @@
                                                 </div>
                                                 <div class="form-check ml-5">
                                                     <input class="form-check-input" type="radio" id="sakit" name="kondisi_anak" value="{{ isset($firstVaccineId) ? $firstVaccineId : '' }}" name="vaksin[]"  onchange="toggleDataVaksinVisibility()">
-                                                    <label class="form-check-label fw-bold" for="sakit" style="font-size: 1rem;">Sakit</label>
+                                                    <label class="form-check-label fw-bold" for="sakit" style="font-size: 1rem;">Sakit/Tidak Vaksin</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -125,7 +125,7 @@
         function toggleDataVaksinVisibility() {
             var sehatRadio = document.getElementById("sehat");
             var sakitRadio = document.getElementById("sakit");
-            var firstVaccineId = 1;
+            var firstVaccineId = 21;
             sakitRadio.value = firstVaccineId;
             var dataVaksin = document.getElementById("dataVaksin");
             
@@ -179,39 +179,68 @@
                 if (umurAnak === 0) {
                     $('.checkbox-vaksin').each(function() {
                         var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
-                        if (idVaksin === 2 || idVaksin === 3 || idVaksin === 4) {
+                        if (idVaksin === 1 || idVaksin === 2 || idVaksin === 3) {
                             $(this).show();
                         }
                     });
                 } else if (umurAnak === 1) {
                     $('.checkbox-vaksin').each(function() {
                         var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
-                        if (idVaksin === 3 || idVaksin === 4) {
+                        if (idVaksin === 2 || idVaksin === 3) {
                             $(this).show();
                         }
                     });
                 } else if (umurAnak === 2) {
                     $('.checkbox-vaksin').each(function() {
                         var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
-                        if (idVaksin === 5 || idVaksin === 6 || idVaksin === 7 || idVaksin === 8) {
+                        if (idVaksin === 4 || idVaksin === 5 || idVaksin === 6 || idVaksin === 7) {
                             $(this).show();
                         }
                     });
                 } else if (umurAnak === 3) {
                     $('.checkbox-vaksin').each(function() {
                         var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
-                        if (idVaksin === 9 || idVaksin === 10 || idVaksin === 11 || idVaksin === 12) {
+                        if (idVaksin === 8 || idVaksin === 9 || idVaksin === 10 || idVaksin === 11) {
                             $(this).show();
                         }
                     });
                 } else if (umurAnak === 4) {
                     $('.checkbox-vaksin').each(function() {
                         var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
-                        if (idVaksin === 13 || idVaksin === 14 || idVaksin === 15 || idVaksin === 16) {
+                        if (idVaksin === 12 || idVaksin === 13 || idVaksin === 14 || idVaksin === 15) {
                             $(this).show();
                         }
                     });
-                } else {
+                } else if (umurAnak === 9) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if (idVaksin === 16 || idVaksin === 17) {
+                            $(this).show();
+                        }
+                    });
+                }else if (umurAnak === 10) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if (idVaksin === 18) {
+                            $(this).show();
+                        }
+                    });
+                }else if (umurAnak === 12) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if (idVaksin === 19) {
+                            $(this).show();
+                        }
+                    });
+                }else if (umurAnak === 18) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if (idVaksin === 20|| idVaksin === 21) {
+                            $(this).show();
+                        }
+                    });
+                }
+                else {
                     $('.checkbox-vaksin').show();
                 }
             });
