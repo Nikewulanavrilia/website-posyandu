@@ -14,11 +14,11 @@ class DataPosyanduController extends Controller
         $this->middleware('auth');
     }
     public function create()
-{
+    {
     $nik_anak_list = DataAnak::pluck('nama_anak', 'nik_anak');
     $data_vaksin_list = $this->getDataVaksin(); 
     return view('data_posyandu.create_terlambat', compact('nik_anak_list', 'data_vaksin_list'));
-}
+    }
 public function store(Request $request)
     {
         $request->validate([

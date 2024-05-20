@@ -77,18 +77,25 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                        <div class="col-md-6 d-flex align-items-center">
-                                            <div class="form-check ml-3">
-                                                <input class="form-check-input" type="radio" id="sehat" name="kondisi_anak" value="sehat" onchange="toggleDataVaksinVisibility()">
-                                                <label class="form-check-label fw-bold" for="sehat" style="font-size: 1rem;">Sehat</label>
-                                            </div>
-                                            <div class="form-check ml-5">
-                                                <input class="form-check-input" type="radio" id="sakit" name="kondisi_anak" value="22" onchange="toggleDataVaksinVisibility()">
-                                                <label class="form-check-label fw-bold" for="sakit" style="font-size: 1rem;">Sakit/Tidak Vaksin</label>
+                                        <div class="row" id="tdk_ada_vaksin" style="display: none;">
+                                        <div class="col-md-6">
+                                            <div class="mb-3 d-flex flex-column">
+                                                <input type="hidden" class="form-input" value="22" name="kondisi_anak" id="tdk_vaksin">
                                             </div>
                                         </div>
                                     </div>
+                                        <div class="row" id="kondisi-anak" style="display: block;">
+                                            <div class="col-md-6 d-flex align-items-center">
+                                                <div class="form-check ml-3">
+                                                    <input class="form-check-input" type="radio" id="sehat" name="kondisi_anak" value="sehat" onchange="toggleDataVaksinVisibility()">
+                                                    <label class="form-check-label fw-bold" for="sehat" style="font-size: 1rem;">Sehat</label>
+                                                </div>
+                                                <div class="form-check ml-5">
+                                                    <input class="form-check-input" type="radio" id="sakit" name="kondisi_anak" value="22" onchange="toggleDataVaksinVisibility()">
+                                                    <label class="form-check-label fw-bold" for="sakit" style="font-size: 1rem;">Sakit/Tidak Vaksin</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row" id="dataVaksin" style="display: none;">
                                             <div class="col-md-6">
                                                 @foreach ($data_vaksin_list as $id_vaksin => $nama_vaksin)
@@ -172,6 +179,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 var umurAnak = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.4375));
 
                 $('#umur_anak').val(umurAnak);
+
+                if ([5, 6, 7, 8, 11, 13, 14, 15, 16, 17, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59].includes(umurAnak)) {
+                    document.getElementById('tdk_ada_vaksin').style.display = 'block';
+                    document.getElementById('kondisi-anak').style.display = 'none';
+                } else {
+                    document.getElementById('tdk_ada_vaksin').style.display = 'none';
+                    document.getElementById('kondisi-anak').style.display = 'block';
+                }
 
                 $('.checkbox-vaksin').hide();
 

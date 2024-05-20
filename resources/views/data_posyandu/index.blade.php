@@ -14,7 +14,7 @@
                                         class="btn btn-primary p-2 d-flex align-items-center justify-content-center"
                                         onclick="showForm()"><span class="text-light ms-2">Tambah Data Posyandu</span><i
                                             class="fas fa-plus ml-2"></i></a>
-                                    <a href="{{route('data_posyandu.create_terlambat')}}"
+                                    <a href="{{route('data_posyandu_terlambat.create')}}"
                                         class="btn btn-primary p-2 d-flex align-items-center justify-content-center ml-3"
                                         onclick="showForm()"><span class="text-light ms-2">Tambah Data Terlambat
                                             Imunisasi</span><i class="fas fa-clock ml-2"></i></a>
@@ -44,19 +44,14 @@
                                             $previous_date = null; 
                                         @endphp
                                         @foreach ($data_posyandu as $item)
-                                         <tr>
-                                        @if ($item->tanggal_posyandu != $previous_date)
-                                        <td rowspan="{{ $data_posyandu->where('tanggal_posyandu', $item->tanggal_posyandu)->count() }}"
-                                        class="text-center text-primary">{{ $item->nama_anak }}</td>
-                                        <td rowspan="{{ $data_posyandu->where('tanggal_posyandu', $item->tanggal_posyandu)->count() }}"
-                                        class="text-center text-primary">{{ $item->tb_anak }}</td>
-                                        <td rowspan="{{ $data_posyandu->where('tanggal_posyandu', $item->tanggal_posyandu)->count() }}"
-                                        class="text-center text-primary">{{ $item->bb_anak }}</td>
-                                        <td rowspan="{{ $data_posyandu->where('tanggal_posyandu', $item->tanggal_posyandu)->count() }}"
-                                        class="text-center text-primary">{{ $item->umur_anak }}</td>
-                                        <td rowspan="{{ $data_posyandu->where('tanggal_posyandu', $item->tanggal_posyandu)->count() }}"
-                                        class="text-center text-primary">
-                                        {{ \Carbon\Carbon::parse($item->tanggal_posyandu)->format('d-m-Y') }}
+                                        <tr>
+                                             @if ($item->tanggal_posyandu != $previous_date)
+                                            <td rowspan="{{ $data_posyandu->where('tanggal_posyandu', $item->tanggal_posyandu)->count() }}" class="text-center text-primary mb-3">{{ $item->nama_anak }}</td>
+                                            <td rowspan="{{ $data_posyandu->where('tanggal_posyandu', $item->tanggal_posyandu)->count() }}" class="text-center text-primary mb-3">{{ $item->tb_anak }}</td>
+                                            <td rowspan="{{ $data_posyandu->where('tanggal_posyandu', $item->tanggal_posyandu)->count() }}" class="text-center text-primary mb-3">{{ $item->bb_anak }}</td>
+                                            <td rowspan="{{ $data_posyandu->where('tanggal_posyandu', $item->tanggal_posyandu)->count() }}" class="text-center text-primary mb-3">{{ $item->umur_anak }}</td>
+                                            <td rowspan="{{ $data_posyandu->where('tanggal_posyandu', $item->tanggal_posyandu)->count() }}" class="text-center text-primary mb-3">
+                                            {{ \Carbon\Carbon::parse($item->tanggal_posyandu)->format('d-m-Y') }}
                                         </td>
                                         @endif
                                         <td class="text-center text-primary">{{ $item->nama_vaksin }}</td>

@@ -7,7 +7,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('data_posyandu.store') }}" method="post">
+                                <form action="{{ route('data_posyandu_terlambat.store') }}" method="post">
                                     @csrf
                                     <div class="container">
                                         <h3 class="text-primary">Tambah Data Terlambat Imunisasi</h3>

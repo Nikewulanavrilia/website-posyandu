@@ -95,12 +95,11 @@ Route::middleware(['web'])->group(function () {
      //route pages data posyandu
      Route::get('/data-posyandu/create', [PenimbanganController::class, 'create'])->name('data_posyandu.create');
      Route::get('/data-posyandu/cari', [PenimbanganController::class, 'cari'])->name('data_posyandu.cari');
-     Route::get('/data-posyandu/create-terlambat', [DataPosyanduController::class, 'create'])->name('data_posyandu.create_terlambat');
      Route::post('/data-posyandu/store', [PenimbanganController::class, 'store'])->name('data_posyandu.store');
-     Route::get('/data-posyandu/edit/{id_jadwal}', [PenimbanganController::class, 'edit'])->name('data_posyandu.edit');
-     Route::put('/data-posyandu/update/{id_jadwal}', [PenimbanganController::class, 'update'])->name('data_posyandu.update');
-     Route::get('/data-posyandu/hapus/{id_jadwal}', [PenimbanganController::class, 'destroy'])->name('data_posyandu.hapus');
      Route::get('/pilih-data-anak', [PenimbanganController::class, 'getDataPosyandu'])->name('data_posyandu.getDataPosyandu');
      Route::get('/data-vaksin', [PenimbanganController::class, 'getDataVaksin'])->name('data_posyandu.getDataVaksin');
      Route::get('/first-vaksin', [PenimbanganController::class, 'getDataFirstVaksin'])->name('data_posyandu.getDataFirstVaksin');
+      //route pages data posyandu terlambat
+     Route::get('/data-posyandu/create-terlambat', [DataPosyanduController::class, 'create'])->name('data_posyandu_terlambat.create');
+     Route::post('/data-posyandu/store-terlambat', [DataPosyanduController::class, 'store'])->name('data_posyandu_terlambat.store');
 });
