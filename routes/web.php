@@ -14,6 +14,8 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\DataPosyanduController;
+use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\Auth\ChangePasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +37,12 @@ Route::middleware(['web'])->group(function () {
     })->name("register");
     //route pages
     Route::get('/login',[LoginController::class,'showLoginForm'])->name('login');
-    Route::get('/lupa-password',[ForgotPasswordController::class,'lupapassword'])->name('lupa-password');
+    Route::get('/lupa-password',[ForgotPasswordController::class,'lupapassword'])->name('lupa-password'); 
+    Route::get('/verikasi-email',[VerificationController::class,'verifikasi'])->name('verifikasi-email');
+    Route::get('/verifikasi-email', [VerificationController::class, 'verifikasi'])->name('verifikasi-email');
+    Route::post('/periksa-email', [VerificationController::class, 'verifikasiEmail'])->name('periksa-email');
+    Route::get('/reset-password/{token}', [ChangePasswordController::class, 'showResetPasswordForm'])->name('reset.password.form');
+    Route::post('/reset-password', [ChangePasswordController::class, 'resetPassword'])->name('reset.password');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/data-anak', [DataAnakController::class, 'index'])->name('pages.data_anak');
     Route::get('/data-ibu', [DataIbuController::class, 'index'])->name('pages.data_ibu');

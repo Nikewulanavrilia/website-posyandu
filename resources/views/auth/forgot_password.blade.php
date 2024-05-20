@@ -47,7 +47,8 @@
                                     <input type="text" class="form-control" id="captcha_code" name="captcha_code">
                                 </div>
                                 <div class="container d-flex justify-content-center align-items-center">
-                                    <button type="button" class="btn btn-primary shadow-sm mr-3" onclick="validateCaptcha()">Confirm</button>
+                                    <button type="button" class="btn btn-primary shadow-sm mr-3"
+                                        onclick="validateCaptcha()">Confirm</button>
                                     <a href="{{ route('login') }}" class="btn btn-secondary">Cancel<a>
                                 </div>
                             </form>
@@ -121,10 +122,12 @@
                         icon: 'success',
                         title: 'Success!',
                         text: 'Captcha confirmation successfully!',
-                        showConfirmButton: false,
-                        timer: 1500
+                        confirmButtonColor: '#3085d6',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "{{ route('verifikasi-email') }}";
+                        }
                     });
-                    drawCaptcha();
                 } else {
                     Swal.fire({
                         icon: 'error',

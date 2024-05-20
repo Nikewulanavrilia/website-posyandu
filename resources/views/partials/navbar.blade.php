@@ -16,8 +16,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list rounded"
                     aria-labelledby="profileDropdown">
-                    <a href="{{ route('logout') }}" class="dropdown-item preview-item"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a href="#" class="dropdown-item preview-item" onclick="event.preventDefault(); confirmLogout();">
                         <div class="preview-thumbnail">
                             <div class="preview-icon bg-blue rounded-circle">
                                 <i class="mdi mdi-logout text-light"></i>
@@ -26,7 +25,7 @@
                         <div class="preview-item-content">
                             <p class="preview-subject mb-1 text-black">Log out</p>
                         </div>
-                    </a>
+                    </a>                    
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
@@ -39,3 +38,23 @@
         </button>
     </div>
 </nav>
+
+<script>
+    // Fungsi untuk menampilkan pesan konfirmasi saat logout
+    function confirmLogout() {
+        Swal.fire({
+            text: 'Apakah Anda yakin ingin logout?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Logout',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Jika pengguna menekan tombol "Ya, Logout", kirimkan form logout
+                document.getElementById('logout-form').submit();
+            }
+        });
+    }
+</script>

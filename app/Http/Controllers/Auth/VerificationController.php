@@ -3,39 +3,30 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\VerifiesEmails;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class VerificationController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Email Verification Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller is responsible for handling email verification for any
-    | user that recently registered with the application. Emails may also
-    | be re-sent if the user didn't receive the original email message.
-    |
-    */
-
-    use VerifiesEmails;
-
-    /**
-     * Where to redirect users after verification.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function verifikasi()
     {
-        $this->middleware('auth');
-        $this->middleware('signed')->only('verify');
-        $this->middleware('throttle:6,1')->only('verify', 'resend');
+        return view('auth.verify');
     }
+
+    public function verifikasiEmail(Request $request)
+{
+    $email = $request->input('email');
+
+    $user = User::where('email', $email)->first();
+
+    if ($user) {
+        $token = sha1(time());
+        $user->remember_token = $token;
+        $user->save();
+        return redirect()->route('reset.password.form', ['token' => $token]);
+    } else {
+        return Redirect::back()->withErrors(['error' => 'Email tidak terdaftar.']);
+    }
+}
 }

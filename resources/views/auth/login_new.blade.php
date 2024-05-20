@@ -126,6 +126,33 @@
                 this.submit();
             }
         });
+
+        @if(session('success'))
+            Swal.fire({
+                text: '{{ session('success') }}',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3085d6',
+            });
+        @endif
+
+        @if (Session::has('email_error'))
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: "{{ Session::get('email_error') }}",
+                });
+            });
+        @elseif (Session::has('password_error'))
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: "{{ Session::get('password_error') }}",
+                });
+            });
+        @endif
     </script>
 </body>
 

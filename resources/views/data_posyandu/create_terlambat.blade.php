@@ -16,7 +16,8 @@
                                                 <div class="mb-3 d-flex flex-column">
                                                     <label for="nama_anak" class="col-12 text-primary">Nama Anak</label>
                                                     <div class="input-group">
-                                                    <input type="text" class="form-input col-10" id="nama_anak" name="nama_anak" readonly>
+                                                        <input type="text" class="form-input col-10" id="nama_anak"
+                                                            name="nama_anak" readonly>
                                                         <button class="btn-primary btn p-2 rounded"
                                                             id="btn-pilih">Pilih</button>
                                                     </div>
@@ -26,13 +27,15 @@
                                                 <div class="mb-3 d-flex flex-column">
                                                     <label for="tanggal_lahir_anak" class="col-12 text-primary">Tanggal
                                                         Lahir Anak</label>
-                                                        <input type="date" class="form-input datepicker" id="tanggal_lahir_anak" name="tanggal_lahir_anak" readonly>
+                                                    <input type="date" class="form-input datepicker"
+                                                        id="tanggal_lahir_anak" name="tanggal_lahir_anak" readonly>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="mb-3 d-flex flex-column">
                                                     <label for="nik_anak" class="col-12 text-primary">NIK Anak</label>
-                                                    <input type="text" class="form-input datepicker" name="nik_anak" id="nik_anak" readonly>
+                                                    <input type="text" class="form-input datepicker" name="nik_anak"
+                                                        id="nik_anak" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -81,8 +84,11 @@
                                             <div class="col-md-6">
                                                 @foreach ($data_vaksin_list as $id_vaksin => $nama_vaksin)
                                                     <div class="form-check checkbox-vaksin ml-3">
-                                                        <input class="form-check-input" type="checkbox" name="vaksin[]" id="vaksin_{{ $id_vaksin }}" value="{{ $id_vaksin }}" >
-                                                        <label class="form-check-label fw-bold" for="vaksin_{{ $id_vaksin }}" style="font-size: 1rem;">{{ $nama_vaksin }}</label>
+                                                        <input class="form-check-input" type="checkbox" name="vaksin[]"
+                                                            id="vaksin_{{ $id_vaksin }}" value="{{ $id_vaksin }}">
+                                                        <label class="form-check-label fw-bold"
+                                                            for="vaksin_{{ $id_vaksin }}"
+                                                            style="font-size: 1rem;">{{ $nama_vaksin }}</label>
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -90,7 +96,8 @@
                                     </div>
                                     <div class=" container mt-3 mb-3">
                                         <button type="submit" class="btn btn-primary">Simpan</button>
-                                        <a href="{{ route('pages.penimbangan') }}"><button class="btn btn-secondary" type="button" onclick="batal()">Batal</button></a>
+                                        <a href="{{ route('pages.penimbangan') }}"><button class="btn btn-secondary"
+                                                type="button" onclick="batal()">Batal</button></a>
                                     </div>
                                 </form>
                             </div>
@@ -145,42 +152,127 @@
                 var umurAnak = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.4375));
 
                 $('#umur_anak').val(umurAnak);
+                
+                if (umurAnak === 0 || umurAnak === 1) {
+                    Swal.fire({
+                        icon: 'error',
+                        text: 'Usia anak tidak diperbolehkan untuk pemberian imunisasi',
+                        confirmButtonColor: '#3085d6',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "{{ route('pages.penimbangan') }}";
+                        }
+                    });
+                    $('#dataVaksin').css('display', 'none');
+                    return;
+                }
+
                 toggleDataVaksin();
 
                 $('.checkbox-vaksin').hide();
 
-                if (umurAnak === 0) {
+                if (umurAnak === 2) {
                     $('.checkbox-vaksin').each(function() {
                         var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
-                        if (idVaksin === 2 || idVaksin === 3 || idVaksin === 4) {
-                            $(this).show();
-                        }
-                    });
-                } else if (umurAnak === 1) {
-                    $('.checkbox-vaksin').each(function() {
-                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
-                        if (idVaksin === 3 || idVaksin === 4) {
-                            $(this).show();
-                        }
-                    });
-                } else if (umurAnak === 2) {
-                    $('.checkbox-vaksin').each(function() {
-                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
-                        if (idVaksin === 5 || idVaksin === 6 || idVaksin === 7 || idVaksin === 8) {
+                        if (idVaksin === 2 || idVaksin === 3) {
                             $(this).show();
                         }
                     });
                 } else if (umurAnak === 3) {
                     $('.checkbox-vaksin').each(function() {
                         var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
-                        if (idVaksin === 9 || idVaksin === 10 || idVaksin === 11 || idVaksin === 12) {
+                        if (idVaksin === 2 || idVaksin === 3 || idVaksin === 4 || idVaksin === 5 ||
+                            idVaksin === 6 || idVaksin === 7) {
                             $(this).show();
                         }
                     });
                 } else if (umurAnak === 4) {
                     $('.checkbox-vaksin').each(function() {
                         var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
-                        if (idVaksin === 13 || idVaksin === 14 || idVaksin === 15 || idVaksin === 16) {
+                        if (idVaksin === 2 || idVaksin === 3 || idVaksin === 4 || idVaksin === 5 ||
+                            idVaksin === 6 || idVaksin === 7 || idVaksin === 8 || idVaksin === 9 ||
+                            idVaksin === 10 || idVaksin === 11) {
+                            $(this).show();
+                        }
+                    });
+                } else if (umurAnak === 5) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if (idVaksin === 2 || idVaksin === 3 || idVaksin === 4 || idVaksin === 5 ||
+                            idVaksin === 6 || idVaksin === 7 || idVaksin === 8 || idVaksin === 9 ||
+                            idVaksin === 10 || idVaksin === 11 || idVaksin === 12 || idVaksin ===
+                            13 || idVaksin === 14 || idVaksin === 15) {
+                            $(this).show();
+                        }
+                    });
+                } else if (umurAnak === 6) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if (idVaksin === 2 || idVaksin === 3 || idVaksin === 4 || idVaksin === 5 ||
+                            idVaksin === 6 || idVaksin === 7 || idVaksin === 8 || idVaksin === 9 ||
+                            idVaksin === 10 || idVaksin === 11 || idVaksin === 12 || idVaksin ===
+                            13 || idVaksin === 14 || idVaksin === 15) {
+                            $(this).show();
+                        }
+                    });
+                } else if (umurAnak === 7) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if (idVaksin === 2 || idVaksin === 3 || idVaksin === 4 || idVaksin === 5 ||
+                            idVaksin === 7 || idVaksin === 8 || idVaksin === 9 || idVaksin === 11 ||
+                            idVaksin === 12 || idVaksin === 13 || idVaksin === 14) {
+                            $(this).show();
+                        }
+                    });
+                } else if (umurAnak === 8) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if (idVaksin === 2 || idVaksin === 3 || idVaksin === 4 || idVaksin === 5 ||
+                            idVaksin === 7 || idVaksin === 8 || idVaksin === 9 || idVaksin === 11 ||
+                            idVaksin === 12 || idVaksin === 13 || idVaksin === 14) {
+                            $(this).show();
+                        }
+                    });
+                } else if (umurAnak === 9) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if (idVaksin === 2 || idVaksin === 3 || idVaksin === 4 || idVaksin === 5 ||
+                            idVaksin === 7 || idVaksin === 8 || idVaksin === 9 || idVaksin === 11 ||
+                            idVaksin === 12 || idVaksin === 13 || idVaksin === 14) {
+                            $(this).show();
+                        }
+                    });
+                } else if (umurAnak === 10) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if (idVaksin === 2 || idVaksin === 3 || idVaksin === 4 || idVaksin === 5 ||
+                            idVaksin === 7 || idVaksin === 8 || idVaksin === 9 || idVaksin === 11 ||
+                            idVaksin === 12 || idVaksin === 13 || idVaksin === 14 || idVaksin ===
+                            16 || idVaksin === 17) {
+                            $(this).show();
+                        }
+                    });
+                } else if (umurAnak === 11) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if (idVaksin === 2 || idVaksin === 3 || idVaksin === 4 || idVaksin === 5 ||
+                            idVaksin === 7 || idVaksin === 8 || idVaksin === 9 || idVaksin === 11 ||
+                            idVaksin === 12 || idVaksin === 13 || idVaksin === 14 || idVaksin ===
+                            16 || idVaksin === 17) {
+                            $(this).show();
+                        }
+                    });
+                } else if (umurAnak === 18) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if (idVaksin === 19) {
+                            $(this).show();
+                        }
+                    });
+                } else if (umurAnak === 23) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if (idVaksin === 19 || idVaksin === 20 || idVaksin === 21) {
                             $(this).show();
                         }
                     });
