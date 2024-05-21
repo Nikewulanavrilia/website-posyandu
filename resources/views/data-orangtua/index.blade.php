@@ -40,7 +40,7 @@
                                                     <!-- <td class="text-center text-primary">{{ $item->nik_ayah }}</td> -->
                                                     <td class="text-center text-primary">{{ $item->nama_ayah }}</td>
                                                     <!-- <td class="text-center text-primary">{{ $item->alamat }}</td> -->
-                                                    <td class="text-center text-primary">+62{{ $item->telepon }}</td>
+                                                    <td class="text-center text-primary">{{ $item->telepon }}</td>
                                                     <!-- <td class="text-center text-primary">{{ $item->email_orang_tua }}</td> -->
                                                     <td>
                                                         <a class="btn btn-primary btn-sm icon-btn" href="{{ route('data_ibu.edit', $item->no_kk) }}"><i class="fas fa-edit"></i></a>

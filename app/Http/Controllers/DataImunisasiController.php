@@ -14,7 +14,7 @@ class DataImunisasiController extends Controller
     }
     public function index()
     {
-        $data_imunisasi = DB::table('imunisasi')->paginate(4);
+        $data_imunisasi = DB::table('imunisasi')->paginate(5);
         return view('data-imunisasi.index', compact('data_imunisasi'));
     }
     public function cari(Request $request)

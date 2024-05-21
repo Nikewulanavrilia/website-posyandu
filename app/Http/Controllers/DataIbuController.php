@@ -14,7 +14,7 @@ class DataIbuController extends Controller
     }
     public function index()
     {
-        $data_ibu = DB::table('orang_tua')->paginate(4);
+        $data_ibu = DB::table('orang_tua')->paginate(5);
         return view('data-orangtua.index', compact('data_ibu'));
     }
     public function cari(Request $request)

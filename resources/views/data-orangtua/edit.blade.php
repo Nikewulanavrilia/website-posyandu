@@ -84,7 +84,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3 d-flex flex-column">
                                         <label for="telepon" class="col-12 text-primary">No Telepon</label>
-                                        <input type="text" class="form-input" name="telepon" id="telepon" value="{{ isset($data_ibu) ? $data_ibu->telepon : '' }}" required>
+                                        <input type="number" class="form-input" name="telepon" id="telepon" value="{{ isset($data_ibu) ? $data_ibu->telepon : '' }}" required>
                                     </div>
                                 </div>
                             </div>                            

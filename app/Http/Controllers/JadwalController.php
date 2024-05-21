@@ -13,7 +13,7 @@ class JadwalController extends Controller
     }
     public function index()
     {
-        $jadwal_posyandu = DB::table('jadwal_posyandu')->paginate(4);
+        $jadwal_posyandu = DB::table('jadwal_posyandu')->paginate(5);
         return view('jadwal-posyandu.index', compact('jadwal_posyandu'));
     }
     public function create()

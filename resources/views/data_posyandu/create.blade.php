@@ -65,7 +65,7 @@
                                                     <label for="bb_anak" class="col-12 text-primary">Berat Badan
                                                         (kg)</label>
                                                     <input type="number" class="form-input datepicker" name="bb_anak"
-                                                        id="bb_anak" required>
+                                                        id="bb_anak"step="0.1" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -73,7 +73,7 @@
                                                     <label for="tb_anak" class="col-12 text-primary">Tinggi Badan
                                                         (cm)</label>
                                                     <input type="number" class="form-input datepicker" name="tb_anak"
-                                                        id="tb_anak" required>
+                                                        id="tb_anak"step="0.1" required>
                                                 </div>
                                             </div>
                                         </div>
