@@ -27,7 +27,7 @@
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
-                                <a href="{{ route('pages.jadwal') }}"><button class="btn btn-secondary" type="button">Batal</button></a>
+                                <a href="{{ route('pages.edukasi') }}"><button class="btn btn-secondary" type="button">Batal</button></a>
                             </div>
                         </form>
 
