@@ -22,7 +22,7 @@ class PenimbanganController extends Controller
                     ->join('detail_posyandu', 'posyandu.id_posyandu', '=', 'detail_posyandu.id_posyandu')
                     ->join('imunisasi', 'detail_posyandu.id_vaksin', '=', 'imunisasi.id_vaksin')
                     ->join('anak', 'posyandu.nik_anak', '=', 'anak.nik_anak')
-                    ->get();
+                    ->paginate(5);
     return view('data_posyandu.index', compact('data_posyandu'));
 }
 public function cari(Request $request)

@@ -10,7 +10,14 @@
                             <h4 class="card-title">Tabel Edukasi</h4>
                             <div class="d-flex justify-content-between">
                                 <a href="{{route('edukasi.create')}}" class="btn btn-primary p-2 d-flex align-items-center justify-content-center" onclick="showForm()"><span class="text-light ms-2">Tambah Edukasi</span><i class="fas fa-plus ml-2"></i></a>
-                                <input class="form-input" placeholder="Cari">
+                                <form action="/edukasi/cari" method="GET">
+                                        <div class="input-group">
+                                            <input type="text" class="form-input" name="cari"
+                                                placeholder="Cari Judul Edukasi .." value="{{ old('cari') }}">
+                                            <button type="submit" class="btn btn-primary"><i
+                                                    class="fas fa-search"></i></button>
+                                        </div>
+                                    </form>
                             </div>
                             <div class="table-responsive text-nowrap">
                                 <table class="table text-center text-light mt-3">
@@ -42,6 +49,7 @@
                                             @endforeach
                                         </tbody>
                                 </table>
+                                {!! $edukasi->withQueryString()->links('pagination::bootstrap-5') !!}
                             </div>
                         </div>
                     </div>

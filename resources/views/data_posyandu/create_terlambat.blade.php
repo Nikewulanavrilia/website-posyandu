@@ -258,25 +258,40 @@
                         if (idVaksin === 2 || idVaksin === 3 || idVaksin === 4 || idVaksin === 5 ||
                             idVaksin === 7 || idVaksin === 8 || idVaksin === 9 || idVaksin === 11 ||
                             idVaksin === 12 || idVaksin === 13 || idVaksin === 14 || idVaksin ===
-                            16 || idVaksin === 17) {
+                            16 || idVaksin === 17|| idVaksin === 18) {
+                            $(this).show();
+                        }
+                    });
+                }else if (umurAnak === 12) {
+                    $('.checkbox-vaksin').each(function() {
+                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                        if ( idVaksin === 3 || idVaksin === 4 || idVaksin === 5 ||
+                            idVaksin === 7 || idVaksin === 8 || idVaksin === 9 || idVaksin === 11 ||
+                            idVaksin === 12 || idVaksin === 13 || idVaksin === 14 || idVaksin ===
+                            16 || idVaksin === 17|| idVaksin === 18) {
                             $(this).show();
                         }
                     });
                 } else if (umurAnak === 18) {
                     $('.checkbox-vaksin').each(function() {
                         var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
-                        if (idVaksin === 19) {
+                        if (idVaksin === 3 ||idVaksin === 4 ||idVaksin === 5 ||idVaksin === 7 ||idVaksin === 8 ||
+                        idVaksin === 9 ||idVaksin === 11 ||idVaksin === 12 ||idVaksin === 13 ||idVaksin === 14 ||
+                        idVaksin === 16 ||idVaksin === 17 ||idVaksin === 18 ||idVaksin === 19||idVaksin === 20 ) {
                             $(this).show();
                         }
                     });
-                } else if (umurAnak === 23) {
-                    $('.checkbox-vaksin').each(function() {
-                        var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
-                        if (idVaksin === 19 || idVaksin === 20 || idVaksin === 21) {
-                            $(this).show();
-                        }
-                    });
-                } else {
+                } else if (umurAnak >= 23 && umurAnak <= 59) {
+                        $('.checkbox-vaksin').each(function() {
+                            var idVaksin = parseInt($(this).find('input[type="checkbox"]').val());
+                            if (idVaksin === 3 || idVaksin === 4 || idVaksin === 5 || idVaksin === 7 ||
+                                idVaksin === 8 || idVaksin === 9 || idVaksin === 11 || idVaksin === 12 ||
+                                idVaksin === 13 || idVaksin === 14 || idVaksin === 16 || idVaksin === 17 ||
+                                idVaksin === 18 || idVaksin === 19 || idVaksin === 20 || idVaksin === 21) {
+                                $(this).show();
+                            }
+                        });
+                    } else {
                     $('.checkbox-vaksin').show();
                 }
             });

@@ -16,6 +16,20 @@ class ArtikelController extends Controller
         $edukasi = DB::table('edukasi')->paginate(4);
         return view('edukasi.index', compact('edukasi'));
     }
+    public function cari(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+
+        // mengambil data dari table pegawai sesuai pencarian data
+        $edukasi = DB::table('edukasi')
+            ->where('judul', 'like', "%" . $cari . "%")
+            ->paginate(4);
+
+        // mengirim data pegawai ke view index
+        return view('edukasi.index', compact('edukasi'));
+
+    }
     public function create()
     {
         $edukasi = null;

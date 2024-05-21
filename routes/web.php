@@ -88,6 +88,7 @@ Route::middleware(['web'])->group(function () {
     Route::get('/jadwal-posyandu/hapus/{id_jadwal}', [JadwalController::class, 'destroy'])->name('jadwal_posyandu.hapus');
     //route pages edukasi
     Route::get('/edukasi/create', [ArtikelController::class, 'create'])->name('edukasi.create');
+    Route::get('/edukasi/cari', [ArtikelController::class, 'cari'])->name('edukasi.cari');
     Route::post('/edukasi/store', [ArtikelController::class, 'store'])->name('edukasi.store');
     Route::get('/edukasi/edit/{id_edukasi}', [ArtikelController::class, 'edit'])->name('edukasi.edit');
     Route::put('/edukasi/update/{id_edukasi}', [ArtikelController::class, 'update'])->name('edukasi.update');

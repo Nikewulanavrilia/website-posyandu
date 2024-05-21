@@ -62,6 +62,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                {!! $data_posyandu->withQueryString()->links('pagination::bootstrap-5') !!}
                             </div>
                         </div>
                     </div>
