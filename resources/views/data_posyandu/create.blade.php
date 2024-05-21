@@ -73,7 +73,7 @@
                                                     <label for="tb_anak" class="col-12 text-primary">Tinggi Badan
                                                         (cm)</label>
                                                     <input type="number" class="form-input datepicker" name="tb_anak"
-                                                        id="tb_anak"step="0.1" required>
+                                                        id="tb_anak" step="0.1" required>
                                                 </div>
                                             </div>
                                         </div>

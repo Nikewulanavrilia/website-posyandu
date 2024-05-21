@@ -33,7 +33,7 @@
                                             <!-- <th class="text-primary">No</th> -->
                                             <th class="text-primary">Nama Anak</th>
                                             <th class="text-primary">TB (cm)</th>
-                                            <th class="text-primary">BB (Kg)</th>
+                                            <th class="text-primary">BB (kg)</th>
                                             <th class="text-primary">Umur Anak</th>
                                             <th class="text-primary">Tanggal Posyandu</th>
                                             <th class="text-primary">Vaksin</th>
