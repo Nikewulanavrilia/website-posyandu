@@ -78,12 +78,12 @@
                                             </div>
                                         </div>
                                         <div class="row" id="tdk_ada_vaksin" style="display: none;">
-                                        <div class="col-md-6">
-                                            <div class="mb-3 d-flex flex-column">
-                                                <input type="hidden" class="form-input" value="22" name="kondisi_anak" id="tdk_vaksin">
+                                            <div class="col-md-6">
+                                                <div class="col-md-6">
+                                                    <input type="hidden" class="form-input" value="22" name="kondisi_anak" id="tdk_vaksin">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                         <div class="row" id="kondisi-anak" style="display: block;">
                                             <div class="col-md-6 d-flex align-items-center">
                                                 <div class="form-check ml-3">
@@ -97,17 +97,23 @@
                                             </div>
                                         </div>
                                         <div class="row" id="dataVaksin" style="display: none;">
-                                            <div class="col-md-6">
-                                                @foreach ($data_vaksin_list as $id_vaksin => $nama_vaksin)
-                                                    <div class="form-check checkbox-vaksin ml-3">
-                                                        <input class="form-check-input" type="checkbox" name="vaksin[]" id="vaksin_{{ $id_vaksin }}" value="{{ $id_vaksin }}" >
-                                                        <label class="form-check-label fw-bold" for="vaksin_{{ $id_vaksin }}" style="font-size: 1rem;">{{ $nama_vaksin }}</label>
-                                                    </div>
-                                                @endforeach
+                                            <div class="col-md-12">
+                                                <div class="d-flex justify-content-start align-items-start flex-wrap">
+                                                    @foreach ($data_vaksin_list as $id_vaksin => $nama_vaksin)
+                                                        <div class="form-check-container" style="margin-right: 20px;">
+                                                            <div class="form-check checkbox-vaksin">
+                                                                <input class="form-check-input" type="checkbox" name="vaksin[]" id="vaksin_{{ $id_vaksin }}" value="{{ $id_vaksin }}">
+                                                                <label class="form-check-label fw-bold" for="vaksin_{{ $id_vaksin }}" style="font-size: 1rem;">
+                                                                    {{ $nama_vaksin }}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class=" container mt-3 mb-3">
+                                    <div class=" container mb-3">
                                         <button type="submit" class="btn btn-primary">Simpan</button>
                                         <a href="{{ route('pages.penimbangan') }}"><button class="btn btn-secondary" type="button" onclick="batal()">Batal</button></a>
                                     </div>

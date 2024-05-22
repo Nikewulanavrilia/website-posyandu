@@ -18,8 +18,8 @@
                                         <tr>
                                             <th class="text-primary">No</th>
                                             <th class="text-primary">Jadwal Posyandu</th>
-                                            <th class="text-primary">Jam Buku</th>
-                                            <th class="text-primary">Jadwal Tutup</th>
+                                            <th class="text-primary">Jam Buka</th>
+                                            <th class="text-primary">Jam Tutup</th>
                                             <th class="text-primary">Action</th>
                                         </tr>
                                     </thead>
@@ -33,8 +33,7 @@
                                                     <td>
                                                         <a class="btn btn-primary btn-sm icon-btn" href="{{ route('jadwal_posyandu.edit', $item->id_jadwal) }}"><i
                                                                 class="fas fa-edit"></i></a>
-                                                        <a class="btn btn-danger btn-sm icon-btn" href="{{ route('jadwal_posyandu.hapus', $item->id_jadwal) }}"><i
-                                                                class="fas fa-trash-alt"></i></a>     
+                                                        <button class="btn btn-danger btn-sm icon-btn" onclick="deleteConfirmation('{{ route('jadwal_posyandu.hapus', $item->id_jadwal) }}')"><i accordion-button class="fas fa-trash-alt"></i></button>     
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -49,4 +48,42 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function deleteConfirmation(deleteUrl) {
+        Swal.fire({
+            text: 'Apakah Anda yakin ingin menghapus data ini?',
+            icon: 'warning',
+            iconColor: '#d33',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = deleteUrl;
+            }
+        });
+    }
+</script>
+    <script>
+        @if (session('success'))
+            Swal.fire({
+                text: '{{ session('success') }}',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3085d6',
+            });
+        @endif
+
+        @if (session('info'))
+            Swal.fire({
+                text: '{{ session('info') }}',
+                icon: 'info',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3085d6',
+            });
+        @endif
+    </script>
 @endsection
