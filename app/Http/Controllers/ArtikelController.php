@@ -37,21 +37,21 @@ class ArtikelController extends Controller
     }
     public function store(Request $request)
     {
-    $request->validate([
-        'foto' => 'image|mimes:jpeg,png,jpg|max:2048', 
-    ]);
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'isi' => 'required|string',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+        ]);
 
-    $edukasi = Artikel::create($request->all());
-    
-    if ($request->hasFile('foto')) {
-        $foto = $request->file('foto');
-        $nama_file = time() . "_" . $foto->getClientOriginalName();
-        $foto->move('foto_edukasi/', $nama_file);
-        $edukasi->foto = $nama_file;
-        $edukasi->save();
-    }
-    
-    return redirect()->route('pages.edukasi')->with('success', 'Data admin telah berhasil disimpan');
+        $fotoData = file_get_contents($request->file('foto')->getRealPath());
+
+        Artikel::create([
+            'judul' => $request->judul,
+            'isi' => $request->isi,
+            'foto' => $fotoData,
+        ]);
+
+        return redirect()->route('pages.edukasi')->with('success', 'Edukasi berhasil dibuat.');
     }
     public function edit($id_edukasi)
     {
@@ -60,37 +60,30 @@ class ArtikelController extends Controller
     }
 
     public function update(Request $request, $id_edukasi)
-    {
+{
     $request->validate([
-        'foto' => 'image|mimes:jpeg,png,jpg|max:2048', 
+        'judul' => 'required|string|max:255',
+        'isi' => 'required|string',
+        'foto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
     ]);
 
-    $edukasi_ubah = Artikel::findOrFail($id_edukasi);
-    $awal = $edukasi_ubah->foto;
+    $edukasi = Artikel::findOrFail($id_edukasi);
 
-    $edukasi = [
-        'judul' => $request['judul'],
-        'isi' => $request['isi'],
-        'foto' => $awal
+    $data = [
+        'judul' => $request->judul,
+        'isi' => $request->isi,
     ];
 
-    // Periksa apakah ada file gambar yang diunggah
     if ($request->hasFile('foto')) {
-        // Hapus file lama jika ada
-        if ($awal !== null) {
-            unlink('foto_edukasi/' . $awal);
-        }
-
-        // Simpan file gambar yang baru diunggah
-        $foto = $request->file('foto');
-        $nama_file = time() . "_" . $foto->getClientOriginalName();
-        $foto->move('foto_edukasi/', $nama_file);
-        $edukasi['foto'] = $nama_file;
-        }
-    $edukasi_ubah->update($edukasi);
-
-    return redirect()->route('pages.edukasi')->with('success', 'Data admin Berhasil Diperbarui');
+        $data['foto'] = file_get_contents($request->file('foto')->getRealPath());
     }
+
+    $edukasi->update($data);
+
+    return redirect()->route('pages.edukasi')->with('success', 'Edukasi updated successfully.');
+}
+
+
     public function destroy($id_edukasi)
     {
         $edukasi = Artikel::findOrFail($id_edukasi);

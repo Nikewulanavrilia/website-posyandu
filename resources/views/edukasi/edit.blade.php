@@ -22,8 +22,11 @@
                             <input type="text" class="form-input" name="isi" id="isi" value="{{ isset($edukasi) ? $edukasi->isi : '' }}" required>
                             </div>
                             <div class="mb-3 d-flex flex-column">
-                            <label class="col-12 text-primary" for="inputGroupFile01">Upload Foto</label>
-                            <input type="file" class="form-control" id="inputGroupFile01" name="foto" value="{{ isset($edukasi) ? $edukasi->foto : '' }}" required>
+                                <label class="col-12 text-primary" for="inputGroupFile01">Upload Foto</label>
+                                <input type="file" class="form-control" id="inputGroupFile01" name="foto" {{ isset($edukasi) ? '' : 'required' }}>
+                                @if(isset($edukasi) && $edukasi->foto)
+                                    <img src="data:image/jpeg;base64,{{ base64_encode($edukasi->foto) }}" alt="Edukasi Foto" style="width: 100px; height: 100px; object-fit: cover; margin-top: 10px;">
+                                @endif
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Simpan</button>

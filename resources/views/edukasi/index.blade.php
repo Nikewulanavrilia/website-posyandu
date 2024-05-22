@@ -37,8 +37,12 @@
                                                     <td class="text-center text-primary">{{ $item->judul }}</td>
                                                     <td class="text-center text-primary">{{ $item->isi }}</td>
                                                     <td>
-                                                        <img src="{{ asset('foto_edukasi/' . $item->foto) }}" alt="" style="width: 50px; height: 50px; object-fit: cover; background-color: #f0f0f0; border: 1px solid #ccc;">
-                                                    </td>
+                                                    @if ($item->foto)
+                                                        <img src="data:image/jpeg;base64,{{ base64_encode($item->foto) }}" alt="Edukasi Foto" style="width: 50px; height: 50px; object-fit: cover; background-color: #f0f0f0; border: 1px solid #ccc;">
+                                                    @else
+                                                        <span>No image available</span>
+                                                    @endif
+                                                </td>
                                                     <td>
                                                         <a class="btn btn-primary btn-sm icon-btn" href="{{ route('edukasi.edit', $item->id_edukasi) }}"><i
                                                                 class="fas fa-edit"></i></a>
