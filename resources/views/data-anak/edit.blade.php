@@ -45,7 +45,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3 d-flex flex-column">
                                         <label for="anak_ke" class="col-12 text-primary">Anak Ke</label>
-                                        <input type="text" class="form-input" name="anak_ke" id="anak_ke" value="{{ isset($data_anak) ? $data_anak->anak_ke : '' }}" required>
+                                        <input type="text" class="form-input" name="anak_ke" id="anak_ke" value="{{ isset($data_anak) ? $data_anak->anak_ke : '' }}" pattern="[1-9]" maxlength="2" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
