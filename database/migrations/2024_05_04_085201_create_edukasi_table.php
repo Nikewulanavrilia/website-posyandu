@@ -15,9 +15,11 @@ return new class extends Migration
             $table->bigIncrements('id_edukasi');
             $table->string('judul');
             $table->text('isi');
-            $table->binary('foto');
             $table->timestamps();
         });
+
+        // Menambahkan kolom 'foto' dengan tipe data LONGBLOB menggunakan SQL mentah
+        DB::statement('ALTER TABLE edukasi ADD foto LONGBLOB');
     }
 
     /**

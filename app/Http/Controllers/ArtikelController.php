@@ -38,11 +38,11 @@ class ArtikelController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'isi' => 'required|string',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ]);
 
-        if ($request->file('foto')->getSize() > 5120 * 1024) {
-            return redirect()->back()->with('error', 'File tidak boleh lebih dari 5MB.');
+        if ($request->file('foto')->getSize() > 1024) {
+            return redirect()->back()->with('error', 'File tidak boleh lebih dari 1MB.');
         }
 
         $fotoData = file_get_contents($request->file('foto')->getRealPath());
@@ -67,7 +67,7 @@ class ArtikelController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'isi' => 'required|string',
-            'foto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+            'foto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ]);
 
         $edukasi = Artikel::findOrFail($id_edukasi);
