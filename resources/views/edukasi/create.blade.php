@@ -56,10 +56,10 @@
         }
 
         const fileSize = fileInput.files[0].size / 1024 / 1024;
-        if (fileSize > 5) {
+        if (fileSize > 1) {
             event.preventDefault();
             Swal.fire({
-                text: 'File tidak boleh lebih dari 5MB.',
+                text: 'File tidak boleh lebih dari 1MB.',
                 icon: 'error',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#d33',

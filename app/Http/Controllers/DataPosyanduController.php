@@ -46,9 +46,17 @@ public function store(Request $request)
         return redirect()->route('pages.penimbangan')->with('success', 'Data posyandu berhasil disimpan');
     }
     
-    public function getDataPosyandu() {
-        $nik_anak_list = DataAnak::all();
-        return response()->json($nik_anak_list);
+
+    public function getDataPosyandu(Request $request) {
+        $query = DataAnak::query();
+
+        if ($request->has('search') && $request->search != '') {
+            $query->where('nama_anak', 'like', '%' . $request->search . '%');
+        }
+
+        $data = $query->paginate(10);
+
+        return response()->json($data);
     }
 
     public function getDataVaksin() {

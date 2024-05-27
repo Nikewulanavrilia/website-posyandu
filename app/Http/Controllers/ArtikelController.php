@@ -41,7 +41,7 @@ class ArtikelController extends Controller
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ]);
 
-        if ($request->file('foto')->getSize() > 1024) {
+        if ($request->file('foto')->getSize() > 1024 * 1024) {
             return redirect()->back()->with('error', 'File tidak boleh lebih dari 1MB.');
         }
 
@@ -78,6 +78,9 @@ class ArtikelController extends Controller
         ];
 
         if ($request->hasFile('foto')) {
+            if ($request->file('foto')->getSize() > 1024 * 1024) {
+                return redirect()->back()->with('error', 'File tidak boleh lebih dari 1MB.');
+            }
             $data['foto'] = file_get_contents($request->file('foto')->getRealPath());
         }
 
