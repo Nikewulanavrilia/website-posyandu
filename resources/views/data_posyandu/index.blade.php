@@ -32,7 +32,6 @@
                                     <table class="table text-center text-light mt-3">
                                         <thead>
                                             <tr>
-                                                <!-- <th class="text-primary">No</th> -->
                                                 <th class="text-primary">Nama Anak</th>
                                                 <th class="text-primary">TB (cm)</th>
                                                 <th class="text-primary">BB (kg)</th>
@@ -43,31 +42,24 @@
                                         </thead>
                                         <tbody>
                                             @php
-                                                $previous_date = null;
+                                                $groupedData = $data_posyandu->groupBy('tanggal_posyandu');
                                             @endphp
-                                            @foreach ($data_posyandu as $item)
-                                                <tr>
-                                                    @if ($item->tanggal_posyandu != $previous_date)
-                                                        <td rowspan="{{ $data_posyandu->where('tanggal_posyandu', $item->tanggal_posyandu)->count() }}"
-                                                            class="text-center text-primary mb-3">{{ $item->nama_anak }}
-                                                        </td>
-                                                        <td rowspan="{{ $data_posyandu->where('tanggal_posyandu', $item->tanggal_posyandu)->count() }}"
-                                                            class="text-center text-primary mb-3">{{ $item->tb_anak }}</td>
-                                                        <td rowspan="{{ $data_posyandu->where('tanggal_posyandu', $item->tanggal_posyandu)->count() }}"
-                                                            class="text-center text-primary mb-3">{{ $item->bb_anak }}</td>
-                                                        <td rowspan="{{ $data_posyandu->where('tanggal_posyandu', $item->tanggal_posyandu)->count() }}"
-                                                            class="text-center text-primary mb-3">{{ $item->umur_anak }}
-                                                        </td>
-                                                        <td rowspan="{{ $data_posyandu->where('tanggal_posyandu', $item->tanggal_posyandu)->count() }}"
-                                                            class="text-center text-primary mb-3">
-                                                            {{ \Carbon\Carbon::parse($item->tanggal_posyandu)->format('d-m-Y') }}
-                                                        </td>
-                                                    @endif
-                                                    <td class="text-center text-primary">{{ $item->nama_vaksin }}</td>
-                                                </tr>
-                                                @php
-                                                    $previous_date = $item->tanggal_posyandu;
-                                                @endphp
+                                            @foreach ($groupedData as $date => $group)
+                                                @foreach ($group->groupBy('nama_anak') as $nama_anak => $items)
+                                                    <tr>
+                                                        <td rowspan="{{ $items->count() }}" class="text-center text-primary mb-3">{{ $nama_anak }}</td>
+                                                        <td rowspan="{{ $items->count() }}" class="text-center text-primary mb-3">{{ $items->first()->tb_anak }}</td>
+                                                        <td rowspan="{{ $items->count() }}" class="text-center text-primary mb-3">{{ $items->first()->bb_anak }}</td>
+                                                        <td rowspan="{{ $items->count() }}" class="text-center text-primary mb-3">{{ $items->first()->umur_anak }}</td>
+                                                        <td rowspan="{{ $items->count() }}" class="text-center text-primary mb-3">{{ \Carbon\Carbon::parse($items->first()->tanggal_posyandu)->format('d-m-Y') }}</td>
+                                                        <td class="text-center text-primary">{{ $items->first()->nama_vaksin }}</td>
+                                                    </tr>
+                                                    @foreach ($items->skip(1) as $item)
+                                                        <tr>
+                                                            <td class="text-center text-primary">{{ $item->nama_vaksin }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endforeach
                                             @endforeach
                                         </tbody>
                                     </table>

@@ -23,7 +23,8 @@
                                 <div class="col-md-6">
                                     <div class="mb-3 d-flex flex-column">
                                         <label for="nik_ibu" class="col-12 text-primary">NIK Ibu</label>
-                                        <input type="text" class="form-input" name="nik_ibu" id="nik_ibu" value="{{ isset($data_ibu) ? $data_ibu->nik_ibu : '' }}" pattern="[0-9]{16}"  maxlength="16"title="NIK harus terdiri dari 16 digit angka"  required >
+                                        <input type="text" class="form-input" name="nik_ibu" id="nik_ibu" value="{{ isset($data_ibu) ? $data_ibu->nik_ibu : '' }}" pattern="[1-9]{16}"
+                                        title="NIK harus terdiri dari 16 digit angka dan tidak boleh dimulai dari angka 0" maxlength="16" required >
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +65,8 @@
                                 <div class="col-md-6">
                                     <div class="mb-3 d-flex flex-column">
                                         <label for="nik_ayah" class="col-12 text-primary">NIK Ayah</label>
-                                        <input type="text" class="form-input" name="nik_ayah" id="nik_ayah" value="{{ isset($data_ibu) ? $data_ibu->nik_ayah : '' }}" pattern="[0-9]{16}" maxlength="16"title="NIK harus terdiri dari 16 digit angka" required>
+                                        <input type="text" class="form-input" name="nik_ayah" id="nik_ayah" value="{{ isset($data_ibu) ? $data_ibu->nik_ayah : '' }}" pattern="[1-9]{16}"
+                                        title="NIK harus terdiri dari 16 digit angka dan tidak boleh dimulai dari angka 0" maxlength="16"required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

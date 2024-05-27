@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Data Anak Chart
     const ctxAnak = document.getElementById('chartAnak').getContext('2d');
     const chartAnak = new Chart(ctxAnak, {
-        type: 'bar',
+        type: 'doughnut',
         data: {
             labels: ['Anak Perempuan', 'Anak Laki-laki'],
             datasets: [{
