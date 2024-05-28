@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Artikel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class ArtikelController extends Controller
 {
@@ -96,4 +97,33 @@ class ArtikelController extends Controller
         $edukasi->delete();
         return redirect()->route('pages.edukasi')->with('success', 'Data admin Berhasil Dihapus');
     }
+
+    public function edukasi()
+    {
+    try {
+        $edukasi = Artikel::select('judul', 'foto', 'isi')->get();
+
+        $edukasi->transform(function ($artikel) {
+            $artikel->gambar = base64_encode($artikel->foto);
+            unset($artikel->foto);
+            return $artikel;
+        });
+
+        return response()->json([
+            'success' => true,
+            'data' => $edukasi,
+            'message' => 'Data retrieved successfully'
+        ], 200);
+    } catch (QueryException $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Error fetching data from database: ' . $e->getMessage()
+        ], 500);
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Internal server error: ' . $e->getMessage()
+        ], 500);
+    }
+}
 }
