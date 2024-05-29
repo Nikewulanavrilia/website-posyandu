@@ -42,12 +42,12 @@
                                     </div>
 
                                     <div class="container">
-                                        <h3 class="text-primary">Data Posyandu</h3>
+                                        <h3 class="text-primary">Data Imunisasi</h3>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="mb-3 d-flex flex-column">
                                                     <label for="tanggal_posyandu" class="col-12 text-primary">Tanggal
-                                                        Posyandu</label>
+                                                        Imunisasi</label>
                                                     <input type="date" class="form-input datepicker"
                                                         name="tanggal_posyandu" id="tanggal_posyandu"
                                                         min="{{ date('Y-m-d') }}"required>

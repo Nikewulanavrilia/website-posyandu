@@ -16,7 +16,7 @@ class PenimbanganController extends Controller
         $this->middleware('auth');
     }
     public function index()
-{
+    {
     $data_posyandu = DB::table('posyandu')
                     ->select('posyandu.*', 'detail_posyandu.*', 'imunisasi.nama_vaksin', 'anak.nama_anak')
                     ->join('detail_posyandu', 'posyandu.id_posyandu', '=', 'detail_posyandu.id_posyandu')
@@ -24,7 +24,7 @@ class PenimbanganController extends Controller
                     ->join('anak', 'posyandu.nik_anak', '=', 'anak.nik_anak')
                     ->paginate(7);
     return view('data_posyandu.index', compact('data_posyandu'));
-}
+    }
 public function cari(Request $request)
     {
     // Menangkap data pencarian
@@ -37,20 +37,20 @@ public function cari(Request $request)
                      ->join('imunisasi', 'detail_posyandu.id_vaksin', '=', 'imunisasi.id_vaksin')
                      ->join('anak', 'posyandu.nik_anak', '=', 'anak.nik_anak')
                      ->where('nama_anak', 'like', "%".$cari."%")
-                     ->paginate();
+                     ->paginate(7);
 
     // Mengirim data anak ke view index
     return view('data_posyandu.index', compact('data_posyandu'));
     }
 
     public function create()
-{
+    {
     $nik_anak_list = DataAnak::pluck('nama_anak', 'nik_anak');
     $data_vaksin_list = $this->getDataVaksin(); 
     return view('data_posyandu.create', compact('nik_anak_list', 'data_vaksin_list'));
-}
+    }
 public function store(Request $request)
-{
+    {
     $request->validate([
         'tb_anak' => 'required',
         'bb_anak' => 'required',
@@ -77,9 +77,7 @@ public function store(Request $request)
     }
 
     return redirect()->route('pages.penimbangan')->with('success', 'Data posyandu berhasil disimpan');
-}
-
-    
+    }  
     public function getDataPosyandu() {
         $nik_anak_list = DataAnak::all();
         return response()->json($nik_anak_list);
