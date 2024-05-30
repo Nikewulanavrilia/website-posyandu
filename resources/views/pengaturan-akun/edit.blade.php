@@ -4,10 +4,10 @@
     <div class="content-wrapper">
         <div class="container">
             <div class="row">
-                <h1 class="col-12 text-primary mt-2">Edit data Admin</h1>
                 <div class="col-12 mt-2">
                     <div class="card">
                         <div class="card-body">
+                        <h3 class="card-title">Edit data Admin</h3>
                         <form action="{{ isset($pengaturan_akun) ? route('pengaturanakun.update', $pengaturan_akun->id) : route('pengaturanakun.store') }}" method="POST">
                             @csrf
                             @if(isset($pengaturan_akun))
@@ -24,7 +24,7 @@
                             </div>
                             <div class="mb-3 d-flex flex-column">
                                 <label for="password" class="col-12 text-primary">Password</label>
-                                <input type="password" class="form-input" name="password" id="password" value="{{ isset($pengaturan_akun) ? $pengaturan_akun->password : '' }}" required disabled>
+                                <input type="password" class="form-input" name="password" id="password" value="{{ isset($pengaturan_akun) ? $pengaturan_akun->password : '' }}" disabled>
                             </div>
                             <div class="mb-3 d-flex flex-column">
                                 <label for="jenis_kelamin" class="col-12 text-primary">Jenis Kelamin</label>

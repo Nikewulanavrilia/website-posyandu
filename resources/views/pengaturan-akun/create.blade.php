@@ -4,10 +4,10 @@
     <div class="content-wrapper">
         <div class="container">
             <div class="row">
-                <h1 class="col-12 text-primary mt-2">Tambah Admin</h1>
                 <div class="col-12 mt-2">
                     <div class="card">
                         <div class="card-body">
+                        <h3 class="card-title">Tambah data Admin</h3>
                         <form action="{{ route('pengaturanakun.store') }}" method="post">
                             @csrf 
                             <div class="mb-3 d-flex flex-column">
