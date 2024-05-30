@@ -95,9 +95,9 @@
                 url: '/data-anak/detail/' + nik_anak,
                 method: 'GET',
                 success: function(response) {
-                    if (response.anak && response.ibu) {
+                    if (response.anak && response.orang_tua) {
                         var anak = response.anak;
-                        var ibu = response.ibu;
+                        var orang_tua = response.orang_tua;
                         var html = '<table class="table table-bordered">';
                         html += '<tr><th class="text-primary">Nik Anak:</th><td>' + anak.nik_anak +
                             '</td></tr>';
@@ -115,7 +115,11 @@
                             .jenis_kelamin_anak + '</td></tr>';
                         html += '<tr><th class="text-primary">No KK:</th><td>' + anak.no_kk +
                             '</td></tr>';
-                        html += '<tr><th class="text-primary">Nama Ibu:</th><td>' + ibu.nama_ibu +
+                        html += '<tr><th class="text-primary">Nama Ibu:</th><td>' + orang_tua.nama_ibu +
+                            '</td></tr>';
+                        html += '<tr><th class="text-primary">Nama Ayah:</th><td>' + orang_tua
+                            .nama_ayah + '</td></tr>';
+                        html += '<tr><th class="text-primary">Alamat:</th><td>' + orang_tua.alamat +
                             '</td></tr>';
                         html += '</table>';
 
@@ -132,8 +136,8 @@
                 }
             });
         });
-
-        @if(session('success'))
+        
+        @if (session('success'))
             Swal.fire({
                 text: '{{ session('success') }}',
                 icon: 'success',
@@ -142,7 +146,7 @@
             });
         @endif
 
-        @if(session('info'))
+        @if (session('info'))
             Swal.fire({
                 text: '{{ session('info') }}',
                 icon: 'info',

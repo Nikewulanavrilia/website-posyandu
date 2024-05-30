@@ -53,18 +53,22 @@
                                                 <small class="text-primary">Lupa Password?</small>
                                             </a>
                                         </div>
-                                        <div class="input-group input-group-merge">
+                                        <div class="input-group">
                                             <input type="password" id="password" class="form-control" name="password"
-                                                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                                aria-describedby="password" />
-                                        </div>  
+                                                placeholder="••••••••••••" aria-describedby="password">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text p-2 btn btn-primary">
+                                                    <i class="fas fa-eye-slash" id="toggle-password" style="cursor: pointer;"></i>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <!-- <div class="mb-3">
+                                    {{-- <div class="mb-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="remember-me" />
                                             <label class="form-check-label" for="remember-me">Remember me</label>
                                         </div>
-                                    </div> -->
+                                    </div> --}}
                                     <div class="mb-3">
                                         @if ($errors->has('login_error'))
                                             <script>
@@ -98,6 +102,22 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
+        document.getElementById('toggle-password').addEventListener('click', function () {
+            var passwordInput = document.getElementById('password');
+            var icon = this;
+    
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+        });
+    </script>
+    <script>
         document.getElementById('formAuthentication').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -127,7 +147,7 @@
             }
         });
 
-        @if(session('success'))
+        @if (session('success'))
             Swal.fire({
                 text: '{{ session('success') }}',
                 icon: 'success',

@@ -134,6 +134,14 @@
                 <span class="menu-title">Data Posyandu</span>
             </a>
         </li>
+        <li class="nav-item menu-items mb-1">
+            <a class="nav-link" href="{{ route('data_laporan.index') }}">
+                <span class="menu-icon">
+                    <i class="mdi mdi-printer"></i>
+                </span>
+                <span class="menu-title">Cetak Laporan</span>
+            </a>
+        </li>   
         <li class="nav-item menu-items">
             <a class="nav-link" href="{{ route('pages.pengaturanakun')}}">
                 <span class="menu-icon">

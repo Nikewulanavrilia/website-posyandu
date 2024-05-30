@@ -16,6 +16,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\DataPosyanduController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Auth\ChangePasswordController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,4 +104,7 @@ Route::middleware(['web'])->group(function () {
       //route pages data posyandu terlambat
      Route::get('/data-posyandu/create-terlambat', [DataPosyanduController::class, 'create'])->name('data_posyandu_terlambat.create');
      Route::post('/data-posyandu/store-terlambat', [DataPosyanduController::class, 'store'])->name('data_posyandu_terlambat.store');
+     //route pages data posyandu laporan
+     Route::get('/data-laporan', [LaporanController::class, 'index'])->name('data_laporan.index');
+     Route::get('/cetak-pdf', [LaporanController::class, 'cetakPdf'])->name('data_laporan.cetakPdf');
 });
