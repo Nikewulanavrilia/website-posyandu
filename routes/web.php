@@ -33,13 +33,13 @@ Route::middleware(['web'])->group(function () {
     Route::redirect('/', '/login');
     Auth::routes();
 
-    Route::match(["GET","POST"],"/register",function(){
+    Route::match(["GET", "POST"], "/register", function () {
         return redirect('login');
     })->name("register");
     //route pages
-    Route::get('/login',[LoginController::class,'showLoginForm'])->name('login');
-    Route::get('/lupa-password',[ForgotPasswordController::class,'lupapassword'])->name('lupa-password'); 
-    Route::get('/verikasi-email',[VerificationController::class,'verifikasi'])->name('verifikasi-email');
+    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::get('/lupa-password', [ForgotPasswordController::class, 'lupapassword'])->name('lupa-password');
+    Route::get('/verikasi-email', [VerificationController::class, 'verifikasi'])->name('verifikasi-email');
     Route::get('/verifikasi-email', [VerificationController::class, 'verifikasi'])->name('verifikasi-email');
     Route::post('/periksa-email', [VerificationController::class, 'verifikasiEmail'])->name('periksa-email');
     Route::get('/reset-password/{token}', [ChangePasswordController::class, 'showResetPasswordForm'])->name('reset.password.form');
@@ -94,17 +94,17 @@ Route::middleware(['web'])->group(function () {
     Route::get('/edukasi/edit/{id_edukasi}', [ArtikelController::class, 'edit'])->name('edukasi.edit');
     Route::put('/edukasi/update/{id_edukasi}', [ArtikelController::class, 'update'])->name('edukasi.update');
     Route::get('/edukasi/hapus/{id_edukasi}', [ArtikelController::class, 'destroy'])->name('edukasi.hapus');
-     //route pages data posyandu
-     Route::get('/data-posyandu/create', [PenimbanganController::class, 'create'])->name('data_posyandu.create');
-     Route::get('/data-posyandu/cari', [PenimbanganController::class, 'cari'])->name('data_posyandu.cari');
-     Route::post('/data-posyandu/store', [PenimbanganController::class, 'store'])->name('data_posyandu.store');
-     Route::get('/pilih-data-anak', [PenimbanganController::class, 'getDataPosyandu'])->name('data_posyandu.getDataPosyandu');
-     Route::get('/data-vaksin', [PenimbanganController::class, 'getDataVaksin'])->name('data_posyandu.getDataVaksin');
-     Route::get('/first-vaksin', [PenimbanganController::class, 'getDataFirstVaksin'])->name('data_posyandu.getDataFirstVaksin');
-      //route pages data posyandu terlambat
-     Route::get('/data-posyandu/create-terlambat', [DataPosyanduController::class, 'create'])->name('data_posyandu_terlambat.create');
-     Route::post('/data-posyandu/store-terlambat', [DataPosyanduController::class, 'store'])->name('data_posyandu_terlambat.store');
-     //route pages data posyandu laporan
-     Route::get('/data-laporan', [LaporanController::class, 'index'])->name('data_laporan.index');
-     Route::get('/cetak-pdf', [LaporanController::class, 'cetakPdf'])->name('data_laporan.cetakPdf');
+    //route pages data posyandu
+    Route::get('/data-posyandu/create', [PenimbanganController::class, 'create'])->name('data_posyandu.create');
+    Route::get('/data-posyandu/cari', [PenimbanganController::class, 'cari'])->name('data_posyandu.cari');
+    Route::post('/data-posyandu/store', [PenimbanganController::class, 'store'])->name('data_posyandu.store');
+    Route::get('/pilih-data-anak', [PenimbanganController::class, 'getDataPosyandu'])->name('data_posyandu.getDataPosyandu');
+    Route::get('/data-vaksin', [PenimbanganController::class, 'getDataVaksin'])->name('data_posyandu.getDataVaksin');
+    Route::get('/first-vaksin', [PenimbanganController::class, 'getDataFirstVaksin'])->name('data_posyandu.getDataFirstVaksin');
+    //route pages data posyandu terlambat
+    Route::get('/data-posyandu/create-terlambat', [DataPosyanduController::class, 'create'])->name('data_posyandu_terlambat.create');
+    Route::post('/data-posyandu/store-terlambat', [DataPosyanduController::class, 'store'])->name('data_posyandu_terlambat.store');
+    //route pages data posyandu laporan
+    Route::get('/data-laporan', [LaporanController::class, 'index'])->name('data_laporan.index');
+    Route::get('/cetak-pdf', [LaporanController::class, 'cetakPdf'])->name('data_laporan.cetakPdf');
 });

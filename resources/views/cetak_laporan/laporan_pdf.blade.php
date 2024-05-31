@@ -4,7 +4,7 @@
     <title>Laporan PDF</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial;
         }
         table {
             width: 100%;
@@ -18,10 +18,33 @@
             background-color: #f2f2f2;
             text-align: left;
         }
+
+        .rangkasurat {
+            width: 980px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        .tengah {
+            text-align: center;
+            line-height: 5px;
+        }
     </style>
 </head>
 <body>
-    <h1>Laporan Posyandu</h1>
+    <div class = "rangkasurat">
+        <table width = "100%">
+            <tr>
+                <td class="tengah">
+                    <h2>PEMERINTAH KABUPATEN SITUBONDO</h2>
+                    <h2>DINAS KESEHATAN</h2>
+                    <h2>POSYANDU KAMPUNG GUDANG</h2>
+                    <b>Gudang, Mlandingan Kulon, Kec. Mlandingan Telp . ( 0262 ) 428590 Situbondo 68353</b>
+                </td>
+            </tr>
+        </table>
+    </div>
     <table>
         <thead>
             <tr>

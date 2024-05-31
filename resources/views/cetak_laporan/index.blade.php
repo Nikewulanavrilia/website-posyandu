@@ -10,7 +10,7 @@
                                 <h4 class="card-title">Tabel Data Laporan Posyandu</h4>
                                 <div class="d-flex justify-content-between">
                                     <div class="mt-1 row">
-                                        <a href="{{ route('data_laporan.cetakPdf') }}" class="btn btn-primary ml-3 p-2 d-flex align-items-center justify-content-center">
+                                        <a href="{{ route('data_laporan.cetakPdf', ['month' => $filterMonth]) }}" class="btn btn-primary ml-3 p-2 d-flex align-items-center justify-content-center">
                                             <span class="text-light ms-2">Cetak PDF</span>
                                             <i class="fas fa-print ml-2"></i>
                                         </a>
