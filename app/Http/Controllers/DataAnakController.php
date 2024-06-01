@@ -166,8 +166,7 @@ class DataAnakController extends Controller
         }
 
         return response()->json(['data_anak' => $formattedData], 200);
-    } catch (Exception $e) {
-       
+    } catch (QueryException $e) {
         return response()->json(['message' => 'Terjadi kesalahan dalam memproses permintaan'], 500);
     }
 }
