@@ -37,9 +37,9 @@
                                             @foreach ($edukasi as $item)
                                                 <tr>
                                                     <td class="text-center text-primary">{{ $loop->iteration }}</td>
-                                                    <td class="text-center text-primary">{{ $item->judul }}</td>
+                                                    <td class="text-center text-primary">{{ strlen($item->judul) > 30 ? substr($item->judul, 0, 30) . '...' : $item->judul }}</td>
                                                     <td class="text-center text-primary">
-                                                        {{ substr($item->isi, 0, 50) }}{{ strlen($item->isi) > 50 ? '...' : '' }}
+                                                        {{ substr($item->isi, 0, 40) }}{{ strlen($item->isi) > 40 ? '...' : '' }}
                                                     </td>
                                                     <td>
                                                         @if ($item->foto)
@@ -54,9 +54,7 @@
                                                         <a class="btn btn-primary btn-sm icon-btn"
                                                             href="{{ route('edukasi.edit', $item->id_edukasi) }}"><i
                                                                 class="fas fa-edit"></i></a>
-                                                        <a class="btn btn-danger btn-sm icon-btn"
-                                                            href="{{ route('edukasi.hapus', $item->id_edukasi) }}"><i
-                                                                class="fas fa-trash-alt"></i></a>
+                                                        <button class="btn btn-danger btn-sm icon-btn" onclick="deleteConfirmation('{{ route('edukasi.hapus', $item->id_edukasi) }}')"><i class="fas fa-trash-alt"></i></button>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -81,5 +79,22 @@
                 confirmButtonColor: '#3085d6',
             });
         @endif
+
+        function deleteConfirmation(deleteUrl) {
+        Swal.fire({
+            text: 'Apakah Anda yakin ingin menghapus data ini?',
+            icon: 'warning',
+            iconColor: '#d33',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = deleteUrl;
+            }
+        });
+    }
     </script>
 @endsection
