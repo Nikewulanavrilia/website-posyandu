@@ -22,10 +22,10 @@
                                 <label for="email" class="col-12 text-primary">Email</label>
                                 <input type="text" class="form-input" name="email" id="email" value="{{ isset($pengaturan_akun) ? $pengaturan_akun->email : '' }}" required>
                             </div>
-                            <div class="mb-3 d-flex flex-column">
+                            <!-- <div class="mb-3 d-flex flex-column">
                                 <label for="password" class="col-12 text-primary">Password</label>
                                 <input type="password" class="form-input" name="password" id="password" value="{{ isset($pengaturan_akun) ? $pengaturan_akun->password : '' }}" disabled>
-                            </div>
+                            </div> -->
                             <div class="mb-3 d-flex flex-column">
                                 <label for="jenis_kelamin" class="col-12 text-primary">Jenis Kelamin</label>
                                 <select class="form-select form-input" name="jenis_kelamin" id="jenisKelamin" required>
