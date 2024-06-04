@@ -8,7 +8,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">Tabel Data Orang Tua</h3>
-                                <div class="d-flex justify-content-between">
+                                <div class="d-flex justify-content-end">
                                     <form action="/data-orangtua/cari" method="GET">
                                         <div class="input-group">
                                             <input type="text" class="form-input" name="cari" placeholder="Cari Nama Ibu .." value="{{ old('cari') }}">
