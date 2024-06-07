@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Models\DataAnak;
 use Illuminate\Database\QueryException;
 
@@ -14,12 +13,16 @@ class DataAnakApiController extends Controller
         'message' => null,
         'data' => null,
     ];
-    
+
     public function dataGrafik(Request $request)
     {
-        $user = Auth::user();
+        $request->validate([
+            'no_kk' => 'required|numeric',
+        ]);
 
-        $anak = DataAnak::where('no_kk', $user->no_kk)->with('posyandu')->get();
+        $no_kk = $request->input('no_kk');
+
+        $anak = DataAnak::where('no_kk', $no_kk)->with('posyandu')->get();
 
         if ($anak->isEmpty()) {
             $this->response['message'] = 'Data Anak tidak ditemukan';
@@ -51,11 +54,14 @@ class DataAnakApiController extends Controller
 
     public function dataImunisasi(Request $request)
     {
+        $request->validate([
+            'no_kk' => 'required|numeric',
+        ]);
+
         try {
-            $user = $request->user();
+            $no_kk = $request->input('no_kk');
 
-            $anak = DataAnak::where('no_kk', $user->no_kk)->with('posyandu.vaksin')->get();
-
+            $anak = DataAnak::where('no_kk', $no_kk)->with('posyandu.vaksin')->get();
             if ($anak->isEmpty()) {
                 return response()->json(['message' => 'Data Anak tidak ditemukan'], 404);
             }
@@ -86,7 +92,6 @@ class DataAnakApiController extends Controller
 
             return response()->json(['data_anak' => $formattedData], 200);
         } catch (QueryException $e) {
-
             return response()->json(['message' => 'Terjadi kesalahan dalam memproses permintaan'], 500);
         }
     }

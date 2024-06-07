@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\QueryException;
 use App\Models\DataIbu;
@@ -15,6 +14,7 @@ class DataOrtuApiController extends Controller
         'message' => null,
         'data' => null,
     ];
+
     public function register(Request $request)
     {
         $request->validate([
@@ -50,13 +50,14 @@ class DataOrtuApiController extends Controller
         try {
             $user = DataIbu::create($data);
             $this->response['data'] = $user;
-            $this->response['message'] = 'succsess';
+            $this->response['message'] = 'success';
             return response()->json($this->response, 200);
         } catch (QueryException $e) {
             $this->response['message'] = 'User Registration Failed: ' . $e->getMessage();
             return response()->json($this->response, 500);
         }
     }
+
     public function login(Request $req)
     {
         $req->validate([
@@ -69,38 +70,18 @@ class DataOrtuApiController extends Controller
         if (!$user || !Hash::check($req->password_orang_tua, $user->password_orang_tua)) {
             return response()->json([
                 'message' => "Email or password is incorrect",
-            ], 401); // Unauthorized
+            ], 401);
         }
 
-
-        $this->response['message'] = 'success';
-        $this->response['data'] = [
-            'token' => $user->createToken('')->plainTextToken
+        $response = [
+            'message' => 'success',
+            'data' => [
+                'user' => $user,
+                'no_kk' => $user->no_kk
+            ]
         ];
 
-        return response()->json($this->response, 200);
-    }
-
-    public function me()
-    {
-        $user = Auth::guard('sanctum')->user();
-
-        $this->response['message'] = 'success';
-        $this->response['data'] = $user;
-
-        return response()->json($this->response, 200);
-    }
-
-    public function logout()
-    {
-        $user = Auth::user();
-        $user->tokens->each(function ($token) {
-            $token->delete();
-        });
-
-        $this->response['message'] = 'success';
-
-        return response()->json($this->response, 200);
+        return response()->json($response, 200);
     }
 
     public function checkEmail(Request $request)
@@ -146,19 +127,36 @@ class DataOrtuApiController extends Controller
 
     public function dataProfile(Request $request)
     {
-        $user = $request->user();
+        $request->validate([
+            'no_kk' => 'required|numeric',
+        ]);
+
+        $no_kk = $request->input('no_kk');
+        $user = DataIbu::where('no_kk', $no_kk)->first();
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
         return response()->json(['user' => $user], 200);
     }
+
     public function updateProfile(Request $request)
     {
-        $user = $request->user();
-
         $request->validate([
+            'no_kk' => 'required|numeric',
             'nama_ibu' => 'sometimes|required',
             'nama_ayah' => 'sometimes|required',
             'alamat' => 'sometimes|required',
             'telepon' => 'sometimes|required|max:13',
         ]);
+
+        $no_kk = $request->input('no_kk');
+        $user = DataIbu::where('no_kk', $no_kk)->first();
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
 
         $user->nama_ibu = $request->input('nama_ibu', $user->nama_ibu);
         $user->nama_ayah = $request->input('nama_ayah', $user->nama_ayah);
