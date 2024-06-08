@@ -13,14 +13,8 @@ Route::post('auth/change-password', [DataOrtuApiController::class, 'changePasswo
 Route::get('auth/dataImunisasi',[DataAnakApiController::class, 'dataImunisasi']);
 Route::get('auth/dataAnak',[DataAnakApiController::class, 'dataAnak']);
 Route::get('auth/dataGrafik',[DataAnakApiController::class, 'dataGrafik']);
-
-// Route::middleware('auth:sanctum')->group(function () {
-//     Route::get('auth/me', [DataOrtuApiController::class, 'me']);
-//     Route::post('auth/logout', [DataOrtuApiController::class, 'logout']);
-//     Route::get('auth/dataProfile', [DataOrtuApiController::class, 'dataProfile']);
-//     Route::put('auth/updateProfile', [DataOrtuApiController::class, 'updateProfile']);
-    
-// });
+Route::get('auth/dataProfile', [DataOrtuApiController::class, 'dataProfile']);
+Route::put('auth/updateProfile', [DataOrtuApiController::class, 'updateProfile']);
 
 Route::get('/edukasi', [EdukasiApiController::class, 'edukasi']);
 Route::get('/jadwal-posyandu', [JadwalApiController::class, 'schedule']);
