@@ -81,39 +81,72 @@
     </script>
     <script>
         $(document).on('click', '.btn-detail', function() {
-            var no_kk = $(this).data('no_kk');
-            $.ajax({
-                url: '/data-orangtua/detail/' + no_kk,
-                method: 'GET',
-                success: function(response) {
-                    if (response) {
-                        var html = '<table class="table table-bordered">';
-                        html += '<tr><th class="text-primary">Nomor KK:</th><td>' + response.no_kk + '</td></tr>';
-                        html += '<tr><th class="text-primary">NIK Ibu:</th><td>' + response.nik_ibu + '</td></tr>';
-                        html += '<tr><th class="text-primary">Nama Ibu:</th><td>' + response.nama_ibu + '</td></tr>';
-                        html += '<tr><th class="text-primary">Tempat Lahir Ibu:</th><td>' + response.tempat_lahir_ibu + '</td></tr>';
-                        html += '<tr><th class="text-primary">Tanggal Lahir Ibu:</th><td>' + response.tanggal_lahir_ibu + '</td></tr>';
-                        html += '<tr><th class="text-primary">Golongan Darah Ibu:</th><td>' + response.gol_darah_ibu + '</td></tr>';
-                        html += '<tr><th class="text-primary">NIK Ayah:</th><td>' + response.nik_ayah + '</td></tr>';
-                        html += '<tr><th class="text-primary">Nama Ayah:</th><td>' + response.nama_ayah + '</td></tr>';
-                        html += '<tr><th class="text-primary">Alamat:</th><td>' + response.alamat + '</td></tr>';
-                        html += '<tr><th class="text-primary">Telepon:</th><td>' + response.telepon + '</td></tr>';
-                        html += '<tr><th class="text-primary">Email Orang Tua:</th><td>' + response.email_orang_tua + '</td></tr>';
-                        html += '</table>';
-    
-                        Swal.fire({
-                            title: '<h3 class="text-primary">Detail Orang Tua</h3>',
-                            html: html,
-                            showCloseButton: true,
-                            showConfirmButton: false
-                        });
-                    } 
-                },
-                error: function(xhr, status, error) {
-                    console.error(xhr.responseText);
-                }
+    var no_kk = $(this).data('no_kk');
+    $.ajax({
+        url: '/data-orangtua/detail/' + no_kk,
+        method: 'GET',
+        success: function(response) {
+            if (response) {
+                var html = '<table class="table table-bordered">';
+                html += '<tr><th class="text-primary">Nomor KK:</th><td>' + response.no_kk + '</td></tr>';
+                html += '<tr><th class="text-primary">NIK Ibu:</th><td>' + response.nik_ibu + '</td></tr>';
+                html += '<tr><th class="text-primary">Nama Ibu:</th><td>' + response.nama_ibu + '</td></tr>';
+                html += '<tr><th class="text-primary">Tempat Lahir Ibu:</th><td>' + response.tempat_lahir_ibu + '</td></tr>';
+                html += '<tr><th class="text-primary">Tanggal Lahir Ibu:</th><td>' + response.tanggal_lahir_ibu + '</td></tr>';
+                html += '<tr><th class="text-primary">Golongan Darah Ibu:</th><td>' + response.gol_darah_ibu + '</td></tr>';
+                html += '<tr><th class="text-primary">NIK Ayah:</th><td>' + response.nik_ayah + '</td></tr>';
+                html += '<tr><th class="text-primary">Nama Ayah:</th><td>' + response.nama_ayah + '</td></tr>';
+                html += '<tr><th class="text-primary">Alamat:</th><td>' + response.alamat + '</td></tr>';
+                html += '<tr><th class="text-primary">Telepon:</th><td>' + response.telepon + '</td></tr>';
+                html += '<tr><th class="text-primary">Email Orang Tua:</th><td>' + response.email_orang_tua + '</td></tr>';
+                html += '</table>';
+
+                var swalWithBootstrapButtons = Swal.mixin({
+                    customClass: {
+                        popup: 'swal-wide',
+                        title: 'h3 text-primary'
+                    },
+                    buttonsStyling: false
+                });
+
+                swalWithBootstrapButtons.fire({
+                    title: 'Detail Orang Tua',
+                    html: html,
+                    showCloseButton: true,
+                    showConfirmButton: false
+                });
+
+                $('.swal-wide').css({
+                    'width': 'auto',
+                    'max-width': '80%',
+                    'white-space': 'normal',
+                    'word-wrap': 'break-word'
+                });
+                
+                $('.table-bordered').css({
+                    'word-wrap': 'break-word',
+                    'white-space': 'normal'
+                });
+            } else {
+                Swal.fire({
+                    text: 'Data tidak ditemukan!',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#d33',
+                });
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error(xhr.responseText);
+            Swal.fire({
+                text: 'Terjadi kesalahan saat mengambil data!',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#d33',
             });
-        });
+        }
+    });
+});
 
         @if(session('success'))
             Swal.fire({
