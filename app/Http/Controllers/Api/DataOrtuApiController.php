@@ -117,7 +117,7 @@ class DataOrtuApiController extends Controller
 
         if ($user) {
             $user->update(['password_orang_tua' => $newPassword]);
-            $this->response['message'] = 'Password successfully updated';
+            $this->response['message'] = 'Password baru berhasil disimpan';
             return response()->json($this->response, 200);
         } else {
             $this->response['message'] = 'User not found';
