@@ -299,28 +299,57 @@
                 }
             });
 
-            $('#btn-pilih').on('click', function() {
+            function fetchData(page = 1) {
                 $.ajax({
                     url: '/pilih-data-anak',
                     method: 'GET',
+                    data: { page: page },
                     success: function(response) {
                         var tableContent =
                             '<table class="table"><thead><tr><th>Nama Anak</th><th>Tanggal Lahir</th><th>Action Pilih</th></tr></thead><tbody>';
-                        response.forEach(function(anak) {
-                            tableContent += '<tr><td>' + anak.nama_anak + '</td><td>' +
+                        response.data.forEach(function(anak) {
+                            // Membatasi panjang nama anak
+                            var truncatedName = anak.nama_anak.length > 20 ? anak.nama_anak.substring(0, 17) + '...' : anak.nama_anak;
+                            tableContent += '<tr><td class="nama-anak" title="' + anak.nama_anak + '">' + truncatedName + '</td><td>' +
                                 anak.tanggal_lahir_anak +
                                 '</td><td><button class="btn btn-primary btn-pilih" data-id="' +
                                 anak.nik_anak + '">pilih</button></td></tr>';
                         });
                         tableContent += '</tbody></table>';
 
+                        // Add pagination controls
+                        tableContent += '<div class="pagination">';
+                        if (response.prev_page_url) {
+                            tableContent += '<button class="btn btn-secondary paginate-btn" data-page="' + (response.current_page - 1) + '">Previous</button>';
+                        }
+                        if (response.next_page_url) {
+                            tableContent += '<button class="btn btn-secondary paginate-btn" data-page="' + (response.current_page + 1) + '">Next</button>';
+                        }
+                        tableContent += '</div>';
+
                         showSweetAlert(tableContent);
+
+                        $('.swal-wide').css({
+                            'width': 'auto',
+                            'max-width': '100%',
+                            'white-space': 'normal',
+                            'word-wrap': 'break-word'
+                        });
                     },
                     error: function(xhr, status, error) {
                         console.error(error);
                         showSweetAlert('Error: ' + error);
                     }
                 });
+            }
+
+            $('#btn-pilih').on('click', function() {
+                fetchData();
+            });
+
+            $(document).on('click', '.paginate-btn', function() {
+                var page = $(this).data('page');
+                fetchData(page);
             });
         });
     </script>

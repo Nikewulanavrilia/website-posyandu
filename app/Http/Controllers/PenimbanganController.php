@@ -79,7 +79,7 @@ public function store(Request $request)
     return redirect()->route('pages.penimbangan')->with('success', 'Data posyandu berhasil disimpan');
     }  
     public function getDataPosyandu() {
-        $nik_anak_list = DataAnak::all();
+        $nik_anak_list = DataAnak::paginate(5);
         return response()->json($nik_anak_list);
     }
 
