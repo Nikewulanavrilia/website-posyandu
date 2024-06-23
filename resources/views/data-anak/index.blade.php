@@ -4,22 +4,18 @@
         <div class="content-wrapper">
             <div class="container">
                 <div class="row">
-                    {{-- <h4 class="col-12 text-header text-primary">Data Anak</h4> --}}
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">Tabel Data Anak</h3>
                                 <div class="d-flex justify-content-between">
-                                    <a href="{{ route('data_anak.create') }}"
-                                        class="btn btn-primary p-2 d-flex align-items-center justify-content-center"
-                                        onclick="showForm()"><span class="text-light ms-2">Tambah Data Anak</span><i
-                                            class="fas fa-plus ml-2"></i></a>
+                                    <div class="mt-1 me-3">
+                                        <a href="{{ route('data_anak.create') }}" class="btn btn-primary p-2 d-flex align-items-center justify-content-center" onclick="showForm()"><span class="text-light ms-2">Tambah Data Anak</span><i class="fas fa-plus ml-2"></i></a>
+                                    </div>
                                     <form action="/data-anak/cari" method="GET">
-                                        <div class="input-group">
-                                            <input type="text" class="form-input" name="cari"
-                                                placeholder="Cari Nama Anak .." value="{{ old('cari') }}">
-                                            <button type="submit" class="btn btn-primary"><i
-                                                    class="fas fa-search"></i></button>
+                                        <div class="input-group ml-3 row">
+                                            <input type="text" class="form-input mb-2" name="cari" placeholder="Cari Nama Anak .." value="{{ old('cari') }}">
+                                            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
                                         </div>
                                     </form>
                                 </div>
