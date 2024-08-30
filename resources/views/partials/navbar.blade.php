@@ -9,9 +9,9 @@
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
-                    <div class="navbar-profile">
-                        <p class="mb-0 navbar-profile-name">{{ Auth::user()->name }}</p>
-                        <i class="mdi mdi-menu-down"></i>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <h6 class="mb-0 navbar-profile-name fw-bold text-primary">{{ Auth::user()->name }}</h6>
+                        <i class="mdi mdi-arrow-down-drop-circle text-primary mt-1"></i>
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list rounded"
@@ -29,7 +29,7 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
-
+                </div>
             </li>
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
@@ -40,7 +40,6 @@
 </nav>
 
 <script>
-    // Fungsi untuk menampilkan pesan konfirmasi saat logout
     function confirmLogout() {
         Swal.fire({
             text: 'Apakah Anda yakin ingin logout?',
@@ -52,7 +51,6 @@
             cancelButtonText: 'Batal'
         }).then((result) => {
             if (result.isConfirmed) {
-                // Jika pengguna menekan tombol "Ya, Logout", kirimkan form logout
                 document.getElementById('logout-form').submit();
             }
         });
