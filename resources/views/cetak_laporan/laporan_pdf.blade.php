@@ -51,7 +51,7 @@
                 <th>Nama Anak</th>
                 <th>TB (cm)</th>
                 <th>BB (kg)</th>
-                <th>Umur Anak</th>
+                <th>Umur Anak (Bulan)</th>
                 <th>Tanggal Posyandu</th>
                 <th>Vaksin</th>
             </tr>

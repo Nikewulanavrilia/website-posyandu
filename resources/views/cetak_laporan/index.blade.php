@@ -43,7 +43,7 @@
                                                 <th class="text-primary">Nama Anak</th>
                                                 <th class="text-primary">TB (cm)</th>
                                                 <th class="text-primary">BB (kg)</th>
-                                                <th class="text-primary">Umur Anak</th>
+                                                <th class="text-primary">Umur Anak (Bulan)</th>
                                                 <th class="text-primary">Tanggal Posyandu</th>
                                                 <th class="text-primary">Vaksin</th>
                                             </tr>
